@@ -17,9 +17,18 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="What&apos;s In My Kitchen?"
-        android:id="@+id/appTitle"
+        android:id="@+id/txtAppTitle"
+        android:layout_marginTop="123dp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="72dp" />
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visual Inventory"
+        android:id="@+id/btnVisualInventory"
+        android:layout_marginBottom="98dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
