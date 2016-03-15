@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">WIMK</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_visual_inventory_screen">VisualInventoryScreen</string>
+    <string name="btnAddItem">Add Item</string>
+    <string name="btnVisualInventory">Visual Inventory</string>
+    <string name="txtAppTitle">What\'s In My Kitchen?</string>
 </resources>
