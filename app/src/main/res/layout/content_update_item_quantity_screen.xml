@@ -9,25 +9,32 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="commdgriest.httpsgithub.wimk.VisualInventoryScreen"
-    tools:showIn="@layout/activity_visual_inventory_screen">
+    tools:context="commdgriest.httpsgithub.wimk.UpdateItemQuantityScreen"
+    tools:showIn="@layout/activity_update_item_quantity_screen">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnAddItem"
-        android:id="@+id/btnAddItem"
+        android:text="Save"
+        android:id="@+id/btnSave"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Item Quantity"
-        android:id="@+id/btnUpdateItemQuantity"
-        android:layout_below="@+id/btnAddItem"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="36dp" />
+        android:text="Cancel"
+        android:id="@+id/btnCancel"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="57dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Icon"
+        android:id="@+id/iconPicture"
+        android:layout_below="@+id/btnSave"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="114dp" />
 </RelativeLayout>

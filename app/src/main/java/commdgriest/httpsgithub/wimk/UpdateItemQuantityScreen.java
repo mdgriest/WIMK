@@ -9,34 +9,37 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-public class VisualInventoryScreen extends AppCompatActivity {
+public class UpdateItemQuantityScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_visual_inventory_screen);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.activity_update_item_quantity_screen);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-            /* When Add Item button is clicked, launch Add Item activity */
+
+
+        /* When Save button is clicked, go back to Visual Inventory activity */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-        Button btnAddItem = (Button) findViewById(R.id.btnAddItem);
-        btnAddItem.setOnClickListener(new View.OnClickListener() {
+        Button btnSave = (Button) findViewById(R.id.btnSave);
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VisualInventoryScreen.this, AddItemScreen.class));
+                startActivity(new Intent(UpdateItemQuantityScreen.this, VisualInventoryScreen.class));
             }
         });
 
-
-             /* When Update Item Quantity button is clicked, launch Update Item Quantity activity */
+        /* When Cancel button is clicked, go back to Visual Inventory activity */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-        Button btnUpdateItemQuantity = (Button) findViewById(R.id.btnUpdateItemQuantity);
-        btnUpdateItemQuantity.setOnClickListener(new View.OnClickListener() {
+        Button btnCancel = (Button) findViewById(R.id.btnCancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VisualInventoryScreen.this, UpdateItemQuantityScreen.class));
+                startActivity(new Intent(UpdateItemQuantityScreen.this, VisualInventoryScreen.class));
             }
         });
+
 
     }
 

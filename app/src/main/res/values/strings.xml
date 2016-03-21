@@ -5,4 +5,6 @@
     <string name="btnAddItem">Add Item</string>
     <string name="btnVisualInventory">Visual Inventory</string>
     <string name="txtAppTitle">What\'s In My Kitchen?</string>
+    <string name="title_activity_add_item_screen">AddItemScreen</string>
+    <string name="title_activity_update_item_quantity_screen">UpdateItemQuantityScreen</string>
 </resources>
