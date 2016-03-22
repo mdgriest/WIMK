@@ -15,9 +15,8 @@ public class VisualInventoryScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-            /* When Add Item button is clicked, launch Add Item activity */
+        /* When Add Item button is clicked, launch Add Item activity */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
         Button btnAddItem = (Button) findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() {

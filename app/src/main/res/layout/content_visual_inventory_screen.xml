@@ -18,16 +18,14 @@
         android:text="@string/btnAddItem"
         android:id="@+id/btnAddItem"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Update Item Quantity"
         android:id="@+id/btnUpdateItemQuantity"
+        android:layout_marginTop="44dp"
         android:layout_below="@+id/btnAddItem"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="36dp" />
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
