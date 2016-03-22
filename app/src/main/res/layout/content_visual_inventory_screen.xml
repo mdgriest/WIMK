@@ -15,17 +15,27 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/btnAddItem"
-        android:id="@+id/btnAddItem"
+        android:text="Update Item Quantity"
+        android:id="@+id/btnUpdateItemQuantity"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="198dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Visual Inventory"
+        android:id="@+id/textView11"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Update Item Quantity"
-        android:id="@+id/btnUpdateItemQuantity"
-        android:layout_marginTop="44dp"
-        android:layout_below="@+id/btnAddItem"
-        android:layout_centerHorizontal="true" />
+        android:text="Add Item"
+        android:id="@+id/btnAddItem"
+        android:layout_below="@+id/textView11"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="96dp" />
 </RelativeLayout>

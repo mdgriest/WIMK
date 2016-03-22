@@ -23,8 +23,18 @@ public class MainMenuScreen extends AppCompatActivity {
         Button btnVisualInventory = (Button) findViewById(R.id.btnVisualInventory);
         btnVisualInventory.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 startActivity(new Intent(MainMenuScreen.this, VisualInventoryScreen.class));
+            }
+        });
+
+         /* When Settings button is clicked, launch Settings Screen activity */
+        //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
+        Button btnMainSettings = (Button) findViewById(R.id.btnMainSettings);
+        btnMainSettings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(MainMenuScreen.this, SettingsScreen.class));
             }
         });
     }
