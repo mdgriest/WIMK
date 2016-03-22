@@ -8,13 +8,13 @@ import android.widget.Button;
 /**
  * Created by Alexandria on 3/21/16.
  */
-public class Settings extends MainMenuScreen {
+public class SettingsScreen extends MainMenuScreen {
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_screen);
+        setContentView(R.layout.activity_settings_screen);
 
         /* When Updating Sorting Preferences button is clicked, launch Sorting Settings activity */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
@@ -22,7 +22,7 @@ public class Settings extends MainMenuScreen {
         btnUpdateSorting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Settings.this, SortingSettings.class));
+                startActivity(new Intent(SettingsScreen.this, SortingSettingsScreen.class));
             }
         });
 
@@ -33,7 +33,7 @@ public class Settings extends MainMenuScreen {
         btnAboutWIMK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                startActivity(new Intent(Settings.this, About.class));
+                startActivity(new Intent(SettingsScreen.this, AboutScreen.class));
             }
         });
 
@@ -44,7 +44,7 @@ public class Settings extends MainMenuScreen {
         btnIconCredit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
-                startActivity(new Intent(Settings.this, NounProj.class));
+                startActivity(new Intent(SettingsScreen.this, NounProjCreditScreen.class));
             }
         });
     }

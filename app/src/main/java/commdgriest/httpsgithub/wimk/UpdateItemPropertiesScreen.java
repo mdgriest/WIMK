@@ -14,7 +14,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.update_item_properties_screen);
+        setContentView(R.layout.activity_update_item_properties_screen);
 
         /* When Save button is clicked, go back to Visual Inventory activity with new changes */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio

@@ -34,6 +34,30 @@
         <activity
             android:name=".UpdateItemQuantityScreen"
             android:label="@string/title_activity_update_item_quantity_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".about_screen"
+            android:label="@string/title_activity_about_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AboutScreen"
+            android:label="@string/title_activity_about_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".NounProjCreditScreen"
+            android:label="@string/title_activity_noun_proj_credit_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SettingsScreen"
+            android:label="@string/title_activity_settings_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SortingSettingsScreen"
+            android:label="@string/title_activity_sorting_settings_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UpdateItemPropertiesScreen"
+            android:label="@string/title_activity_update_item_properties_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

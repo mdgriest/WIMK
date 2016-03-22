@@ -7,4 +7,9 @@
     <string name="txtAppTitle">What\'s In My Kitchen?</string>
     <string name="title_activity_add_item_screen">AddItemScreen</string>
     <string name="title_activity_update_item_quantity_screen">UpdateItemQuantityScreen</string>
+    <string name="title_activity_about_screen">about_screen</string>
+    <string name="title_activity_noun_proj_credit_screen">NounProjCreditScreen</string>
+    <string name="title_activity_settings_screen">SettingsScreen</string>
+    <string name="title_activity_sorting_settings_screen">SortingSettingsScreen</string>
+    <string name="title_activity_update_item_properties_screen">UpdateItemPropertiesScreen</string>
 </resources>
