@@ -1,11 +1,30 @@
 package commdgriest.httpsgithub.wimk;
 
-/**
- * Created by Alex on 3/22/16.
- */
-public class UpdateIconScreen {
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.Button;
 
-    //functinality needed here to be able to save selected icon to the item selected
+public class UpdateIconScreen extends AppCompatActivity {
 
-    //i think i should extend the add item option to pick a icon so we wont have to rewrite similar code
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_update_icon_screen);
+
+        //needed functionality: select the new icon
+
+        Button btnSaveIcon = (Button) findViewById(R.id.btnSaveIcon);
+        btnSaveIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UpdateIconScreen.this, UpdateItemPropertiesScreen.class));
+            }
+        });
+    }
+
 }

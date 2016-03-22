@@ -58,6 +58,10 @@
         <activity
             android:name=".UpdateItemPropertiesScreen"
             android:label="@string/title_activity_update_item_properties_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UpdateIconScreen"
+            android:label="@string/title_activity_update_icon_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

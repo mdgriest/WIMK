@@ -12,4 +12,5 @@
     <string name="title_activity_settings_screen">SettingsScreen</string>
     <string name="title_activity_sorting_settings_screen">SortingSettingsScreen</string>
     <string name="title_activity_update_item_properties_screen">UpdateItemPropertiesScreen</string>
+    <string name="title_activity_update_icon_screen">UpdateIconScreen</string>
 </resources>
