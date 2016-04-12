@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class VisualInventoryScreen extends AppCompatActivity {
 
@@ -15,6 +16,10 @@ public class VisualInventoryScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
+
+        //Based on:
+        //http://developer.android.com/guide/topics/ui/declaring-layout.html#attributes
+        //http://stackoverflow.com/questions/34176722/android-how-to-add-a-button-with-text-inside-collapsing-toolbar
 
         /* When Add Item button is clicked, launch Add Item activity */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
@@ -26,14 +31,29 @@ public class VisualInventoryScreen extends AppCompatActivity {
             }
         });
 
-
-             /* When Update Item Quantity button is clicked, launch Update Item Quantity activity */
+         /* When Search is clicked, need to be able to launch keyboard to type*/
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-        Button btnUpdateItemQuantity = (Button) findViewById(R.id.btnUpdateItemQuantity);
-        btnUpdateItemQuantity.setOnClickListener(new View.OnClickListener() {
+        Button btnSearch = (Button) findViewById(R.id.btnSearch);
+
+        btnAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VisualInventoryScreen.this, UpdateItemQuantityScreen.class));
+               //launch Text Edit to narrow search
+
+               // Based on: http://stackoverflow.com/questions/9579383/display-an-edit-text-box-on-click-of-a-button
+               // http://developer.android.com/guide/topics/ui/controls/text.html#Keyboard
+                EditText searchText = (EditText)findViewById(R.id.searchText);
+                searchText.setVisibility(View.VISIBLE);
+            }
+        });
+
+         /* When Back button is clicked, launch Main Menu activity */
+        //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
+        Button btnBack = (Button) findViewById(R.id.btnBack);
+        btnAddItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VisualInventoryScreen.this, MainMenuScreen.class));
             }
         });
 

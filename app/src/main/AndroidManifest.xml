@@ -62,7 +62,7 @@
         <activity
             android:name=".UpdateIconScreen"
             android:label="@string/title_activity_update_icon_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
