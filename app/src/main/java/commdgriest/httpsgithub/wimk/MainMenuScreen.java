@@ -1,15 +1,12 @@
 package commdgriest.httpsgithub.wimk;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class MainMenuScreen extends AppCompatActivity {
 
@@ -17,6 +14,14 @@ public class MainMenuScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu_screen);
+
+        /*
+            Let's use a better looking font for the main title
+        */
+//        TextView txtAppName = (TextView) findViewById(R.id.txtAppName);
+//        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/clemente_p_daa_hairline");
+//        txtAppName.setTypeface(type);
+        //TODO why does this not work?
 
         /*
             When 'Visual Inventory' is clicked, launch Visual Inventory activity
