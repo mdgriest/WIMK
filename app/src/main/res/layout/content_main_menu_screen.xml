@@ -19,7 +19,9 @@
         android:id="@+id/btnVisualInventory"
         android:layout_marginBottom="98dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/custom_button"
+    />
 
     <Button
         android:layout_width="wrap_content"
@@ -27,6 +29,7 @@
         android:text="Settings"
         android:id="@+id/btnMainSettings"
         android:layout_above="@+id/btnVisualInventory"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+    />
 
 </RelativeLayout>
