@@ -108,4 +108,5 @@
         ScrollingVisualInventoryScreen00
     </string>
     <string name="txtAppName">What\'s In My Kitchen?</string>
+    <string name="settings">Settings</string>
 </resources>

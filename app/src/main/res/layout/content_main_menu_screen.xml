@@ -20,16 +20,16 @@
         android:layout_marginBottom="98dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/custom_button"
-    />
+        android:background="@drawable/custom_button_green_gradient" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Settings"
+        android:text="@string/settings"
         android:id="@+id/btnMainSettings"
         android:layout_above="@+id/btnVisualInventory"
         android:layout_centerHorizontal="true"
-    />
+        android:background="@drawable/custom_button_green_gradient"
+        android:layout_marginBottom="5dp" />
 
 </RelativeLayout>
