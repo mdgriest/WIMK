@@ -102,4 +102,10 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="title_activity_scrolling_visual_inventory_screen">scrollingVisualInventoryScreen
+    </string>
+    <string name="title_activity_scrolling_visual_inventory_screen00">
+        ScrollingVisualInventoryScreen00
+    </string>
+    <string name="txtAppName">What\'s In My Kitchen?</string>
 </resources>

@@ -63,6 +63,19 @@
             android:name=".UpdateIconScreen"
             android:label="@string/title_activity_update_icon_screen"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ScrollingVisualInventoryScreen"
+            android:label="@string/title_activity_scrolling_visual_inventory_screen"
+            android:parentActivityName=".MainMenuScreen"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="commdgriest.httpsgithub.wimk.MainMenuScreen" />
+        </activity>
+        <activity
+            android:name=".ScrollingVisualInventoryScreen00"
+            android:label="@string/title_activity_scrolling_visual_inventory_screen00"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
