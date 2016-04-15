@@ -10,54 +10,53 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="commdgriest.httpsgithub.wimk.AddItemScreen"
-    tools:showIn="@layout/activity_add_item_screen">
+    tools:showIn="@layout/activity_add_item_screen"
+    android:background="@color/burnt_orange">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Select Icon"
         android:id="@+id/btnSelectIcon"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="77dp"
-        android:layout_marginStart="77dp"
-        android:layout_marginTop="29dp" />
-
-    <Button
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Icon Name"
-        android:id="@+id/btnIconName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+    />
+
+    <Button
+        android:text="Set Item Name"
+        android:id="@+id/btnSetItemName"
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/btnSelectIcon"
-        android:layout_alignLeft="@+id/btnSelectIcon"
-        android:layout_alignStart="@+id/btnSelectIcon" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+    />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Set Quantity"
         android:id="@+id/btnSetQuantity"
-        android:layout_below="@+id/btnIconName"
-        android:layout_alignLeft="@+id/btnIconName"
-        android:layout_alignStart="@+id/btnIconName" />
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSetItemName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+    />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Select Color"
         android:id="@+id/btnSelectColor"
-        android:layout_below="@+id/btnSetQuantity"
-        android:layout_alignRight="@+id/btnSetQuantity"
-        android:layout_alignEnd="@+id/btnSetQuantity" />
-
-    <TextView
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Item"
-        android:id="@+id/addItem"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textSize="@dimen/abc_action_bar_content_inset_material" />
+        android:layout_below="@+id/btnSetQuantity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+    />
 </RelativeLayout>
