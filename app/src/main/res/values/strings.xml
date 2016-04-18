@@ -110,4 +110,6 @@
     <string name="txtAppName">What\'s In My Kitchen?</string>
     <string name="settings">Settings</string>
     <string name="title_activity_test">test</string>
+    <string name="title_activity_tutorial_screen">TutorialScreen</string>
+    <string name="title_activity_view_item_screen">ViewItemScreen</string>
 </resources>

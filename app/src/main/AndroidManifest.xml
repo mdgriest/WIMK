@@ -79,6 +79,14 @@
         <activity
             android:name=".test"
             android:label="@string/title_activity_test"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".TutorialScreen"
+            android:label="@string/title_activity_tutorial_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ViewItemScreen"
+            android:label="@string/title_activity_view_item_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

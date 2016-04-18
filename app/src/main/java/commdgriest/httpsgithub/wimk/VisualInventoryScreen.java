@@ -16,12 +16,15 @@ public class VisualInventoryScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
 
-        /* When Add Item button is clicked, launch Add Item activity */
+          /* When Add Item button is clicked, launch Update Item Properties activity with default values */
+        //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
         Button btnAddItem = (Button) findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(VisualInventoryScreen.this, AddItemScreen.class));
+                //add item to inventory
+                Inventory.addItem();
+                startActivity(new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class));
             }
         });
 
@@ -39,6 +42,14 @@ public class VisualInventoryScreen extends AppCompatActivity {
                 /* Launch the keyboard for user input */
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(searchText, InputMethodManager.SHOW_IMPLICIT);
+
+               //TODO I did this a different way before. We need to store the query as a String so searchQuery.getText().toString()
+               // needs to be replaced by whatever method InputMethodManager uses to get what the user has typed in
+
+                //get query from search bar
+                //String query = searchQuery.getText().toString();
+                //pass query to searchByName method in inventory class
+                //Inventory.searchByName(query);
             }
         });
 
@@ -50,5 +61,17 @@ public class VisualInventoryScreen extends AppCompatActivity {
                 startActivity(new Intent(VisualInventoryScreen.this, MainMenuScreen.class));
             }
         });
+
     }
+        public static void showItemsFromSearch(){
+
+            //go through each item in itemsList
+            //if shouldShow == true, then display
+        }
+
+        //should be called after exit out of search
+        public static void showAllItems(){
+            //displayAllItems
+        }
+
 }

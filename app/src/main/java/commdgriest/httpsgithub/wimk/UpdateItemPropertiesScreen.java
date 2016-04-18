@@ -12,6 +12,13 @@ import static android.support.v4.app.ActivityCompat.startActivity;
  */
 public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
+
+    Color tempColor;
+    String tempName;
+    int tempIconId;
+    int tempQuantity;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_item_properties_screen);
@@ -44,6 +51,16 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class));
+            }
+        });
+
+        /* When Icon is clicked, goes to Update Item Quantity activity */
+        //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
+        Button btnIcon = (Button) findViewById(R.id.btnIcon);
+        btnIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateItemQuantityScreen.class));
             }
         });
 

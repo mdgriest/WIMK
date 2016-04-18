@@ -30,39 +30,41 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="45dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="icon"
-        android:id="@+id/textView9"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:layout_marginTop="92dp"
         android:text="Item Name"
-        android:layout_below="@+id/textView9"
-        android:layout_toLeftOf="@+id/btnSaveProp"
-        android:layout_toStartOf="@+id/btnSaveProp" />
+        android:layout_alignTop="@+id/btnChangeIcon"
+        android:layout_toLeftOf="@+id/btnCancelProp"
+        android:layout_toStartOf="@+id/btnCancelProp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Change Icon"
         android:id="@+id/btnChangeIcon"
-        android:layout_alignTop="@+id/editText"
-        android:layout_toRightOf="@+id/textView9"
-        android:layout_toEndOf="@+id/textView9" />
+        android:layout_above="@+id/btnCancelProp"
+        android:layout_toRightOf="@+id/btnIcon"
+        android:layout_toEndOf="@+id/btnIcon" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
         android:id="@+id/btnCancelProp"
+        android:layout_marginBottom="46dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_toLeftOf="@+id/btnChangeIcon"
+        android:layout_toStartOf="@+id/btnChangeIcon" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Icon"
+        android:id="@+id/btnIcon"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/btnSaveProp"
+        android:layout_alignEnd="@+id/btnSaveProp" />
 
 </RelativeLayout>
