@@ -26,10 +26,8 @@
     />
 
     <Button
-        android:text="@string/settings"
         android:id="@+id/btnMainSettings"
-        android:background="@color/dark_gray"
-        android:textColor="@color/light_gray"
+        android:background="@drawable/settings_by_hysen_drogu"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:layout_marginBottom="80dp"
