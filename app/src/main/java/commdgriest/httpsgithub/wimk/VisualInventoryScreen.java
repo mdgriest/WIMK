@@ -51,6 +51,6 @@ public class VisualInventoryScreen extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(new Intent(VisualInventoryScreen.this, MainMenuScreen.class));
             }
-        }); 
+        });
     }
 }
