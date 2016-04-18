@@ -75,6 +75,10 @@
         <activity
             android:name=".ScrollingVisualInventoryScreen00"
             android:label="@string/title_activity_scrolling_visual_inventory_screen00"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".test"
+            android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
