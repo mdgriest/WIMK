@@ -43,13 +43,10 @@ public class VisualInventoryScreen extends AppCompatActivity {
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.showSoftInput(searchText, InputMethodManager.SHOW_IMPLICIT);
 
-               //TODO I did this a different way before. We need to store the query as a String so searchQuery.getText().toString()
-               // needs to be replaced by whatever method InputMethodManager uses to get what the user has typed in
-
                 //get query from search bar
-                //String query = searchQuery.getText().toString();
+                String query = searchText.getText().toString();
                 //pass query to searchByName method in inventory class
-                //Inventory.searchByName(query);
+                Inventory.searchByName(query);
             }
         });
 
@@ -62,16 +59,39 @@ public class VisualInventoryScreen extends AppCompatActivity {
             }
         });
 
-    }
-        public static void showItemsFromSearch(){
+        /* TODO When An items icon is clicked, launch that items View Item Screen
+        //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
+        Button btnViewItem = (Button) findViewById(R.id.btnViewItem);
+        btnViewItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(VisualInventoryScreen.this, ViewItemScreen.class));
+            }
+        }); */
 
-            //go through each item in itemsList
-            //if shouldShow == true, then display
+    }
+
+        //this method will be used to figure out which item to launch in the ViewItem screen
+        public static void determineWhichItemWasClicked(){
+
+     }
+        public static void showItemsFromSearch(){
+           for(int i = 0; i < Inventory.itemsList.size(); i++){
+               if(Inventory.itemsList.get(i).shouldShow == true){
+                   //DISPLAY
+               }
+               else{
+                   //DON'T DISPLAY
+               }
+           }
+
         }
 
         //should be called after exit out of search
         public static void showAllItems(){
             //displayAllItems
         }
+
+
 
 }

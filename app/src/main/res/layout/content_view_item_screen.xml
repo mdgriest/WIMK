@@ -44,4 +44,12 @@
         android:layout_marginTop="194dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        android:id="@+id/btnDelete"
+        android:layout_alignTop="@+id/btnBack"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>

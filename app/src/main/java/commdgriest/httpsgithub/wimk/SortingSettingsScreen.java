@@ -30,6 +30,9 @@ public class SortingSettingsScreen extends AppCompatActivity {
 
                     //UNSURE OF WHAT INTS ARE BEING RETURNED** (R.id.btnQhightolow)??
                     tempSortingRule = sortingButtons.getCheckedRadioButtonId();
+                    //now call sort (which will check if sorting rule has changed)
+                    Inventory.sort();
+
 
                     startActivity(new Intent(SortingSettingsScreen.this, SettingsScreen.class));
 
@@ -41,14 +44,20 @@ public class SortingSettingsScreen extends AppCompatActivity {
         }
 
         //check to see if sorting rule has changed
-        public static boolean hasChanged(int newSortingRule){
+        public static boolean hasChanged(int oldSortingRule){
             //meaning no button was selected
             if(tempSortingRule == -1){
                 return false;
             }
-            else if(tempSortingRule == newSortingRule)
+            //meaning sorting rule has not changed
+            else if(tempSortingRule == oldSortingRule)
                 return false;
-            else return true;
+            //sorting rule has changed
+            else {
+                //store the new sorting rule as the inventory's sorting rule
+                Inventory.sortingRule = tempSortingRule;
+                return true;
+            }
         }
 
     }

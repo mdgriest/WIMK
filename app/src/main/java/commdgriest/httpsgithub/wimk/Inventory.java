@@ -9,7 +9,7 @@ import java.util.Collections;
 public class Inventory {
 
     static ArrayList<Item> itemsList = new ArrayList<Item>();
-    int SortingRule;
+    static int sortingRule;
     //each item gets own unique Id - incremented each time addItem is clicked
     static int nextId = 0;
 
@@ -28,13 +28,15 @@ public class Inventory {
             }
 
         }
-        //now class showItemsFromSearch in Visual Inventory class
+        //now call showItemsFromSearch in Visual Inventory class
+        VisualInventoryScreen.showItemsFromSearch();
     }
 
     //sort only if sorting rule has been changed
     //*** Might have to change case value based on radio button ID's
-    public void sort(int sortingRule){
+    public static void sort(){
         if(SortingSettingsScreen.hasChanged(sortingRule) == true){
+            //sorting rule should now be set to new sorting rule
             switch(sortingRule){
                 case 1:
                     sortHightoLow();
@@ -50,22 +52,22 @@ public class Inventory {
     }
 
     //sorting by Quantity High to Low
-    public void sortHightoLow(){
+    public static void sortHightoLow(){
         Collections.sort(itemsList, Item.ItemQuantityComparatorHightoLow);
     }
 
     //sorting by Quantity Low to High
-    public void sortLowtoHigh(){
+    public static void sortLowtoHigh(){
         Collections.sort(itemsList, Item.ItemQuantityComparatorLowtoHigh);
     }
 
     //sorting Alphabetically Z to A
-    public void sortZtoA(){
+    public static void sortZtoA(){
         Collections.sort(itemsList, Item.ItemNameComparatorZtoA);
     }
 
     //sorting Alphabetically A to Z
-    public void sortAtoZ(){
+    public static void sortAtoZ(){
         Collections.sort(itemsList, Item.ItemNameComparatorAtoZ);
     }
 
@@ -88,7 +90,7 @@ public class Inventory {
     }
 
     //remove item from itemsList
-    public void deleteItem(Item itemToDelete){
+    public static void deleteItem(Item itemToDelete){
         itemsList.remove(itemToDelete);
     }
 }

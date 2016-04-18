@@ -30,6 +30,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
         btnSaveProp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                overwriteItemAttributes();
                 startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
             }
         });
@@ -65,6 +66,12 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
         });
 
         //needed functionality: whatever is typed into the plaintext field should be saved as the new item name
+
+    }
+
+    //when save is clicked, save temp values
+    public static void overwriteItemAttributes(){
+
 
     }
 
