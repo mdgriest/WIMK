@@ -80,7 +80,7 @@ public class Inventory {
         newItem.name = "Item";
         newItem.id = nextId;
         newItem.quantity = 0;
-        //newItem.iconId = R.drawable.apple_1;
+        newItem.iconId = R.drawable.visual_inventory_icon_flat_avocado_00;
         newItem.shouldShow = true;
         newItem.color = newColor;
         //add item to list

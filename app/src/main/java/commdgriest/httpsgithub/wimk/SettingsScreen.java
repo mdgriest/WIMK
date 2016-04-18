@@ -47,6 +47,16 @@ public class SettingsScreen extends MainMenuScreen {
                 startActivity(new Intent(SettingsScreen.this, NounProjCreditScreen.class));
             }
         });
+
+         /* When Back button is clicked, launch MainMenu Screen activity */
+        //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
+        Button btnBack = (Button) findViewById(R.id.btnBack);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view){
+                startActivity(new Intent(SettingsScreen.this, MainMenuScreen.class));
+            }
+        });
     }
 
 
