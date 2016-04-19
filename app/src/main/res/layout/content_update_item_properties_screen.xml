@@ -8,9 +8,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="commdgriest.httpsgithub.wimk.AddItemScreen"
+    tools:context="commdgriest.httpsgithub.wimk.UpdateItemPropertiesScreen"
     tools:showIn="@layout/activity_update_item_properties_screen"
-    android:background="@color/burnt_orange">
+    android:background="@color/dark_gray">
 
     <Button
         android:text="Save"
@@ -77,9 +77,10 @@
     <RadioGroup
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/btnSetQuantity"
-        android:layout_marginRight="20dp"
+        android:layout_below="@+id/btnSave"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
         >
         <RadioButton
             android:id="@+id/rdbtnColor00"
@@ -87,6 +88,8 @@
             android:layout_height="30dp"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
             android:button="@android:color/transparent"
             android:background="@drawable/custom_radio_color_button_red"
             />
@@ -96,8 +99,76 @@
             android:layout_height="30dp"
             android:layout_marginTop="7dp"
             android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
             android:button="@android:color/transparent"
             android:background="@drawable/custom_radio_color_button_blue"
+            />
+        <RadioButton
+            android:id="@+id/rdbtnColor02"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_green"
+            />
+        <RadioButton
+            android:id="@+id/rdbtnColor03"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_yellow"
+            />
+        <RadioButton
+            android:id="@+id/rdbtnColor04"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_purple"
+            />
+        <RadioButton
+            android:id="@+id/rdbtnColor05"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_pink"
+            />
+        <RadioButton
+            android:id="@+id/rdbtnColor06"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_brown"
+            />
+        <RadioButton
+            android:id="@+id/rdbtnColor07"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_orange"
             />
     </RadioGroup>
 </RelativeLayout>
