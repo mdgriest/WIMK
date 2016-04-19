@@ -61,22 +61,26 @@
         android:layout_alignStart="@+id/btnAboutWIMK" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:id="@+id/btnBack"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Tutorial"
+        android:background="@drawable/custom_button_red_gradient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/btnTutorial"
+        android:textColor="@color/dark_gray"
         android:layout_below="@+id/btnIconCredit"
         android:layout_alignRight="@+id/btnIconCredit"
         android:layout_alignEnd="@+id/btnIconCredit"
         android:layout_alignLeft="@+id/btnIconCredit"
         android:layout_alignStart="@+id/btnIconCredit" />
+
+    <Button
+        android:text="Back"
+        android:background="@drawable/custom_button_flat_avocado"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBack"
+        android:textColor="@color/dark_gray"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 </RelativeLayout>
