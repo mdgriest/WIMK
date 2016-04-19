@@ -112,4 +112,8 @@
     <string name="title_activity_test">test</string>
     <string name="title_activity_tutorial_screen">TutorialScreen</string>
     <string name="title_activity_view_item_screen">ViewItemScreen</string>
+    <string name="sortOption0">Sort by Quantity, low to high</string>
+    <string name="sortOption1">Sort by Quantity, high to low</string>
+    <string name="sortOption2">Sort Alphabetically, A to Z</string>
+    <string name="sortOption3">Sort Alphabetically, Z to A</string>
 </resources>
