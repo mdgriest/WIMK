@@ -94,4 +94,6 @@ public class Inventory {
     public static void deleteItem(Item itemToDelete){
         itemsList.remove(itemToDelete);
     }
+
+    public ArrayList<Item> getItemsList(){ return this.itemsList; }
 }

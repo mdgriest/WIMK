@@ -22,8 +22,9 @@ public class ViewItemScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ViewItemScreen.this, VisualInventoryScreen.class));
+//                VisualInventoryScreen vis = new VisualInventoryScreen();
                 //display all items
-                VisualInventoryScreen.showAllItems();
+//                vis.showAllItems();
             }
         });
 
