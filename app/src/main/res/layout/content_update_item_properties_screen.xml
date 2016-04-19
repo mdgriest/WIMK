@@ -8,63 +8,96 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="commdgriest.httpsgithub.wimk.UpdateItemPropertiesScreen"
-    tools:showIn="@layout/activity_update_item_properties_screen">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Update Item Properties"
-        android:id="@+id/textView8"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+    tools:context="commdgriest.httpsgithub.wimk.AddItemScreen"
+    tools:showIn="@layout/activity_update_item_properties_screen"
+    android:background="@color/burnt_orange">
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="Save"
-        android:id="@+id/btnSaveProp"
-        android:layout_below="@+id/textView8"
+        android:id="@+id/btnSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:text="Item Name"
-        android:layout_alignTop="@+id/btnChangeIcon"
-        android:layout_toLeftOf="@+id/btnCancelProp"
-        android:layout_toStartOf="@+id/btnCancelProp" />
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentTop="true"
+        />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Change Icon"
-        android:id="@+id/btnChangeIcon"
-        android:layout_above="@+id/btnCancelProp"
-        android:layout_toRightOf="@+id/btnIcon"
-        android:layout_toEndOf="@+id/btnIcon" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cancel"
-        android:id="@+id/btnCancelProp"
-        android:layout_marginBottom="46dp"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/btnChangeIcon"
-        android:layout_toStartOf="@+id/btnChangeIcon" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Icon"
-        android:id="@+id/btnIcon"
+        android:id="@+id/btnSetQuantity"
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/settings_by_hysen_drogu"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_alignRight="@+id/btnSaveProp"
-        android:layout_alignEnd="@+id/btnSaveProp" />
+        android:layout_marginBottom="10dp"
+        />
 
+    <Button
+        android:text="Set Item Name"
+        android:id="@+id/btnSetItemName"
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSetQuantity"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        />
+
+    <Button
+        android:text="Select Icon"
+        android:id="@+id/btnSelectIcon"
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnSetQuantity"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="20dp"
+        />
+
+    <Button
+        android:text="Cancel"
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_green_gradient"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:layout_alignParentBottom="true"
+        />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/btnSetQuantity"
+        android:layout_marginRight="20dp"
+        >
+        <RadioButton
+            android:id="@+id/rdbtnColor00"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_red"
+            />
+        <RadioButton
+            android:id="@+id/rdbtnColor01"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:button="@android:color/transparent"
+            android:background="@drawable/custom_radio_color_button_blue"
+            />
+    </RadioGroup>
 </RelativeLayout>

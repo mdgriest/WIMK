@@ -23,7 +23,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
         /* When Save button is clicked, go back to Visual Inventory activity with new changes */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-        Button btnSaveProp = (Button) findViewById(R.id.btnSaveProp);
+        Button btnSaveProp = (Button) findViewById(R.id.btnSave);
         //need functionality to actually update the item selected!
         btnSaveProp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -35,7 +35,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
         /* When Cancel button is clicked, go back to Visual Inventory activity with no changes made */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-        Button btnCancelProp = (Button) findViewById(R.id.btnCancelProp);
+        Button btnCancelProp = (Button) findViewById(R.id.btnCancel);
         btnCancelProp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -45,7 +45,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
         /* When Change Icon button is clicked, goes to Change Icon activity */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-        Button btnChangeIcon = (Button) findViewById(R.id.btnChangeIcon);
+        Button btnChangeIcon = (Button) findViewById(R.id.btnSelectIcon);
         btnChangeIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +55,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
         /* When Icon is clicked, goes to Update Item Quantity activity */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-        Button btnIcon = (Button) findViewById(R.id.btnIcon);
+        Button btnIcon = (Button) findViewById(R.id.btnSetQuantity);
         btnIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
