@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import static android.support.v4.app.ActivityCompat.startActivity;
-
 /**
  * Created by Alex on 3/22/16.
  */

@@ -88,8 +88,11 @@ public class VisualInventoryScreen extends AppCompatActivity {
         }
 
         //should be called after exit out of search
+        //essentially, this will be called when click Visual Inventory from main menu, or back on a View Item Screen
         public static void showAllItems(){
-            //displayAllItems
+            for(int i = 0; i < Inventory.itemsList.size(); i++){
+                //display Inventory.itemsList.get(i);
+            }
         }
 
 

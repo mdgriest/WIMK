@@ -38,13 +38,14 @@ public class Inventory {
         if(SortingSettingsScreen.hasChanged(sortingRule) == true){
             //sorting rule should now be set to new sorting rule
             switch(sortingRule){
+                case 0:
+                    sortLowtoHigh();
                 case 1:
                     sortHightoLow();
                 case 2:
-                    sortLowtoHigh();
+                    sortAtoZ();
+
                 case 3:
-                    sortZtoA();
-                case 4:
                     sortAtoZ();
             }
         }

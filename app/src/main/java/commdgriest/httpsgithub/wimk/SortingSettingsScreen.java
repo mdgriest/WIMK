@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RadioButton;
 
 public class SortingSettingsScreen extends AppCompatActivity {
 
 
         private static int tempSortingRule;
-        private static final int RB1_ID = 1000;//first radio button id
+        private static final int radioButton1 = 0;//first radio button id
+        private static final int radioButton2 = 1;//second radio button id
+        private static final int radioButton3 = 2;//third radio button id
+        private static final int radioButton4 = 3;//fourth radio button id
+
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +24,17 @@ public class SortingSettingsScreen extends AppCompatActivity {
             setContentView(R.layout.activity_sorting_settings_screen);
 
             Button btnVerifSortRule = (Button) findViewById(R.id.btnVerifSortRule);
+            RadioButton rb1 = (RadioButton) findViewById(R.id.rdbtnSortOption0);
+            rb1.setId(radioButton1);
 
+            RadioButton rb2 = (RadioButton) findViewById(R.id.rdbtnSortOption1);
+            rb2.setId(radioButton2);
+
+            RadioButton rb3 = (RadioButton) findViewById(R.id.rdbtnSortOption2);
+            rb3.setId(radioButton3);
+
+            RadioButton rb4 = (RadioButton) findViewById(R.id.rdbtnSortOption3);
+            rb4.setId(radioButton4);
 
             btnVerifSortRule.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -30,6 +44,7 @@ public class SortingSettingsScreen extends AppCompatActivity {
 
                     //UNSURE OF WHAT INTS ARE BEING RETURNED** (R.id.btnQhightolow)??
                     tempSortingRule = sortingButtons.getCheckedRadioButtonId();
+
                     //now call sort (which will check if sorting rule has changed)
                     Inventory.sort();
 

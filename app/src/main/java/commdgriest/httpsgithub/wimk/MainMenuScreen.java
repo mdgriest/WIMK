@@ -31,6 +31,8 @@ public class MainMenuScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainMenuScreen.this, VisualInventoryScreen.class));
+                //display all items
+                VisualInventoryScreen.showAllItems();
             }
         });
 

@@ -3,7 +3,6 @@ package commdgriest.httpsgithub.wimk;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.audiofx.Visualizer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,6 +22,8 @@ public class ViewItemScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(ViewItemScreen.this, VisualInventoryScreen.class));
+                //display all items
+                VisualInventoryScreen.showAllItems();
             }
         });
 
