@@ -8,14 +8,14 @@ import java.util.Collections;
  */
 public class Inventory {
 
-    static ArrayList<Item> itemsList = new ArrayList<Item>();
-    static int sortingRule;
+    ArrayList<Item> itemsList = new ArrayList<Item>();
+    int sortingRule;
     //each item gets own unique Id - incremented each time addItem is clicked
-    static int nextId = 0;
+    int nextId = 0;
 
 
     //searching for item name in itemsList
-    public static void searchByName(String query){
+    public void searchByName(String query){
         for(int i =0; i<itemsList.size(); i++){
             if(itemsList.get(i).getName().contains(query)) {
                 //success - shouldShow set to true
@@ -34,8 +34,9 @@ public class Inventory {
 
     //sort only if sorting rule has been changed
     //*** Might have to change case value based on radio button ID's
-    public static void sort(){
-        if(SortingSettingsScreen.hasChanged(sortingRule) == true){
+    public void sort(){
+        SortingSettingsScreen settings = new SortingSettingsScreen();
+        if(settings.hasChanged(sortingRule) == true){
             //sorting rule should now be set to new sorting rule
             switch(sortingRule){
                 case 0:
@@ -53,28 +54,34 @@ public class Inventory {
     }
 
     //sorting by Quantity High to Low
-    public static void sortHightoLow(){
-        Collections.sort(itemsList, Item.ItemQuantityComparatorHightoLow);
+    public void sortHightoLow(){
+        Item newItem = new Item();
+        Collections.sort(itemsList, newItem.ItemQuantityComparatorHightoLow);
     }
 
     //sorting by Quantity Low to High
-    public static void sortLowtoHigh(){
-        Collections.sort(itemsList, Item.ItemQuantityComparatorLowtoHigh);
+    public void sortLowtoHigh(){
+        Item newItem = new Item();
+        Collections.sort(itemsList, newItem.ItemQuantityComparatorLowtoHigh);
     }
 
     //sorting Alphabetically Z to A
-    public static void sortZtoA(){
-        Collections.sort(itemsList, Item.ItemNameComparatorZtoA);
+    public void sortZtoA(){
+
+        Item newItem = new Item();
+        Collections.sort(itemsList, newItem.ItemNameComparatorZtoA);
     }
 
     //sorting Alphabetically A to Z
-    public static void sortAtoZ(){
-        Collections.sort(itemsList, Item.ItemNameComparatorAtoZ);
+    public void sortAtoZ(){
+
+        Item newItem = new Item();
+        Collections.sort(itemsList, newItem.ItemNameComparatorAtoZ);
     }
 
 
     //add a new item to itemsList with default values
-    public static void addItem(){
+    public void addItem(){
         nextId++;
         Color newColor = new Color();
         newColor.darkColorHexVal = 000000; //black
@@ -86,12 +93,13 @@ public class Inventory {
         newItem.iconId = R.drawable.visual_inventory_icon_flat_avocado_00;
         newItem.shouldShow = true;
         newItem.color = newColor;
+
         //add item to list
         itemsList.add(newItem);
     }
 
     //remove item from itemsList
-    public static void deleteItem(Item itemToDelete){
+    public void deleteItem(Item itemToDelete){
         itemsList.remove(itemToDelete);
     }
 

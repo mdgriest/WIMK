@@ -6,15 +6,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AbsListView;
-import android.widget.AbsListView.LayoutParams;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import java.util.ArrayList;
 
 public class VisualInventoryScreen extends AppCompatActivity {
 
@@ -30,7 +24,8 @@ public class VisualInventoryScreen extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //add item to inventory
-                Inventory.addItem();
+                Inventory newInventory = new Inventory();
+                newInventory.addItem();
                 startActivity(new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class));
             }
         });
@@ -52,7 +47,8 @@ public class VisualInventoryScreen extends AppCompatActivity {
                 //get query from search bar
                 String query = searchText.getText().toString();
                 //pass query to searchByName method in inventory class
-                Inventory.searchByName(query);
+                Inventory in = new Inventory();
+                in.searchByName(query);
             }
         });
 
@@ -78,11 +74,14 @@ public class VisualInventoryScreen extends AppCompatActivity {
     }
 
         //this method will be used to figure out which item to launch in the ViewItem screen
-        public static void determineWhichItemWasClicked(){
+        public void determineWhichItemWasClicked(){
         }
-        public static void showItemsFromSearch(){
-           for(int i = 0; i < Inventory.itemsList.size(); i++){
-               if(Inventory.itemsList.get(i).shouldShow == true){
+
+        //display items from search
+        public void showItemsFromSearch(){
+            Inventory newInventory = new Inventory();
+           for(int i = 0; i < newInventory.itemsList.size(); i++){
+               if(newInventory.itemsList.get(i).shouldShow == true){
                    //DISPLAY
                }
                else{

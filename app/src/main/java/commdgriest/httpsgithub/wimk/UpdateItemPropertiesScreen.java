@@ -38,6 +38,15 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
             public void onClick(View view) {
                 overwriteItemAttributes();
                 startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
+
+                //JENNA
+                //once save is clicked, overwrite temp variables
+                //except instead of creating a new item, need to find the item id of the item we want to update
+                //I think the way we do that is grab the id of the item that is clicked on VI screen, pass that to View Item Screen
+                //then pass that to update Item properties??
+                //Item x = new Item();
+               // x.setName(tempName);
+
             }
         });
 
@@ -110,7 +119,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
                 Log.v("EditText", editItemName.getText().toString());
 
                 //store the name as part of the "item object" to be added to itemsList
-
+                tempName = editItemName.getText().toString();
 
                 // TODO : need to add items in itemsList to the VI
                 //http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
@@ -131,12 +140,13 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
             case R.id.rdbtnColor00:
                 if (checked)
                     rl.setBackgroundColor(getResources().getColor(R.color.red));
+                    //set tempColor to red
                 break;
         }
     }
 
     //when save is clicked, save temp values
-    public static void overwriteItemAttributes(){
+    public void overwriteItemAttributes(){
 
 
     }

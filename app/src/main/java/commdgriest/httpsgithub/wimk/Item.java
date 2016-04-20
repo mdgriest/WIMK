@@ -65,7 +65,7 @@ public class Item {
     //sorting by quantity ascending order
     //using Comparator interface for Java ArrayLists
     //Reference: http://beginnersbook.com/2013/12/java-arraylist-of-object-sort-example-comparable-and-comparator/
-    public static Comparator<Item> ItemQuantityComparatorLowtoHigh = new Comparator<Item>()
+    public Comparator<Item> ItemQuantityComparatorLowtoHigh = new Comparator<Item>()
 
     {
         public int compare (Item item1, Item item2){
@@ -81,7 +81,7 @@ public class Item {
     //sorting by quantity descending order
     //using Comparator interface for Java ArrayLists
     //Reference: http://beginnersbook.com/2013/12/java-arraylist-of-object-sort-example-comparable-and-comparator/
-    public static Comparator<Item> ItemQuantityComparatorHightoLow = new Comparator<Item>()
+    public Comparator<Item> ItemQuantityComparatorHightoLow = new Comparator<Item>()
 
     {
         public int compare (Item item1, Item item2){
@@ -98,7 +98,7 @@ public class Item {
     //sorting Alphabetically A to Z
     //using Comparator interface for Java ArrayLists
     //Reference: http://beginnersbook.com/2013/12/java-arraylist-of-object-sort-example-comparable-and-comparator/
-    public static Comparator<Item> ItemNameComparatorAtoZ = new Comparator<Item>()
+    public Comparator<Item> ItemNameComparatorAtoZ = new Comparator<Item>()
 
     {
         public int compare (Item item1, Item item2){
@@ -114,7 +114,7 @@ public class Item {
     //sorting Alphabetically Z to A
     //using Comparator interface for Java ArrayLists
     //Reference: http://beginnersbook.com/2013/12/java-arraylist-of-object-sort-example-comparable-and-comparator/
-    public static Comparator<Item> ItemNameComparatorZtoA = new Comparator<Item>()
+    public Comparator<Item> ItemNameComparatorZtoA = new Comparator<Item>()
 
     {
         public int compare (Item item1, Item item2){

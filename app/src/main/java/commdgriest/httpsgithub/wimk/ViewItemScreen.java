@@ -47,7 +47,8 @@ public class ViewItemScreen extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
 
                 // whatever item should be deleted
-               // Inventory.deleteItem();
+                //Inventory newInventory = new Inventory();
+               // newInventory.deleteItem(ITEMTODELETE);
                 //go back to visual inventory screen
                 startActivity(new Intent(ViewItemScreen.this, VisualInventoryScreen.class));
             }

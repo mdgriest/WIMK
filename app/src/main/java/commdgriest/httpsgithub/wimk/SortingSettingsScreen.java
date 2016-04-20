@@ -11,11 +11,11 @@ import android.widget.RadioButton;
 public class SortingSettingsScreen extends AppCompatActivity {
 
 
-        private static int tempSortingRule;
-        private static final int radioButton1 = 0;//first radio button id
-        private static final int radioButton2 = 1;//second radio button id
-        private static final int radioButton3 = 2;//third radio button id
-        private static final int radioButton4 = 3;//fourth radio button id
+        private int tempSortingRule;
+        private final int radioButton1 = 0;//first radio button id
+        private final int radioButton2 = 1;//second radio button id
+        private final int radioButton3 = 2;//third radio button id
+        private final int radioButton4 = 3;//fourth radio button id
 
 
         @Override
@@ -46,7 +46,8 @@ public class SortingSettingsScreen extends AppCompatActivity {
                     tempSortingRule = sortingButtons.getCheckedRadioButtonId();
 
                     //now call sort (which will check if sorting rule has changed)
-                    Inventory.sort();
+                    Inventory newInventory = new Inventory();
+                    newInventory.sort();
 
 
                     startActivity(new Intent(SortingSettingsScreen.this, SettingsScreen.class));
@@ -59,7 +60,7 @@ public class SortingSettingsScreen extends AppCompatActivity {
         }
 
         //check to see if sorting rule has changed
-        public static boolean hasChanged(int oldSortingRule){
+        public boolean hasChanged(int oldSortingRule){
             //meaning no button was selected
             if(tempSortingRule == -1){
                 return false;
@@ -70,7 +71,10 @@ public class SortingSettingsScreen extends AppCompatActivity {
             //sorting rule has changed
             else {
                 //store the new sorting rule as the inventory's sorting rule
-                Inventory.sortingRule = tempSortingRule;
+                Inventory newInventory = new Inventory();
+                newInventory.sortingRule = tempSortingRule;
+                //if static - leave this way
+                //Inventory.sortingRule = tempSortingRule;
                 return true;
             }
         }

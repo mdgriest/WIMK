@@ -28,10 +28,6 @@
                 android:value="commdgriest.httpsgithub.wimk.MainMenuScreen" />
         </activity>
         <activity
-            android:name=".AddItemScreen"
-            android:label="@string/title_activity_add_item_screen"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".UpdateItemQuantityScreen"
             android:label="@string/title_activity_update_item_quantity_screen"
             android:theme="@style/AppTheme.NoActionBar" />
