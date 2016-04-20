@@ -29,7 +29,8 @@ public class Inventory {
 
         }
         //now call showItemsFromSearch in Visual Inventory class
-        VisualInventoryScreen.showItemsFromSearch();
+        VisualInventoryScreen vis = new VisualInventoryScreen();
+        vis.showItemsFromSearch();
     }
 
     //sort only if sorting rule has been changed
