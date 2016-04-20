@@ -6,22 +6,60 @@ package commdgriest.httpsgithub.wimk;
 import java.util.Comparator;
 
 public class Item {
-    int iconId;
     String name;
     int quantity;
-    boolean shouldShow;
+    int iconId;
     int id;
+    boolean shouldShow;
     Color color;
 
+    /* Getters and setters
+     */
 
-    //getter for name
+
+    //name
     public String getName() {
         return name;
     }
 
-    //getter for quantity
+    public void setName(String n){
+        this.name = n;
+    }
+
+    //quantity
     public int getQuantity() {
         return quantity;
+    }
+
+    public void setQuantity(int q){
+        this.quantity = q;
+    }
+
+    //iconId
+    public int getIconId(){
+        return iconId;
+    }
+
+    public void setIconId(int i){
+        this.iconId = i;
+    }
+
+    //id
+    public int getId(){
+        return id;
+    }
+
+    public void setId(int d){
+        this.id = d;
+    }
+
+    //color
+    public Color getColor(){
+        return color;
+    }
+
+    public void setColor(Color c){
+        this.color = c;
     }
 
     //sorting by quantity ascending order

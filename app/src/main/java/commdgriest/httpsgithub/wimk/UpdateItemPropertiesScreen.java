@@ -1,10 +1,14 @@
 package commdgriest.httpsgithub.wimk;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -18,6 +22,8 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
     private String tempName;
     private int tempIconId;
     private int tempQuantity;
+    private String TempItemName;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,23 +73,50 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
         radioColorGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             RelativeLayout rl = (RelativeLayout) findViewById(R.id.updateItemPropertiesRelativeLayout);
+
             public void onCheckedChanged(RadioGroup rGroup, int checkedId) {
 
                 /* Get the radioButton that has changed in its check state */
-                RadioButton checkedRadioButton = (RadioButton)rGroup.findViewById(checkedId);
+                RadioButton checkedRadioButton = (RadioButton) rGroup.findViewById(checkedId);
 
                 /* Put the value (true/false) into the variable */
                 boolean isChecked = checkedRadioButton.isChecked();
 
                 /* If the radioButton that has changed in check state is now checked */
-                if(isChecked) {
+                if (isChecked) {
                     /* Change the layout background color (temporary, we will change something else in the future but I am happy this works) */
                     rl.setBackground(checkedRadioButton.getBackground());
                 }
             }
         });
 
-        //TODO Whatever is typed into the plaintext field should be saved as the new item name
+        /* typed into the plaintext field should be saved as the new item name*/
+        Button btnSetItemName = (Button) findViewById(R.id.btnSetItemName);
+        btnSetItemName.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EditText editItemName = (EditText) findViewById(R.id.editItemName);
+                /* Make the textView visible so the user can enter an item name */
+                editItemName.setVisibility(View.VISIBLE);
+                /* Shift focus to the textView to avoid making the user manually click on it */
+                editItemName.requestFocus();
+                /* Launch the keyboard for user input */
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.showSoftInput(editItemName, InputMethodManager.SHOW_IMPLICIT);
+
+                /* Based on: http://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field*/
+
+                //can capture the content typed into that input field
+                Log.v("EditText", editItemName.getText().toString());
+
+                //store the name as part of the "item object" to be added to itemsList
+
+
+                // TODO : need to add items in itemsList to the VI
+                //http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
+            }
+        });
+
     }
 
     /* Set color based on radio group selection */

@@ -164,4 +164,15 @@
             android:background="@drawable/custom_radio_color_button_orange"
             />
     </RadioGroup>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editItemName"
+        android:layout_alignTop="@+id/btnSetItemName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/btnSetItemName"
+        android:layout_alignEnd="@+id/btnSetItemName"
+        android:layout_alignBottom="@+id/btnSetItemName" />
 </RelativeLayout>
