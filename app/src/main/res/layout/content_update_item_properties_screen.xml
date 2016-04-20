@@ -18,7 +18,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/dark_gray"
-        android:background="@drawable/custom_button_green_gradient"
+        android:background="@drawable/custom_button_flat_avocado"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
     <Button
         android:id="@+id/btnSetQuantity"
         android:textColor="@color/dark_gray"
-        android:background="@drawable/settings_by_hysen_drogu"
+        android:background="@drawable/apple_by_creative_stall"
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_centerHorizontal="true"
@@ -44,6 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSetQuantity"
         android:layout_alignParentLeft="true"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         />
@@ -58,6 +59,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnSetQuantity"
         android:layout_alignParentRight="true"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="20dp"
         />
@@ -68,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/dark_gray"
-        android:background="@drawable/custom_button_green_gradient"
+        android:background="@drawable/custom_button_flat_burnt_orange"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
@@ -78,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSave"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
         android:orientation="horizontal"
         >
@@ -125,17 +127,6 @@
             android:layout_marginRight="7dp"
             android:button="@android:color/transparent"
             android:background="@drawable/custom_radio_color_button_yellow"
-            />
-        <RadioButton
-            android:id="@+id/rdbtnColor04"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginBottom="7dp"
-            android:layout_marginLeft="7dp"
-            android:layout_marginRight="7dp"
-            android:button="@android:color/transparent"
-            android:background="@drawable/custom_radio_color_button_purple"
             />
         <RadioButton
             android:id="@+id/rdbtnColor05"
