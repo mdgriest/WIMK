@@ -31,9 +31,10 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
 
 
         /* When Save button is clicked, go back to Visual Inventory activity with new changes */
-        Button btnSaveProp = (Button) findViewById(R.id.btnSave);
+        Button btnSave = (Button) findViewById(R.id.btnSave);
+        btnSave.requestFocus();
         //need functionality to actually update the item selected!
-        btnSaveProp.setOnClickListener(new View.OnClickListener() {
+        btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 overwriteItemAttributes();
@@ -45,7 +46,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
                 //I think the way we do that is grab the id of the item that is clicked on VI screen, pass that to View Item Screen
                 //then pass that to update Item properties??
                 //Item x = new Item();
-               // x.setName(tempName);
+                // x.setName(tempName);
 
             }
         });
@@ -99,33 +100,29 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen{
             }
         });
 
-        /* typed into the plaintext field should be saved as the new item name*/
+        /* When Set Item Name button is clicked, launch the keyboard to type */
         Button btnSetItemName = (Button) findViewById(R.id.btnSetItemName);
         btnSetItemName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText editItemName = (EditText) findViewById(R.id.editItemName);
-                /* Make the textView visible so the user can enter an item name */
-                editItemName.setVisibility(View.VISIBLE);
+                EditText itemNameText = (EditText) findViewById(R.id.itemNameText);
+                /* Make the textView visible so the user can enter a query */
+                itemNameText.setVisibility(View.VISIBLE);
                 /* Shift focus to the textView to avoid making the user manually click on it */
-                editItemName.requestFocus();
+                itemNameText.requestFocus();
                 /* Launch the keyboard for user input */
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                imm.showSoftInput(editItemName, InputMethodManager.SHOW_IMPLICIT);
+                imm.showSoftInput(itemNameText, InputMethodManager.SHOW_IMPLICIT);
 
-                /* Based on: http://stackoverflow.com/questions/4531396/get-value-of-a-edit-text-field*/
+                /* Capture the content typed into that input field */
+                Log.v("EditText", itemNameText.getText().toString());
 
-                //can capture the content typed into that input field
-                Log.v("EditText", editItemName.getText().toString());
-
-                //store the name as part of the "item object" to be added to itemsList
-                tempName = editItemName.getText().toString();
-
-                // TODO : need to add items in itemsList to the VI
-                //http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
+                /* Store the name as part of the "item object" to be added to itemsList */
+                tempName = itemNameText.getText().toString();
             }
         });
-
+            // TODO : need to add items in itemsList to the VI
+            //http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
     }
 
     /* Set color based on radio group selection */

@@ -90,29 +90,4 @@ public class VisualInventoryScreen extends AppCompatActivity {
            }
 
         }
-
-        //should be called after exit out of search
-        //essentially, this will be called when click Visual Inventory from main menu, or back on a View Item Screen
-//        private RelativeLayout mLayout;
-//        private EditText mEditText;
-//        public void showAllItems(){
-//            mLayout = (RelativeLayout) findViewById(R.id.relativeLayout);
-//            mEditText = (EditText) findViewById(R.id.editText);
-//            for(int i = 0; i < Inventory.itemsList.size(); i++){
-////                mLayout.addView(createNewTextView(mEditText.getText().toString()));
-//                ArrayList<Item> items = Inventory.itemsList;
-//                mLayout.addView(createNewTextView(items.get(i).getName()));
-//            }
-//        }
-//
-//        private TextView createNewTextView(String text) {
-//            final LayoutParams lparams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-//            final TextView textView = new TextView(this);
-//            textView.setLayoutParams(lparams);
-//            textView.setText("New text: " + text);
-//            return textView;
-//        }
-
-
-
 }

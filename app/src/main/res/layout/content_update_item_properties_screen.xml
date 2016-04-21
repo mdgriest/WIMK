@@ -24,7 +24,6 @@
         android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
         />
-
     <Button
         android:id="@+id/btnSetQuantity"
         android:textColor="@color/dark_gray"
@@ -32,10 +31,22 @@
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/radioColorGroup"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         />
-
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemNameText"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/btnSetQuantity"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="15dp"
+        android:textColor="@color/light_gray"
+        android:text="Apples"
+        android:textSize="30sp"
+        />
     <Button
         android:text="Set Item Name"
         android:id="@+id/btnSetItemName"
@@ -45,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnSetQuantity"
         android:layout_alignParentLeft="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="75dp"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="20dp"
         />
@@ -60,7 +71,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnSetQuantity"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="75dp"
         android:layout_marginBottom="10dp"
         android:layout_marginRight="20dp"
         />
@@ -165,14 +176,4 @@
             />
     </RadioGroup>
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editItemName"
-        android:layout_alignTop="@+id/btnSetItemName"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignRight="@+id/btnSetItemName"
-        android:layout_alignEnd="@+id/btnSetItemName"
-        android:layout_alignBottom="@+id/btnSetItemName" />
 </RelativeLayout>
