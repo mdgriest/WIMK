@@ -3,12 +3,23 @@ package commdgriest.httpsgithub.wimk;
 import java.util.Comparator;
 
 public class Item {
-    String name;
-    int quantity;
-    int iconId;
-    int id;
-    boolean shouldShow;
-    Color color;
+
+
+    // Labels Table Columns names
+    public static final String KEY_ID = "id";
+    public static final String KEY_name = "name";
+    public static final String KEY_quantity = "quantity";
+    public static final String KEY_iconID = "iconId";
+    public static final String KEY_shouldShow = "shouldShow";
+    public static final String KEY_color= "color";
+
+    //property help us to keep data
+    public String name;
+    public int quantity;
+    public int iconId;
+    public int id;
+    public boolean shouldShow;
+    public int color;
 
     /* Getters and Setters*/
     public String getName() {
@@ -37,11 +48,10 @@ public class Item {
     public void setId(int newID){ this.id = newID; }
 
     //TODO possibly remove (along with Color class)
-    public Color getColor(){
-        return this.color;
+    public int getColor(){
+        return color;
     }
-    public void setColor(Color c){
-        this.color = c;
+    public void setColor(int c) { color = c;
     }
 
     //sorting by quantity ascending order

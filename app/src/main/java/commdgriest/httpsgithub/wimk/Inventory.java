@@ -1,5 +1,7 @@
 package commdgriest.httpsgithub.wimk;
 
+import android.content.Context;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -7,6 +9,7 @@ import java.util.Collections;
  * Created by jlisicky on 4/18/16.
  */
 public class Inventory {
+
 
     ArrayList<Item> itemsList = new ArrayList<Item>();
     int sortingRule;
@@ -83,16 +86,16 @@ public class Inventory {
     //add a new item to itemsList with default values
     public void addItem(){
         nextId++;
-        Color newColor = new Color();
-        newColor.darkColorHexVal = 000000; //black
-        newColor.lightColorHexVal = 908888; //gray
+        //Color newColor = new Color();
+        //newColor.darkColorHexVal = 000000; //black
+        //newColor.lightColorHexVal = 908888; //gray
         Item newItem = new Item();
         newItem.name = "Item";
         newItem.id = nextId;
         newItem.quantity = 0;
         newItem.iconId = R.drawable.visual_inventory_icon_flat_avocado_00;
         newItem.shouldShow = true;
-        newItem.color = newColor;
+        newItem.color = 0;
 
         //add item to list
         itemsList.add(newItem);
