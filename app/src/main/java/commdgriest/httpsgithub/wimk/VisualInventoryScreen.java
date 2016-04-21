@@ -7,8 +7,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.Toast;
 
 
@@ -80,6 +82,25 @@ public class VisualInventoryScreen extends AppCompatActivity {
                 startActivity(new Intent(VisualInventoryScreen.this, ViewItemScreen.class));
             }
         }); */
+
+        /*
+        This method is to see if we want to use Grid View to show our items
+        see: http://developer.android.com/guide/topics/ui/layout/gridview.html
+            http://stackoverflow.com/questions/5070830/populating-a-listview-using-an-arraylist
+            http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
+            http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
+         */
+
+//        GridView gridview = (GridView) findViewById(R.id.gridview);
+//        gridview.setAdapter(new ImageAdapter(this));
+//
+//        gridview.setOnItemClickListener(new OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View v,
+//                                    int position, long id) {
+//                Toast.makeText(VisualInventoryScreen.this, "" + position,
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
     }
 
