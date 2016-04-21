@@ -4,10 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class VisualInventoryScreen extends AppCompatActivity {
@@ -17,13 +19,21 @@ public class VisualInventoryScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
 
-          /* When Add Item button is clicked, launch Update Item Properties activity with default values */
+        /* When Add Item button is clicked, launch Update Item Properties activity with default values */
         //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
         Button btnAddItem = (Button) findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //add item to inventory
+                /* Notify the user that a new item has been added to inventory */
+                Toast itemAddedToast = Toast.makeText(getApplicationContext(), "New Item Added!",
+                        Toast.LENGTH_SHORT);
+                /* This toast should appear center screen */
+                itemAddedToast.setGravity(Gravity.CENTER, 0, 0);
+                itemAddedToast.show();
+
+                /* Add a new item to inventory */
+                //TODO we should NOT be creating new inventories! The user has exactly ONE.
                 Inventory newInventory = new Inventory();
                 newInventory.addItem();
                 startActivity(new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class));
