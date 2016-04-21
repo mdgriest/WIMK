@@ -10,30 +10,29 @@ public class Inventory {
 
     ArrayList<Item> itemsList = new ArrayList<Item>();
     int sortingRule;
-    //each item gets own unique Id - incremented each time addItem is clicked
+
+    /* Used to assign a unique ID to each item; Incremented each time an item is added to inventory */
     int nextId = 0;
 
 
-    //searching for item name in itemsList
+    /* searching for item name in itemsList */
     public void searchByName(String query){
+        /* For each item in the inventory */
         for(int i =0; i<itemsList.size(); i++){
+            /* If the item's name contains the user's query as a substring */
             if(itemsList.get(i).getName().contains(query)) {
-                //success - shouldShow set to true
+                /* Include the item in the subset of inventory to be shown */
                 itemsList.get(i).shouldShow = true;
             }
-
-            //failure - shouldShow set to false
-            else{
-                itemsList.get(i).shouldShow = false;
-            }
-
+            /* Otherwise, do not show the item */
+            else{ itemsList.get(i).shouldShow = false; }
         }
-        //now call showItemsFromSearch in Visual Inventory class
+        /* Now call showItemsFromSearch to view the results of the search */
         VisualInventoryScreen vis = new VisualInventoryScreen();
         vis.showItemsFromSearch();
     }
 
-    //sort only if sorting rule has been changed
+    /* Sort only if sorting rule has been changed */
     //*** Might have to change case value based on radio button ID's
     public void sort(){
         SortingSettingsScreen settings = new SortingSettingsScreen();

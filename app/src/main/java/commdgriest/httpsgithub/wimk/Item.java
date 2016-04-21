@@ -1,8 +1,5 @@
 package commdgriest.httpsgithub.wimk;
 
-/**
- * Created by jlisicky on 4/18/16.
- */
 import java.util.Comparator;
 
 public class Item {
@@ -13,51 +10,36 @@ public class Item {
     boolean shouldShow;
     Color color;
 
-    /* Getters and setters
-     */
-
-
-    //name
+    /* Getters and Setters*/
     public String getName() {
-        return name;
+        return this.name;
     }
-
-    public void setName(String n){
-        this.name = n;
+    public void setName(String newName){
+        this.name = newName;
     }
-
-    //quantity
     public int getQuantity() {
-        return quantity;
+        return this.quantity;
     }
-
-    public void setQuantity(int q){
-        this.quantity = q;
+    public void setQuantity(int newQuantity){
+        this.quantity = newQuantity;
     }
-
-    //iconId
     public int getIconId(){
-        return iconId;
+        return this.iconId;
     }
-
-    public void setIconId(int i){
-        this.iconId = i;
+    public void setIconId(int newIconID){
+        this.iconId = newIconID;
     }
-
-    //id
     public int getId(){
-        return id;
+        return this.id;
     }
 
-    public void setId(int d){
-        this.id = d;
-    }
+    //TODO this one should probably not be public and maybe should not even exist
+    public void setId(int newID){ this.id = newID; }
 
-    //color
+    //TODO possibly remove (along with Color class)
     public Color getColor(){
-        return color;
+        return this.color;
     }
-
     public void setColor(Color c){
         this.color = c;
     }
@@ -71,9 +53,7 @@ public class Item {
         public int compare (Item item1, Item item2){
             int itemQuantity1 = item1.getQuantity();
             int itemQuantity2 = item2.getQuantity();
-
             return itemQuantity1 - itemQuantity2;
-
         }
 
     };
@@ -87,9 +67,7 @@ public class Item {
         public int compare (Item item1, Item item2){
             int itemQuantity1 = item1.getQuantity();
             int itemQuantity2 = item2.getQuantity();
-
             return itemQuantity2 - itemQuantity1;
-
         }
 
     };
@@ -104,9 +82,7 @@ public class Item {
         public int compare (Item item1, Item item2){
             String itemName1 = item1.getName().toUpperCase();
             String itemName2 = item2.getName().toUpperCase();
-
             return itemName1.compareTo(itemName2);
-
         }
 
     };
@@ -120,9 +96,7 @@ public class Item {
         public int compare (Item item1, Item item2){
             String itemName1 = item1.getName().toUpperCase();
             String itemName2 = item2.getName().toUpperCase();
-
             return itemName2.compareTo(itemName1);
-
         }
 
     };
