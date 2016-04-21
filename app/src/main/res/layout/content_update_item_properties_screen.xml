@@ -13,6 +13,19 @@
     tools:showIn="@layout/activity_update_item_properties_screen"
     android:background="@color/dark_gray">
 
+    <com.jjoe64.graphview.helper.GraphViewXML
+        android:id="@+id/graphItemQuantity"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/radioColorGroup"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:seriesData="0=1"
+        app:seriesType="bar"
+        app:seriesColor="@color/avocado"
+        />
+
     <Button
         android:text="Save"
         android:id="@+id/btnSave"
