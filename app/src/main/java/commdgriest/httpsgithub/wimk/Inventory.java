@@ -32,7 +32,7 @@ public class Inventory {
         }
         /* Now call showItemsFromSearch to view the results of the search */
         VisualInventoryScreen vis = new VisualInventoryScreen();
-        vis.showItemsFromSearch();
+        //vis.showItemsFromSearch();
     }
 
     /* Sort only if sorting rule has been changed */

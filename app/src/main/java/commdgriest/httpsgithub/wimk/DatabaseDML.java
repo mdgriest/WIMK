@@ -77,7 +77,7 @@ public class DatabaseDML extends Database{
 
 
     //generates arraylist of all items to dispay in VI
-    public ArrayList<HashMap<String, String>>  getStudentList() {
+    public ArrayList<HashMap<String, String>>  getItemsList() {
         //Open connection to read only
         SQLiteDatabase db = inventoryDB.getReadableDatabase();
         String selectQuery =  "SELECT  " +
