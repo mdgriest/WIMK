@@ -7,6 +7,7 @@ public class Database  extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "WIMK_DB";
 
+    /* Constructor */
     public Database(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
@@ -24,13 +25,14 @@ public class Database  extends SQLiteOpenHelper {
         db.execSQL(CREATE_TABLE_INVENTORY);
     }
 
+    /*
+        Executed only when the database version is updated (drops and creates queries)
+        (Should never execute in our app)
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        //THIS WILL BE EXECUTED WHEN YOU UPDATED VERSION OF DATABASE_VERSION
-        //YOUR DROP AND CREATE QUERIES
         db.execSQL("DROP TABLE IF EXISTS " + Item.TABLE);
-
-        // Create tables again
+        /* Create tables again */
         onCreate(db);
     }
 }

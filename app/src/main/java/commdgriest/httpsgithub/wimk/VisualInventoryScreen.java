@@ -25,39 +25,11 @@ import android.view.ViewGroup;
 
 
 public class VisualInventoryScreen extends MainMenuScreen  implements android.view.View.OnClickListener{
-//public class VisualInventoryScreen extends MainMenuScreen {
 
     Button btnAddItem;
     Button btnBack;
     Button btnSearch;
     TextView itemID;
-
-    @Override
-    public void onClick(View view) {
-        if (view == findViewById(R.id.btnAddItem)){
-            Intent intent = new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class);
-            intent.putExtra("item_Id",0);
-            startActivity(intent);
-        }
-        else if(view == findViewById(R.id.btnBack)){
-            startActivity(new Intent(VisualInventoryScreen.this, MainMenuScreen.class));
-        }
-        else if(view == findViewById(R.id.btnSearch)){
-            EditText searchText = (EditText) findViewById(R.id.searchText);
-                /* Make the textView visible so the user can enter a query */
-            searchText.setVisibility(View.VISIBLE);
-                /* Shift focus to the textView to avoid making the user manually click on it */
-            searchText.requestFocus();
-                /* Launch the keyboard for user input */
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(searchText, InputMethodManager.SHOW_IMPLICIT);
-
-            //get query from search bar
-            String query = searchText.getText().toString();
-
-            //TODO need to query into DB with String query
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,5 +73,38 @@ public class VisualInventoryScreen extends MainMenuScreen  implements android.vi
 //        else {
 //            Toast.makeText(this, "No items!", Toast.LENGTH_SHORT).show();
 //        }
+    }
+
+    /* OnClick Listeners */
+    @Override
+    public void onClick(View view) {
+        /* Add Item */
+        if (view == findViewById(R.id.btnAddItem)){
+            Intent intent = new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class);
+            intent.putExtra("item_Id",0);
+            startActivity(intent);
+        }
+
+        /* Back */
+        else if(view == findViewById(R.id.btnBack)){
+            startActivity(new Intent(VisualInventoryScreen.this, MainMenuScreen.class));
+        }
+
+        /* Search */
+        else if(view == findViewById(R.id.btnSearch)){
+            EditText searchText = (EditText) findViewById(R.id.searchText);
+            /* Make the textView visible so the user can enter a query */
+            searchText.setVisibility(View.VISIBLE);
+            /* Shift focus to the textView to avoid making the user manually click on it */
+            searchText.requestFocus();
+            /* Launch the keyboard for user input */
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.showSoftInput(searchText, InputMethodManager.SHOW_IMPLICIT);
+
+            //get query from search bar
+            String query = searchText.getText().toString();
+
+            //TODO need to query into DB with String query
+        }
     }
 }
