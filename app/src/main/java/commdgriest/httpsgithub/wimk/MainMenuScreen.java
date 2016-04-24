@@ -24,20 +24,6 @@ public class MainMenuScreen extends AppCompatActivity {
         //TODO why does this not work?
 
         /*
-            When 'Visual Inventory' is clicked, launch Visual Inventory activity
-        */
-        Button btnVisualInventory = (Button) findViewById(R.id.btnVisualInventory);
-        btnVisualInventory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(MainMenuScreen.this, VisualInventoryScreen.class));
-//                VisualInventoryScreen vis = new VisualInventoryScreen();
-                //display all items
-//                vis.showAllItems();
-            }
-        });
-
-        /*
             When 'Settings' is clicked, launch Settings Screen activity
         */
         Button btnMainSettings = (Button) findViewById(R.id.btnMainSettings);
@@ -47,5 +33,21 @@ public class MainMenuScreen extends AppCompatActivity {
                 startActivity(new Intent(MainMenuScreen.this, SettingsScreen.class));
             }
         });
+
+        /*
+            When 'Visual Inventory' is clicked, launch Visual Inventory activity
+        */
+        Button btnVisualInventory = (Button) findViewById(R.id.btnVisualInventory);
+        btnVisualInventory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainMenuScreen.this, VisualInventoryScreen.class));
+//                VisualInventoryScreen vis = new VisualInventoryScreen();
+//                display all items
+//                vis.showAllItems();
+            }
+        });
+
+
     }
 }

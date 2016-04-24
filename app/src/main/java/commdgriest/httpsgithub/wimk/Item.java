@@ -3,9 +3,8 @@ package commdgriest.httpsgithub.wimk;
 import java.util.Comparator;
 
 public class Item {
-
-
     // Labels Table Columns names
+    public static final String TABLE = "Item";
     public static final String KEY_ID = "id";
     public static final String KEY_name = "name";
     public static final String KEY_quantity = "quantity";
@@ -20,6 +19,16 @@ public class Item {
     public int id;
     public boolean shouldShow;
     public int color;
+
+    /* Constructor */
+    public Item() {
+        this.name = "Default_Item_Name";
+        this.quantity = 50;
+        this.iconId = 0;
+        this.id = 0; //TODO use indexer
+        this.shouldShow = true;
+        this.color = 0x00A388;
+    }
 
     /* Getters and Setters*/
     public String getName() {

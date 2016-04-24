@@ -21,40 +21,39 @@ import java.util.HashMap;
 
     //shouldShow might no longer be necessary because DB can query the items
 
-public class DatabaseDML extends Database{
+public class DatabaseDML{
 
     private static final String COL1 = "COL1";
 
     private Database inventoryDB;
 
     public DatabaseDML(Context context) {
-        super(context);
+        inventoryDB = new Database(context);
     }
 
-
-    public int insert(Item item) {
-
+    public int insertItem(Item item) {
         //Open connection to write data
         SQLiteDatabase db = inventoryDB.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(Item.KEY_ID, item.id);
-        values.put(Item.KEY_name, item.name);
-        values.put(Item.KEY_quantity, item.quantity);
-        values.put(Item.KEY_iconID, item.iconId);
-        values.put(Item.KEY_shouldShow, item.shouldShow);
-        values.put(Item.KEY_color, item.color);
+//        ContentValues values = new ContentValues();
+//        values.put(Item.KEY_ID, item.id);
+//        values.put(Item.KEY_name, item.name);
+//        values.put(Item.KEY_quantity, item.quantity);
+//        values.put(Item.KEY_iconID, item.iconId);
+//        values.put(Item.KEY_shouldShow, item.shouldShow);
+//        values.put(Item.KEY_color, item.color);
 
         // Inserting Row
-        long newItem_ID = db.insert(Database.FIRST_TABLE_NAME, null, values);
+//        long newItem_ID = db.insert(Database.FIRST_TABLE_NAME, null, values);
         db.close(); // Closing database connection
-        return (int) newItem_ID;
+//        return (int) newItem_ID;
+        return 0;
     }
 
     public void delete(int item_id) {
 
         SQLiteDatabase db = inventoryDB.getWritableDatabase();
         // It's a good practice to use parameter ?, instead of concatenate string
-        db.delete(Database.FIRST_TABLE_NAME, Item.KEY_ID + "= ?", new String[] { String.valueOf(item_id) });
+        db.delete(Item.TABLE, Item.KEY_ID + "= ?", new String[] { String.valueOf(item_id) });
         db.close(); // Closing database connection
     }
 
@@ -71,7 +70,7 @@ public class DatabaseDML extends Database{
         values.put(Item.KEY_color, item.color);
 
         // It's a good practice to use parameter ?, instead of concatenate string
-        db.update(Database.FIRST_TABLE_NAME, values, Item.KEY_ID + "= ?", new String[]{String.valueOf(item.id)});
+        db.update(Item.TABLE, values, Item.KEY_ID + "= ?", new String[]{String.valueOf(item.id)});
         db.close(); // Closing database connection
     }
 
@@ -87,7 +86,7 @@ public class DatabaseDML extends Database{
                 Item.KEY_iconID + "," +
                 Item.KEY_shouldShow + "," +
                 Item.KEY_color +
-                " FROM " + Database.FIRST_TABLE_NAME;
+                " FROM " + Item.TABLE;
 
 
         ArrayList<HashMap<String, String>> itemsList = new ArrayList<HashMap<String, String>>();
@@ -121,8 +120,8 @@ public class DatabaseDML extends Database{
                 Item.KEY_iconID + "," +
                 Item.KEY_shouldShow + "," +
                 Item.KEY_color +
-                " FROM " + Database.FIRST_TABLE_NAME
-                + " WHERE " +
+                " FROM " + Item.TABLE +
+                " WHERE " +
                 Item.KEY_ID + "=?";// It's a good practice to use parameter ?, instead of concatenate string
 
         //int iCount =0;
