@@ -53,7 +53,6 @@ public class Inventory {
                     sortAtoZ();
             }
         }
-
     }
 
     //sorting by Quantity High to Low

@@ -47,17 +47,20 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         setContentView(R.layout.activity_update_item_properties_screen);
 
         /* Item Quantity Graph */
-//        // See http://www.android-graphview.org/documentation/category/bar-graph
+//      See http://www.android-graphview.org/documentation/category/bar-graph
         GraphView graphItemQuantity = (GraphView) findViewById(R.id.graphItemQuantity);
         GridLabelRenderer glr = (GridLabelRenderer) graphItemQuantity.getGridLabelRenderer();
         BarGraphSeries<DataPoint> seriesItemQuantity = new BarGraphSeries<DataPoint>(new DataPoint[]{
                 new DataPoint(0, 5),
         });
+
         /* Do not show axis labels */
         glr.setHorizontalLabelsVisible(false);
         glr.setVerticalLabelsVisible(false);
+
         /* Do not show the grid */
         glr.setGridStyle(GridLabelRenderer.GridStyle.NONE);
+
         /* Set the color of the bar for now */
         seriesItemQuantity.setColor(getResources().getColor(R.color.avocado));
         graphItemQuantity.addSeries(seriesItemQuantity);
@@ -79,7 +82,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnIcon.setOnClickListener(this);
         btnSetItemName.setOnClickListener(this);
 
-//        item_ID = 0;
         Intent intent = getIntent();
         item_ID = intent.getIntExtra("item_Id", 0);
         DatabaseDML db = new DatabaseDML(this);
