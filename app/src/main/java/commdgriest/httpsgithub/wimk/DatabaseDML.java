@@ -77,34 +77,25 @@ public class DatabaseDML{
     public ArrayList<HashMap<String, String>>  getItemsList() {
         //Open connection to read only
         SQLiteDatabase db = inventoryDB.getReadableDatabase();
-        String selectQuery =  "SELECT " +
-                Item.KEY_ID + "," +
-                Item.KEY_name + "," +
-                Item.KEY_quantity + "," +
-                Item.KEY_iconID + "," +
-                Item.KEY_shouldShow + "," +
-                Item.KEY_color +
-                " FROM " + Item.TABLE + ";";
 
-        //TODO remove
-        String testQuery = "SELECT * FROM " + Item.TABLE+ ";";
+        String selectQuery = "SELECT * FROM " + Item.TABLE+ ";";
 
         ArrayList<HashMap<String, String>> itemsList = new ArrayList<>();
 
-        Cursor cursor = db.rawQuery(testQuery, null);
+        Cursor cursor = db.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
 
-//        if (cursor.moveToFirst()) {
-//            do {
-//                HashMap<String, String> item = new HashMap<String, String>();
-//                item.put("id", cursor.getString(cursor.getColumnIndex(Item.KEY_ID)));
-//                item.put("name", cursor.getString(cursor.getColumnIndex(Item.KEY_name)));
-//                itemsList.add(item);
-//
-//            } while (cursor.moveToNext());
-//        }
-//        cursor.close();
-//        db.close();
+        if (cursor.moveToFirst()) {
+            do {
+                HashMap<String, String> item = new HashMap<String, String>();
+                item.put("id", cursor.getString(cursor.getColumnIndex(Item.KEY_ID)));
+                item.put("name", cursor.getString(cursor.getColumnIndex(Item.KEY_name)));
+                itemsList.add(item);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
         return itemsList;
     }
 
@@ -143,68 +134,4 @@ public class DatabaseDML{
         db.close();
         return item;
     }
-
-
-
-    /**
-    //x is _id
-    public List< DatabaseDML > getDataList(int x) {
-        List< DatabaseDML > firstTableDataList = new ArrayList< DatabaseDML >();
-
-        String refQuery = "Select" + COL1 + "From " + FIRST_TABLE_NAME + "Where" + _id = x;
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(refQuery, null);
-        try {
-            if (cursor.moveToFirst()) {
-                do {
-                    DatabaseDML itemData = new DatabaseDML();
-
-                    itemData.setId(cursor.getInt(0));
-
-                    itemData.setCol1(cursor.getString(1));
-                    itemData.setCol2(cursor.getInt(2));
-                    .....
-                    .....
-
-                    firstTableDataList.add(itemData);
-                } while (cursor.moveToNext());
-            }
-        } finally {
-
-            db.close();
-        }
-
-        Collections.sort(itemDataList);
-        return itemDataList;
-    }
-
-    public int  addData(DatabaseDML data) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(COL1, data.getCol1());
-        values.put(COL2, data.getCol2());
-        .....
-        .....
-        long x=db.insert(FIRST_TABLE_NAME, null, values);
-        db.close();
-        return (int)x;
-    }
-
-
-
-    public void updateItemData(DatabaseDML data) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-
-        values.put(COL1, data.getCol1());
-
-
-
-        db.update(FIRST_TABLE_NAME, values, COL_ID + "=" + data.getId(),    null);
-        db.close();
-    }
-**/
-
-
 }
