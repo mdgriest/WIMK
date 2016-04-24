@@ -49,12 +49,15 @@ public class Item {
     public void setQuantity(int newQuantity){
         this.quantity = newQuantity;
     }
-    public void setIconId(int newIconID){
+    public void setIconID(int newIconID){
         this.iconId = newIconID;
+    }
+    public void setShouldShow( boolean newVal ){
+        this.shouldShow = newVal;
     }
 
     //TODO this one should probably not be public and maybe should not even exist
-    public void setId(int newID){ this.id = newID; }
+    public void setID(int newID){ this.id = newID; }
 
     //TODO possibly remove (along with Color class)
     public int getColor(){

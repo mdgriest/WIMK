@@ -93,12 +93,12 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         if (view == findViewById(R.id.btnSave)){
             Item itemToUpdate = new Item();
             //TODO adding Default values for the rest of the poperties to Test, should change in future
-            itemToUpdate.name = itemNameText.getText().toString();
-            itemToUpdate.id= item_ID;
-            itemToUpdate.iconId = 0;
-            itemToUpdate.quantity = 0;
-            itemToUpdate.color = 0;
-            itemToUpdate.shouldShow = true;
+            itemToUpdate.setName( itemNameText.getText().toString() );
+            itemToUpdate.setID( item_ID );
+            itemToUpdate.setIconID( 0 );
+            itemToUpdate.setQuantity( 0 );
+            itemToUpdate.setColor( 0 );
+            itemToUpdate.setShouldShow( true );
             /* If the item was a new item */
             if (item_ID==0){
                 item_ID = db.insertItem(itemToUpdate);
