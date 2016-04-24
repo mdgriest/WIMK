@@ -34,19 +34,19 @@ public class DatabaseDML{
     public int insertItem(Item item) {
         //Open connection to write data
         SQLiteDatabase db = inventoryDB.getWritableDatabase();
-//        ContentValues values = new ContentValues();
-//        values.put(Item.KEY_ID, item.id);
-//        values.put(Item.KEY_name, item.name);
-//        values.put(Item.KEY_quantity, item.quantity);
-//        values.put(Item.KEY_iconID, item.iconId);
-//        values.put(Item.KEY_shouldShow, item.shouldShow);
-//        values.put(Item.KEY_color, item.color);
+        ContentValues values = new ContentValues();
+        values.put(Item.KEY_ID, item.id);
+        values.put(Item.KEY_name, item.name);
+        values.put(Item.KEY_quantity, item.quantity);
+        values.put(Item.KEY_iconID, item.iconId);
+        values.put(Item.KEY_shouldShow, item.shouldShow);
+        values.put(Item.KEY_color, item.color);
 
         // Inserting Row
-//        long newItem_ID = db.insert(Database.FIRST_TABLE_NAME, null, values);
+        long newItem_ID = db.insert(Item.TABLE, null, values);
         db.close(); // Closing database connection
-//        return (int) newItem_ID;
-        return 0;
+        return (int) newItem_ID;
+//        return 0;
     }
 
     public void delete(int item_id) {
@@ -74,7 +74,6 @@ public class DatabaseDML{
         db.close(); // Closing database connection
     }
 
-
     //generates arraylist of all items to dispay in VI
     public ArrayList<HashMap<String, String>>  getItemsList() {
         //Open connection to read only
@@ -88,8 +87,7 @@ public class DatabaseDML{
                 Item.KEY_color +
                 " FROM " + Item.TABLE;
 
-
-        ArrayList<HashMap<String, String>> itemsList = new ArrayList<HashMap<String, String>>();
+        ArrayList<HashMap<String, String>> itemsList = new ArrayList<>();
 
         Cursor cursor = db.rawQuery(selectQuery, null);
         // looping through all rows and adding to list
@@ -103,11 +101,9 @@ public class DatabaseDML{
 
             } while (cursor.moveToNext());
         }
-
         cursor.close();
         db.close();
         return itemsList;
-
     }
 
     //to show an item in view item screen after item is clicked in VI
