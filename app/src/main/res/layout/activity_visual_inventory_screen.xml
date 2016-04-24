@@ -36,7 +36,8 @@
             android:layout_alignParentLeft="true"
             android:background="@drawable/custom_button_flat_avocado"
             android:textColor="@color/dark_gray"
-            android:layout_gravity="right" />
+            android:layout_gravity="right"
+            />
 
         <Button
             android:text="Add Item"
@@ -62,7 +63,7 @@
             android:id="@+id/btnShowAll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="150dp"
             android:layout_centerHorizontal="true"
             android:background="@drawable/custom_button_flat_avocado"
             android:textColor="@color/dark_gray"

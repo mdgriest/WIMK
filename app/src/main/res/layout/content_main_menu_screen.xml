@@ -38,8 +38,9 @@
         android:layout_marginStart="35dp" />
 
     <Button
+        android:state_checked="true"
         android:id="@+id/btnVisualInventory"
-        android:background="@drawable/visual_inventory_icon_flat_avocado_00"
+        android:background="@drawable/visual_inventory_button_01"
         android:textColor="@color/dark_gray"
         android:layout_width="75dp"
         android:layout_height="75dp"
