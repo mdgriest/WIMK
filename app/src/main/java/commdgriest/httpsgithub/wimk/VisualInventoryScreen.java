@@ -3,6 +3,7 @@ package commdgriest.httpsgithub.wimk;
 import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -32,6 +33,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
     Button btnSearch;
     TextView itemID;
     Button btnShowAll;
+    DatabaseDML db_dml = new DatabaseDML(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,7 +89,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
         }
 
         else if(view == findViewById(R.id.btnShowAll)){
-            DatabaseDML db_dml = new DatabaseDML(this);
 
             ArrayList< HashMap<String, String> > itemList = db_dml.getItemsList();
 

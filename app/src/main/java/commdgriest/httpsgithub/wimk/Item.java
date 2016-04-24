@@ -13,12 +13,12 @@ public class Item {
     public static final String KEY_color= "color";
 
     /* Item attributes */
-    public String name;
-    public int quantity;
-    public int iconId;
-    public int id;
-    public boolean shouldShow;
-    public int color;
+    private String name;
+    private int quantity;
+    private int iconId;
+    private int id;
+    private boolean shouldShow;
+    private int color;
 
     /* Constructor */
     public Item() {
@@ -37,11 +37,14 @@ public class Item {
     public int getQuantity() {
         return this.quantity;
     }
-    public int getIconId(){
+    public int getIconID(){
         return this.iconId;
     }
-    public int getId(){
+    public int getID(){
         return this.id;
+    }
+    public boolean getShouldShow(){
+        return this.shouldShow;
     }
     public void setName(String newName){
         this.name = newName;

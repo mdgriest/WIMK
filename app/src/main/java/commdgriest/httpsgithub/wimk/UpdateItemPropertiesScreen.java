@@ -97,9 +97,9 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             //TODO adding Default values for the rest of the poperties to Test, should change in future
             itemToUpdate.setName( itemNameText.getText().toString() );
             itemToUpdate.setID( item_ID );
-            itemToUpdate.setIconID( 0 );
-            itemToUpdate.setQuantity( 0 );
-            itemToUpdate.setColor( 0 );
+            itemToUpdate.setIconID( 1 );
+            itemToUpdate.setQuantity( 1 );
+            itemToUpdate.setColor( 1 );
             itemToUpdate.setShouldShow( true );
             /* If the item was a new item */
             if (item_ID==0){
