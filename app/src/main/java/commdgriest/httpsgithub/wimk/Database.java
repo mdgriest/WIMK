@@ -4,7 +4,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 
 public class Database  extends SQLiteOpenHelper {
-
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "WIMK_DB";
 

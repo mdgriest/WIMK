@@ -102,7 +102,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             /* If the item was a new item */
             if (item_ID==0){
                 item_ID = db.insertItem(itemToUpdate);
-                Toast.makeText(this,"New Item Inserted",Toast.LENGTH_SHORT).show();
+                Toast.makeText(this,"New Item Saved",Toast.LENGTH_SHORT).show();
             }
             else{
 //                db.update(itemToUpdate);
@@ -110,22 +110,22 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             }
             finish();
         }
-        else if (view== findViewById(R.id.btnDelete)){
+        else if (view == findViewById(R.id.btnDelete)){
             db.delete(item_ID);
             //TODO add functionality to ask are you sure? yes or no
             Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
             finish();
         }
-        else if (view== findViewById(R.id.btnCancel)){
+        else if (view == findViewById(R.id.btnCancel)){
             finish();
         }
-        else if (view== findViewById(R.id.btnSelectIcon)){
+        else if (view == findViewById(R.id.btnSelectIcon)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class));
         }
-        else if (view== findViewById(R.id.btnSetQuantity)){
+        else if (view == findViewById(R.id.btnSetQuantity)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateItemQuantityScreen.class));
         }
-        else if (view== findViewById(R.id.btnSetItemName)) {
+        else if (view == findViewById(R.id.btnSetItemName)) {
          /* Make the textView visible so the user can enter a query */
             itemNameText.setVisibility(View.VISIBLE);
                 /* Shift focus to the textView to avoid making the user manually click on it */
