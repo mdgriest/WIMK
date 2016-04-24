@@ -56,19 +56,6 @@
                 android:text="Apple by Creative Stall\nSettings by Hysen Drogu"
                 />
 
-            <TextView
-                android:id="@+id/temp"
-                android:textColor="@color/light_gray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/credit_textView"
-                android:textSize="20sp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="700dp"
-                android:gravity="center"
-                android:text="TEST"
-                />
-
         </RelativeLayout>
 
     </ScrollView>
