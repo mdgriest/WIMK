@@ -20,10 +20,12 @@
             android:id="@+id/searchText"
             android:inputType="text"
             android:layout_width="fill_parent"
+            android:textColor="@color/light_gray"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_below="@+id/btnSearch"
             android:layout_marginTop="20dp"
+            android:singleLine="true"
             android:visibility = "gone"/>
 
         <Button

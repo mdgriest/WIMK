@@ -49,15 +49,16 @@
         android:layout_marginBottom="10dp"
         />
     <EditText
+        android:text="Apples"
+        android:id="@+id/itemNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/itemNameText"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/btnSetQuantity"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
         android:textColor="@color/light_gray"
-        android:text="Apples"
+        android:singleLine="true"
         android:textSize="30sp"
         />
     <Button
