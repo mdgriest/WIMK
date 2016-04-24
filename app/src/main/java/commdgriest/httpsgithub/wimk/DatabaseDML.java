@@ -46,7 +46,6 @@ public class DatabaseDML{
         long newItem_ID = db.insert(Item.TABLE, null, values);
         db.close(); // Closing database connection
         return (int) newItem_ID;
-//        return 0;
     }
 
     public void delete(int item_id) {
@@ -78,31 +77,34 @@ public class DatabaseDML{
     public ArrayList<HashMap<String, String>>  getItemsList() {
         //Open connection to read only
         SQLiteDatabase db = inventoryDB.getReadableDatabase();
-        String selectQuery =  "SELECT  " +
+        String selectQuery =  "SELECT " +
                 Item.KEY_ID + "," +
                 Item.KEY_name + "," +
                 Item.KEY_quantity + "," +
                 Item.KEY_iconID + "," +
                 Item.KEY_shouldShow + "," +
                 Item.KEY_color +
-                " FROM " + Item.TABLE;
+                " FROM " + Item.TABLE + ";";
+
+        //TODO remove
+        String testQuery = "SELECT * FROM " + Item.TABLE+ ";";
 
         ArrayList<HashMap<String, String>> itemsList = new ArrayList<>();
 
-        Cursor cursor = db.rawQuery(selectQuery, null);
+        Cursor cursor = db.rawQuery(testQuery, null);
         // looping through all rows and adding to list
 
-        if (cursor.moveToFirst()) {
-            do {
-                HashMap<String, String> item = new HashMap<String, String>();
-                item.put("id", cursor.getString(cursor.getColumnIndex(Item.KEY_ID)));
-                item.put("name", cursor.getString(cursor.getColumnIndex(Item.KEY_name)));
-                itemsList.add(item);
-
-            } while (cursor.moveToNext());
-        }
-        cursor.close();
-        db.close();
+//        if (cursor.moveToFirst()) {
+//            do {
+//                HashMap<String, String> item = new HashMap<String, String>();
+//                item.put("id", cursor.getString(cursor.getColumnIndex(Item.KEY_ID)));
+//                item.put("name", cursor.getString(cursor.getColumnIndex(Item.KEY_name)));
+//                itemsList.add(item);
+//
+//            } while (cursor.moveToNext());
+//        }
+//        cursor.close();
+//        db.close();
         return itemsList;
     }
 

@@ -87,17 +87,13 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
         }
 
         else if(view == findViewById(R.id.btnShowAll)){
-            Toast.makeText(this, "A", Toast.LENGTH_SHORT).show();
             DatabaseDML db_dml = new DatabaseDML(this);
-            Toast.makeText(this, "B", Toast.LENGTH_SHORT).show();
 
-//            ArrayList< HashMap<String, String> > itemList = db_dml.getItemsList();
-//            Toast.makeText(this, "C", Toast.LENGTH_SHORT).show();
-//
-//            Toast.makeText(this, "Number of items: " + itemList.size(), Toast.LENGTH_SHORT).show();
-//
-//            /* If there are items to display */
-//            if(itemList.size() != 0){
+            ArrayList< HashMap<String, String> > itemList = db_dml.getItemsList();
+
+            /* If there are items to display */
+            if(itemList.size() != 0){
+                Toast.makeText(this, itemList.size() + " items in inventory", Toast.LENGTH_SHORT).show();
 //                /* Locate the listVeiw */
 //                ListView lv = (ListView) findViewById(R.id.vi_listView);
 //                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -114,11 +110,11 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 //                        R.layout.view_item_entry, new String[]{"id", "name"},
 //                        new int[]{R.id.itemID, R.id.itemName});
 //                lv.setAdapter(adapter);
-//            }
-//            /* If the inventory is empty */
-//            else{
-//                Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
-//            }
+            }
+            /* If the inventory is empty */
+            else{
+                Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }
