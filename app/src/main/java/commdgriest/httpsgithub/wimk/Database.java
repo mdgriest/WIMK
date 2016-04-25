@@ -142,7 +142,40 @@ public class Database extends SQLiteOpenHelper {
     }
 
     /* Update Item */
+    public int updateItem(Item item) {
+
+        // 1. Get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // 2. Create ContentValues to add key "column"/value
+        ContentValues values = new ContentValues();
+        //TODO put temp value (tempName, tempQuantity, etc.) using the format below:
+//        values.put("title", item.getTitle()); // get title
+
+        // 3. Update row
+        int i = db.update(TABLE_ITEMS, //table
+                values, // column/value
+                KEY_ID+" = ?", // selections
+                new String[] { String.valueOf(item.getID()) }); //selection args
+
+        // 4. close
+        db.close();
+
+        return i;
+    }
 
     /* Delete Item */
+    public void deleteItem(Item item) {
 
+        // 1. Get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // 2. Delete
+        db.delete(TABLE_ITEMS, //table name
+                KEY_ID+" = ?",  // selections
+                new String[] { String.valueOf(item.getID()) }); //selections args
+
+        // 3. Close
+        db.close();
+    }
 }
