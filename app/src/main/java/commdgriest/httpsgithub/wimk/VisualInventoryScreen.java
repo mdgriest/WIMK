@@ -19,27 +19,16 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
     Button btnSearch;
     TextView itemID;
     Button btnShowAll;
-//    Database db = new Database(this);
+    Database db = new Database(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
 
-        Database db = new Database(this);
-
         /* Add a dummy item to the DB */
         Item testItem0 = new Item();
-        Item testItem1 = new Item();
-//        Item testItem1 = new Item("A", 5, 4, 3, 2);
-
         db.addItem(testItem0);
-        db.addItem(testItem1);
-
-        /* Get all items in the DB (should be one) */
-        List<Item> allItems = db.getAllItems();
-
-        Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
 
         btnAddItem = (Button) findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(this);
@@ -52,8 +41,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
         btnShowAll = (Button) findViewById(R.id.btnShowAll);
         btnShowAll.setOnClickListener(this);
-
-        /* Populate the VI with a few items as a test of the DB */
     }
 
     /* OnClick Listeners */
@@ -94,16 +81,16 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
         /* Show All */
         else if(view == findViewById(R.id.btnShowAll)){
 
-//            List<Item> allItems = db.getAllItems();
+            List<Item> allItems = db.getAllItems();
 
             /* If there are items to display */
-//            if( allItems.size() != 0 ) {
-//                Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
-//            }
-//            /* If the inventory is empty */
-//            else{
-//                Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
-//            }
+            if( allItems.size() != 0 ) {
+                Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
+            }
+            /* If the inventory is empty */
+            else{
+                Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

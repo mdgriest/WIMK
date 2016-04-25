@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
-import android.util.Log;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -114,8 +113,6 @@ public class Database extends SQLiteOpenHelper {
     public List<Item> getAllItems() {
         List<Item> items = new LinkedList<Item>();
 
-//        items.add(new Item("B", 10, 9, 8, 7)); //TODO REMOVE
-
         // 1. Build the query
         String query = "SELECT * FROM " + TABLE_ITEMS;
 
@@ -126,7 +123,6 @@ public class Database extends SQLiteOpenHelper {
         // 3. Go over each row, build item and add it to list
         Item item = null;
         if (cursor.moveToFirst()) {
-//            items.add(new Item("C", 10, 9, 8, 7)); //TODO REMOVE
             do {
                 item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));
