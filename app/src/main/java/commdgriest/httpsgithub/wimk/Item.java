@@ -17,9 +17,16 @@ public class Item {
         this.name = "Default_Item_Name";
         this.quantity = 50;
         this.iconId = 0;
-        this.id = 0; //TODO use indexer
         this.shouldShow = 1;
-        this.color = 0x00A388;
+        this.color = 15;
+    }
+
+    public Item(String name, int quantity, int iconId, int shouldShow, int color){
+        this.name = name;
+        this.quantity = quantity;
+        this.iconId = iconId;
+        this.shouldShow = shouldShow;
+        this.color = color;
     }
 
     /* Getters and Setters */

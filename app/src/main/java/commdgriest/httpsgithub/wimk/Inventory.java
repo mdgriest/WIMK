@@ -19,10 +19,10 @@ public class Inventory {
             /* If the item's name contains the user's query as a substring */
             if(itemsList.get(i).getName().contains(query)) {
                 /* Include the item in the subset of inventory to be shown */
-                itemsList.get(i).setShouldShow( true );
+                itemsList.get(i).setShouldShow( 1 );
             }
             /* Otherwise, do not show the item */
-            else{ itemsList.get(i).setShouldShow( false ); }
+            else{ itemsList.get(i).setShouldShow( 0 ); }
         }
         /* Now call showItemsFromSearch to view the results of the search */
         VisualInventoryScreen vis = new VisualInventoryScreen();
@@ -81,10 +81,10 @@ public class Inventory {
         //newColor.lightColorHexVal = 908888; //gray
         Item newItem = new Item();
         newItem.setName("Item");
-        newItem.setID(nextId);
+//        newItem.setID(nextId);
         newItem.setQuantity( 0 );
         newItem.setIconID( R.drawable.visual_inventory_icon_flat_avocado_00 );
-        newItem.setShouldShow( true );
+        newItem.setShouldShow( 1 );
         newItem.setColor( 0 );
 
         //add item to list

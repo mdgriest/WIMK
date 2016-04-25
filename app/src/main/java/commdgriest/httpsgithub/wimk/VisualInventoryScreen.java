@@ -1,30 +1,16 @@
 package commdgriest.httpsgithub.wimk;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridView;
-import android.widget.ScrollView;
 import android.widget.Toast;
-import android.content.Context;
-import java.util.HashMap;
-import java.util.ArrayList;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import java.util.List;
 import android.widget.TextView;
-import android.widget.SimpleAdapter;
-import android.view.ViewGroup;
-
 
 public class VisualInventoryScreen extends AppCompatActivity implements android.view.View.OnClickListener{
 
@@ -33,12 +19,27 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
     Button btnSearch;
     TextView itemID;
     Button btnShowAll;
-    DatabaseDML db_dml = new DatabaseDML(this);
+//    Database db = new Database(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
+
+        Database db = new Database(this);
+
+        /* Add a dummy item to the DB */
+        Item testItem0 = new Item();
+        Item testItem1 = new Item();
+//        Item testItem1 = new Item("A", 5, 4, 3, 2);
+
+        db.addItem(testItem0);
+        db.addItem(testItem1);
+
+        /* Get all items in the DB (should be one) */
+        List<Item> allItems = db.getAllItems();
+
+        Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
 
         btnAddItem = (Button) findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(this);
@@ -51,6 +52,8 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
         btnShowAll = (Button) findViewById(R.id.btnShowAll);
         btnShowAll.setOnClickListener(this);
+
+        /* Populate the VI with a few items as a test of the DB */
     }
 
     /* OnClick Listeners */
@@ -91,32 +94,16 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
         /* Show All */
         else if(view == findViewById(R.id.btnShowAll)){
 
-            ArrayList< HashMap<String, String> > itemList = db_dml.getItemsList();
+//            List<Item> allItems = db.getAllItems();
 
             /* If there are items to display */
-            if(itemList.size() != 0){
-                Toast.makeText(this, itemList.size() + " items in inventory", Toast.LENGTH_SHORT).show();
-//                /* Locate the listVeiw */
-//                ListView lv = (ListView) findViewById(R.id.vi_listView);
-//                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//                    @Override
-//                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                        itemID = (TextView) findViewById(R.id.itemID);
-//                        String itemIDstring = itemID.getText().toString();
-//                        Intent objIntent = new Intent(getApplicationContext(), UpdateItemPropertiesScreen.class);
-//                        objIntent.putExtra("itemID", Integer.parseInt(itemIDstring));
-//                        startActivity(objIntent);
-//                    }
-//                });
-//                ListAdapter adapter = new SimpleAdapter(VisualInventoryScreen.this, itemList,
-//                        R.layout.view_item_entry, new String[]{"id", "name"},
-//                        new int[]{R.id.itemID, R.id.itemName});
-//                lv.setAdapter(adapter);
-            }
-            /* If the inventory is empty */
-            else{
-                Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
-            }
+//            if( allItems.size() != 0 ) {
+//                Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
+//            }
+//            /* If the inventory is empty */
+//            else{
+//                Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
+//            }
         }
     }
 }

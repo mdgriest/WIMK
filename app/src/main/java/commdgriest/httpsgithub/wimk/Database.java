@@ -9,12 +9,12 @@ import android.util.Log;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Database  extends SQLiteOpenHelper {
+public class Database extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "WIMK_DB";
 
-    // Labels Table Columns names
-    public static final String TABLE_ITEMS = "Item";
+    // Item table columns names
+    public static final String TABLE_ITEMS = "item";
     public static final String KEY_ID = "id";
     public static final String KEY_name = "name";
     public static final String KEY_quantity = "quantity";
@@ -32,7 +32,7 @@ public class Database  extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATE_TABLE_INVENTORY = "CREATE TABLE Item ( "
+        String CREATE_TABLE_INVENTORY = "CREATE TABLE item ( "
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "name TEXT, "
                 + "quantity INTEGER, "
@@ -49,7 +49,7 @@ public class Database  extends SQLiteOpenHelper {
     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS Item");
+        db.execSQL("DROP TABLE IF EXISTS item");
         /* Create tables again */
         onCreate(db);
     }
@@ -63,7 +63,6 @@ public class Database  extends SQLiteOpenHelper {
 
         // 2. Create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
-        values.put(KEY_ID, item.getID());
         values.put(KEY_name, item.getName());
         values.put(KEY_quantity, item.getQuantity());
         values.put(KEY_iconID, item.getIconID());
@@ -115,8 +114,10 @@ public class Database  extends SQLiteOpenHelper {
     public List<Item> getAllItems() {
         List<Item> items = new LinkedList<Item>();
 
+//        items.add(new Item("B", 10, 9, 8, 7)); //TODO REMOVE
+
         // 1. Build the query
-        String query = "SELECT  * FROM " + TABLE_ITEMS;
+        String query = "SELECT * FROM " + TABLE_ITEMS;
 
         // 2. Get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
@@ -125,6 +126,7 @@ public class Database  extends SQLiteOpenHelper {
         // 3. Go over each row, build item and add it to list
         Item item = null;
         if (cursor.moveToFirst()) {
+//            items.add(new Item("C", 10, 9, 8, 7)); //TODO REMOVE
             do {
                 item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));

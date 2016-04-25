@@ -38,7 +38,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     Button btnSetItemName;
     EditText itemNameText;
 
-    DatabaseDML db = new DatabaseDML(this);
+//    DatabaseDML db = new DatabaseDML(this);
 
     //TEMPORARY, TODO REMOVE AFTER FINISHED TESTING
 
@@ -84,7 +84,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         Intent intent = getIntent();
         item_ID = intent.getIntExtra("item_Id", 0);
-        DatabaseDML db = new DatabaseDML(this);
+        Database db = new Database(this);
 //        Item item = new Item();
 //        item = db.getItemById(item_ID);
 
@@ -93,35 +93,35 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     }
     public void onClick(View view) {
         /* Save */
-        if (view == findViewById(R.id.btnSave)){
-            Item itemToUpdate = new Item();
-            //TODO adding Default values for the rest of the poperties to Test, should change in future
-            itemToUpdate.setName( itemNameText.getText().toString() );
-            itemToUpdate.setID( item_ID );
-            itemToUpdate.setIconID( 1 );
-            itemToUpdate.setQuantity( 1 );
-            itemToUpdate.setColor( 1 );
-            itemToUpdate.setShouldShow( true );
-            /* If the item was a new item */
-            if (item_ID==0){
-                item_ID = db.insertItem(itemToUpdate);
-                Toast.makeText(this,"New Item Saved",Toast.LENGTH_SHORT).show();
-            }
-            else{
-//                db.update(itemToUpdate);
-                Toast.makeText(this,"Item updated",Toast.LENGTH_SHORT).show();
-            }
-            finish();
-        }
-        /* Delete */
-        else if (view == findViewById(R.id.btnDelete)){
-            db.delete(item_ID);
-            //TODO add functionality to ask are you sure? yes or no
-            Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
-            finish();
-        }
+//        if (view == findViewById(R.id.btnSave)){
+//            Item itemToUpdate = new Item();
+//            //TODO adding Default values for the rest of the poperties to Test, should change in future
+//            itemToUpdate.setName( itemNameText.getText().toString() );
+//            itemToUpdate.setID( item_ID );
+//            itemToUpdate.setIconID( 1 );
+//            itemToUpdate.setQuantity( 1 );
+//            itemToUpdate.setColor( 1 );
+//            itemToUpdate.setShouldShow( 1 );
+//            /* If the item was a new item */
+//            if (item_ID==0){
+//                item_ID = db.addItem(itemToUpdate);
+//                Toast.makeText(this,"New Item Saved",Toast.LENGTH_SHORT).show();
+//            }
+//            else{
+////                db.update(itemToUpdate);
+//                Toast.makeText(this,"Item updated",Toast.LENGTH_SHORT).show();
+//            }
+//            finish();
+//        }
+//        /* Delete */
+//        else if (view == findViewById(R.id.btnDelete)){
+//            db.delete(item_ID);
+//            //TODO add functionality to ask are you sure? yes or no
+//            Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
+//            finish();
+//        }
         /* Cancel */
-        else if (view == findViewById(R.id.btnCancel)){
+        if (view == findViewById(R.id.btnCancel)){
             finish();
         }
         /* Select Icon */
