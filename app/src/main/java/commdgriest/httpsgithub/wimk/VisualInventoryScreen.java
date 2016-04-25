@@ -88,6 +88,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
             //TODO need to query into DB with String query
         }
 
+        /* Show All */
         else if(view == findViewById(R.id.btnShowAll)){
 
             ArrayList< HashMap<String, String> > itemList = db_dml.getItemsList();

@@ -3,14 +3,6 @@ package commdgriest.httpsgithub.wimk;
 import java.util.Comparator;
 
 public class Item {
-    // Labels Table Columns names
-    public static final String TABLE = "Item";
-    public static final String KEY_ID = "id";
-    public static final String KEY_name = "name";
-    public static final String KEY_quantity = "quantity";
-    public static final String KEY_iconID = "iconId";
-    public static final String KEY_shouldShow = "shouldShow";
-    public static final String KEY_color= "color";
 
     /* Item attributes */
     private String name;

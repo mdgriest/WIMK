@@ -92,6 +92,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
     }
     public void onClick(View view) {
+        /* Save */
         if (view == findViewById(R.id.btnSave)){
             Item itemToUpdate = new Item();
             //TODO adding Default values for the rest of the poperties to Test, should change in future
@@ -112,21 +113,26 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             }
             finish();
         }
+        /* Delete */
         else if (view == findViewById(R.id.btnDelete)){
             db.delete(item_ID);
             //TODO add functionality to ask are you sure? yes or no
             Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
             finish();
         }
+        /* Cancel */
         else if (view == findViewById(R.id.btnCancel)){
             finish();
         }
+        /* Select Icon */
         else if (view == findViewById(R.id.btnSelectIcon)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class));
         }
+        /* Set Quantity */
         else if (view == findViewById(R.id.btnSetQuantity)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateItemQuantityScreen.class));
         }
+        /* Set Item Name */
         else if (view == findViewById(R.id.btnSetItemName)) {
          /* Make the textView visible so the user can enter a query */
             itemNameText.setVisibility(View.VISIBLE);

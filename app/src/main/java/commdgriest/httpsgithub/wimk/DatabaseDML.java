@@ -7,12 +7,8 @@ import android.content.ContentValues;
 import java.util.List;
 import java.util.ArrayList;
 import android.database.Cursor;
+
 import java.util.HashMap;
-
-
-/**
- * Created by jlisicky on 4/21/16.
- */
 
 //http://stackoverflow.com/questions/24844514/database-in-android-studio
 
@@ -25,6 +21,7 @@ public class DatabaseDML{
 
     private Database inventoryDB;
 
+    /* Constructor */
     public DatabaseDML(Context context) {
         inventoryDB = new Database(context);
     }
