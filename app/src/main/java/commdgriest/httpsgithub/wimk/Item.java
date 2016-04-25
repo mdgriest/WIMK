@@ -9,7 +9,7 @@ public class Item {
     private int quantity;
     private int iconId;
     private int id;
-    private boolean shouldShow;
+    private int shouldShow;
     private int color;
 
     /* Constructor */
@@ -18,7 +18,7 @@ public class Item {
         this.quantity = 50;
         this.iconId = 0;
         this.id = 0; //TODO use indexer
-        this.shouldShow = true;
+        this.shouldShow = 1;
         this.color = 0x00A388;
     }
 
@@ -35,7 +35,7 @@ public class Item {
     public int getID(){
         return this.id;
     }
-    public boolean getShouldShow(){
+    public int getShouldShow(){
         return this.shouldShow;
     }
     public void setName(String newName){
@@ -47,7 +47,7 @@ public class Item {
     public void setIconID(int newIconID){
         this.iconId = newIconID;
     }
-    public void setShouldShow( boolean newVal ){
+    public void setShouldShow( int newVal ){
         this.shouldShow = newVal;
     }
 

@@ -6,6 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class Database  extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "WIMK_DB";
@@ -34,7 +37,7 @@ public class Database  extends SQLiteOpenHelper {
                 + "name TEXT, "
                 + "quantity INTEGER, "
                 + "iconId INTEGER, "
-                + "shouldShow BOOLEAN, "
+                + "shouldShow INTEGER, "
                 + "color INTEGER )";
 
         db.execSQL(CREATE_TABLE_INVENTORY);
@@ -73,6 +76,7 @@ public class Database  extends SQLiteOpenHelper {
         // 4. Close
         db.close();
     }
+
     /* Get Item */
     public Item getItem(int id){
 
@@ -81,32 +85,66 @@ public class Database  extends SQLiteOpenHelper {
 
         // 2. build query
         Cursor cursor =
-                db.query(TABLE_ITEMS, // a. table
-                        COLUMNS,   // b. column names
-                        " id = ?", // c. selections
+                db.query(TABLE_ITEMS,   // a. table
+                        COLUMNS,        // b. column names
+                        " id = ?",      // c. selections
                         new String[] { String.valueOf(id) }, // d. selections args
-                        null, // e. group by
-                        null, // f. having
-                        null, // g. order by
-                        null);// h. limit
+                        null,   // e. group by
+                        null,   // f. having
+                        null,   // g. order by
+                        null);  // h. limit
 
         // 3. if we got results get the first one
         if (cursor != null)
             cursor.moveToFirst();
 
-        // 4. build item object
+        // 4. Build item object
         Item item = new Item();
         item.setID(Integer.parseInt(cursor.getString(0)));
         item.setName(cursor.getString(1));
         item.setQuantity(Integer.parseInt(cursor.getString(2)));
+        item.setIconID(Integer.parseInt(cursor.getString(3)));
+        item.setShouldShow(Integer.parseInt(cursor.getString(4)));
+        item.setColor(Integer.parseInt(cursor.getString(5)));
 
-        //log
-        Log.d("getBook(" + id + ")", item.toString());
-
-        // 5. return book
+        // 5. return item
         return item;
     }
+
     /* Get All Items */
+    public List<Item> getAllItems() {
+        List<Item> items = new LinkedList<Item>();
+
+        // 1. Build the query
+        String query = "SELECT  * FROM " + TABLE_ITEMS;
+
+        // 2. Get reference to writable DB
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+
+        // 3. Go over each row, build item and add it to list
+        Item item = null;
+        if (cursor.moveToFirst()) {
+            do {
+                item = new Item();
+                item.setID(Integer.parseInt(cursor.getString(0)));
+                item.setName(cursor.getString(1));
+                item.setQuantity(Integer.parseInt(cursor.getString(2)));
+                item.setIconID(Integer.parseInt(cursor.getString(3)));
+                item.setShouldShow(Integer.parseInt(cursor.getString(4)));
+                item.setColor(Integer.parseInt(cursor.getString(5)));
+
+                // Add item to items
+                items.add(item);
+            } while (cursor.moveToNext());
+        }
+
+        // return items
+        return items;
+    }
+
     /* Update Item */
+
     /* Delete Item */
+
 }
