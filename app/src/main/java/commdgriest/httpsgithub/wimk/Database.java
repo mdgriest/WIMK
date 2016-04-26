@@ -178,4 +178,33 @@ public class Database extends SQLiteOpenHelper {
         // 3. Close
         db.close();
     }
+
+    public List<Item> search(String query){
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        List<Item> items = new LinkedList<Item>();
+
+        //search query, add % query %
+        String searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " WHERE name = " + query + ";";
+
+        Cursor cursor = db.rawQuery(searchQuery, null);
+        Item item = null;
+        if (cursor.moveToFirst()) {
+            do {
+                item = new Item();
+                item.setID(Integer.parseInt(cursor.getString(0)));
+                item.setName(cursor.getString(1));
+                item.setQuantity(Integer.parseInt(cursor.getString(2)));
+                item.setIconID(Integer.parseInt(cursor.getString(3)));
+                item.setShouldShow(Integer.parseInt(cursor.getString(4)));
+                item.setColor(Integer.parseInt(cursor.getString(5)));
+
+                // Add item to items
+                items.add(item);
+            } while (cursor.moveToNext());
+        }
+
+        // return items
+        return items;
+    }
 }
