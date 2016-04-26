@@ -78,7 +78,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     /* Get Item */
-    public Item getItem(int id){
+    public Item getItem(long id){
 
         // 1. get reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
@@ -151,8 +151,11 @@ public class Database extends SQLiteOpenHelper {
 
         // 2. Create ContentValues to add key "column"/value
         ContentValues values = new ContentValues();
-        //TODO put temp value (tempName, tempQuantity, etc.) using the format below:
-//        values.put("title", item.getTitle()); // get title
+        values.put("name", item.getName());
+        values.put("quantity", item.getQuantity());
+        values.put("iconId", item.getIconID());
+        values.put("shouldShow", item.getShouldShow());
+        values.put("color", item.getColor());
 
         // 3. Update row
         int i = db.update(TABLE_ITEMS, //table

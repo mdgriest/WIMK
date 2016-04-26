@@ -18,19 +18,11 @@ public class Item {
 
     /* Constructor */
     public Item() {
-        this.name = "Default_Item_Name";
+        this.name = "DEFAULT";
         this.quantity = 50;
         this.iconId = 0;
         this.shouldShow = 1;
         this.color = 55;
-    }
-
-    public Item(String name, int quantity, int iconId, int shouldShow, int color){
-        this.name = name;
-        this.quantity = quantity;
-        this.iconId = iconId;
-        this.shouldShow = shouldShow;
-        this.color = color;
     }
 
     /* Getters and Setters */

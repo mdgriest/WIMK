@@ -85,46 +85,56 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         Toast.makeText(this, "item_ID: " + item_ID, Toast.LENGTH_SHORT).show();
 
         /* Find the item we are updating in the database */
-//        Item item = db.getItem(item_ID);
+        Item item = db.getItem(item_ID);
 
         /* Upon opening the screen, set all temporary values to the item's current values */
-//        this.tempName = item.getName();
-//        this.tempColor = item.getColor();
-//        this.tempQuantity = item.getQuantity();
-//        this.tempIconId = item.getIconID();
-//
-//        Toast.makeText(this, "Color: " + item.getColor(), Toast.LENGTH_SHORT).show();
+        this.tempName = item.getName();
+        this.tempColor = item.getColor();
+        this.tempQuantity = item.getQuantity();
+        this.tempIconId = item.getIconID();
 
-        /* Set the screen up to show the correct color, name, etc. for this item */
-//        switch(tempColor) {
-//        }
     }
     public void onClick(View view) {
         /* Save */
         if (view == findViewById(R.id.btnSave)){
             /* Update this item's attributes and save the changes in the database */
 
+            /* Get the item's new name from the edit text */
+            String newName = itemNameText.getText().toString();
+            this.tempName = newName;
+            Toast.makeText(this, "newName: " + newName, Toast.LENGTH_SHORT).show();
 
+            /* First create a new item with the attributes we want to save */
+            Item updatedItem = new Item();
+            updatedItem.setName(this.tempName.toString());
+            updatedItem.setColor(this.tempColor);
+            updatedItem.setQuantity(this.tempQuantity);
+            updatedItem.setIconID(this.tempIconId);
+
+            /* Update the item in the database */
+            db.updateItem(updatedItem);
+
+            /* And return to the Visual Inventory Screen */
+            startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
         }
-//        /* Delete */
-//        else if (view == findViewById(R.id.btnDelete)){
-//            db.delete(item_ID);
-//            //TODO add functionality to ask are you sure? yes or no
-//            Toast.makeText(this, "Item Deleted", Toast.LENGTH_SHORT).show();
-//            finish();
-//        }
+
+        /* Delete */
+
         /* Cancel */
         if (view == findViewById(R.id.btnCancel)){
             finish();
         }
+
         /* Select Icon */
         else if (view == findViewById(R.id.btnSelectIcon)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class));
         }
+
         /* Set Quantity */
         else if (view == findViewById(R.id.btnSetQuantity)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateItemQuantityScreen.class));
         }
+
         /* Set Item Name */
         else if (view == findViewById(R.id.btnSetItemName)) {
          /* Make the textView visible so the user can enter a query */
