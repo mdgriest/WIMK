@@ -112,7 +112,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             updatedItem.setIconID(this.tempIconId);
 
             /* Update the item in the database */
-            db.updateItem(updatedItem);
+            int i = db.updateItem(updatedItem);
 
             /* And return to the Visual Inventory Screen */
             startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
