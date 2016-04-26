@@ -100,7 +100,7 @@ public class Database extends SQLiteOpenHelper {
 
         // 4. Build item object
         Item item = new Item();
-        item.setID(Integer.parseInt(cursor.getString(0)));
+//        item.setID(Integer.parseInt(cursor.getString(0)));
         item.setName(cursor.getString(1));
         item.setQuantity(Integer.parseInt(cursor.getString(2)));
         item.setIconID(Integer.parseInt(cursor.getString(3)));
@@ -127,7 +127,6 @@ public class Database extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 item = new Item();
-                item.setID(Integer.parseInt(cursor.getString(0)));
                 item.setName(cursor.getString(1));
                 item.setQuantity(Integer.parseInt(cursor.getString(2)));
                 item.setIconID(Integer.parseInt(cursor.getString(3)));
@@ -144,29 +143,37 @@ public class Database extends SQLiteOpenHelper {
     }
 
     /* Update Item */
-    public int updateItem(Item item) {
+    public void updateItem(Item item) {
 
         // 1. Get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
 
         // 2. Create ContentValues to add key "column"/value
-        ContentValues values = new ContentValues();
-        values.put("name", item.getName());
-        values.put("quantity", item.getQuantity());
-        values.put("iconId", item.getIconID());
-        values.put("shouldShow", item.getShouldShow());
-        values.put("color", item.getColor());
+//        ContentValues values = new ContentValues();
+//        values.put("name", item.getName().toString());
+//        values.put("quantity", item.getQuantity());
+//        values.put("iconId", item.getIconID());
+//        values.put("shouldShow", item.getShouldShow());
+//        values.put("color", item.getColor());
+//
+//        // 3. Update row
+//        int i = db.update(TABLE_ITEMS, //table
+//                values, // column/value
+//                KEY_ID+" = ?", // selections
+//                new String[] { String.valueOf(item.getID()) }); //selection args
 
-        // 3. Update row
-        int i = db.update(TABLE_ITEMS, //table
-                values, // column/value
-                KEY_ID+" = ?", // selections
-                new String[] { String.valueOf(item.getID()) }); //selection args
+        Cursor c = db.rawQuery("UPDATE "+TABLE_ITEMS+" SET "+
+                KEY_name+       "=" + item.getName().toString()+", "+
+                KEY_quantity+   "=" + item.getQuantity()+     ", "+
+                KEY_iconID+     "=" + item.getIconID()+       ", "+
+                KEY_shouldShow+ "=" + item.getShouldShow()+   ", "+
+                KEY_color+      "=" + item.getColor()+
+                " WHERE"+KEY_ID+"=" + item.getID(),
+                null
+            );
 
         // 4. close
         db.close();
-
-        return i;
     }
 
     /* Delete Item */

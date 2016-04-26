@@ -44,7 +44,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
         for(int i = 0; i<allItems.size(); i++){
             values[i] = allItems.get(i).getName().toString();
-            Toast.makeText(this, "values["+i+"]: " + values[i], Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "values["+i+"]: " + values[i], Toast.LENGTH_SHORT).show();
         }
 
         /* If there are items to display */

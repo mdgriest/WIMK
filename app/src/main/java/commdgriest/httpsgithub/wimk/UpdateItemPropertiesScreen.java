@@ -82,7 +82,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         Bundle extras = getIntent().getExtras();
         long item_ID = extras.getLong("item_Id");
 
-        Toast.makeText(this, "item_ID: " + item_ID, Toast.LENGTH_SHORT).show();
+//        Toast.makeText(this, "item_ID: " + item_ID, Toast.LENGTH_SHORT).show();
 
         /* Find the item we are updating in the database */
         Item item = db.getItem(item_ID);
