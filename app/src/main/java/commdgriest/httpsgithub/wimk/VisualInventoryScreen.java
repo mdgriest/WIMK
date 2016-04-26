@@ -45,8 +45,40 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
         btnSearch = (Button) findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(this);
 
-        btnShowAll = (Button) findViewById(R.id.btnShowAll);
-        btnShowAll.setOnClickListener(this);
+        List<Item> allItems = db.getAllItems();
+
+        String[] values = new String[allItems.size()];
+
+        for(int i = 0; i<allItems.size(); i++){
+            values[i] = allItems.get(i).getName().toString();
+        }
+
+            /* If there are items to display */
+        if( allItems.size() != 0 ) {
+            Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
+
+            ListView lv = (ListView) findViewById(R.id.vi_listView);
+
+            //TODO change list textColor
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_list_item_1, android.R.id.text1, values);
+            lv.setAdapter(adapter);
+
+
+            lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+                }
+            });
+
+
+        }
+            /* If the inventory is empty */
+        else{
+            Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /* OnClick Listeners */
@@ -87,46 +119,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
 
             //TODO need to query into DB with String query
-        }
-
-        /* Show All */
-        else if(view == findViewById(R.id.btnShowAll)){
-
-            List<Item> allItems = db.getAllItems();
-
-
-            String[] values = new String[allItems.size()];
-
-            for(int i = 0; i<allItems.size(); i++){
-                values[i] = allItems.get(i).getName().toString();
-
-            }
-
-            /* If there are items to display */
-            if( allItems.size() != 0 ) {
-                Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
-
-                ListView lv = (ListView) findViewById(R.id.vi_listView);
-
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                        android.R.layout.simple_list_item_1, android.R.id.text1, values);
-                lv.setAdapter(adapter);
-
-
-                lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-
-                    }
-                });
-
-
-            }
-            /* If the inventory is empty */
-            else{
-                Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
-            }
         }
     }
 }

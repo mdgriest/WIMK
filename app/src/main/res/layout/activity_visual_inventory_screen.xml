@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark_gray"
+    android:background="@color/pale_squash"
     android:paddingBottom="16dp"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
@@ -58,23 +58,13 @@
             android:textColor="@color/light_gray"
             android:layout_gravity="center_horizontal" />
 
-        <Button
-            android:text="SHOW"
-            android:id="@+id/btnShowAll"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/custom_button_flat_avocado"
-            android:textColor="@color/dark_gray"
-            android:layout_gravity="center_horizontal" />
-
     </RelativeLayout>
 
     <ListView
         android:id="@+id/vi_listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_marginTop="10dp"
         android:layout_below="@+id/vi_relativeLayout">
     </ListView>
 
