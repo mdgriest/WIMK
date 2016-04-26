@@ -20,8 +20,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
     Button btnAddItem;
     Button btnBack;
     Button btnSearch;
-    TextView itemID;
-    Button btnShowAll;
     Database db = new Database(this);
 
     @Override
@@ -29,12 +27,11 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
 
-
         //Need to sort before displaying items
 
         /* Add a dummy item to the DB */
-        Item testItem0 = new Item();
-        db.addItem(testItem0);
+//        Item testItem0 = new Item();
+//        db.addItem(testItem0);
 
         btnAddItem = (Button) findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(this);
@@ -53,7 +50,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
             values[i] = allItems.get(i).getName().toString();
         }
 
-            /* If there are items to display */
+        /* If there are items to display */
         if( allItems.size() != 0 ) {
             Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
 
@@ -72,8 +69,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
                 }
             });
-
-
         }
             /* If the inventory is empty */
         else{
@@ -86,8 +81,13 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
     public void onClick(View view) {
         /* Add Item */
         if (view == findViewById(R.id.btnAddItem)){
+            /* Create a new item with default values */
+            Item newItem = new Item();
+            /* Add that item to the database, which generates an ID for the item */
+            long uniqueID = db.addItem(newItem);
+            /* Send that item ID to Update Item Properties screen so we know which item we are updating */
             Intent intent = new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class);
-            intent.putExtra("item_Id", 0);
+            intent.putExtra("item_Id", uniqueID);
             startActivity(intent);
         }
 

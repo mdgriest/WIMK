@@ -56,7 +56,7 @@ public class Database extends SQLiteOpenHelper {
     // Based on http://hmkcode.com/android-simple-sqlite-database-tutorial/
 
     /* Add Item */
-    public void addItem(Item item) {
+    public long addItem(Item item) {
         // 1. Get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -69,10 +69,12 @@ public class Database extends SQLiteOpenHelper {
         values.put(KEY_color, item.getColor());
 
         // 3. Insert
-        db.insert(TABLE_ITEMS, null, values);
+        long uniqueID = db.insert(TABLE_ITEMS, null, values);
 
         // 4. Close
         db.close();
+
+        return uniqueID;
     }
 
     /* Get Item */

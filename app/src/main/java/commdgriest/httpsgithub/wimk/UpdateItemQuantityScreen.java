@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 
 public class UpdateItemQuantityScreen extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +31,5 @@ public class UpdateItemQuantityScreen extends AppCompatActivity {
                 startActivity(new Intent(UpdateItemQuantityScreen.this, VisualInventoryScreen.class));
             }
         });
-
-
     }
-
 }

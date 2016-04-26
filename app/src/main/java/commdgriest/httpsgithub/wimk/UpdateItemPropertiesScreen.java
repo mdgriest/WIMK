@@ -23,12 +23,12 @@ import com.jjoe64.graphview.series.DataPoint;
  * Created by Alex on 3/22/16.
  */
 public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements android.view.View.OnClickListener{
-    private Color tempColor;
+    private int item_ID;
     private String tempName;
+    private int tempColor;
     private int tempIconId;
     private int tempQuantity;
-    private String TempItemName;
-    private int item_ID = 0;
+    private Item thisItem;
 
     Button btnSave;
     Button btnDelete;
@@ -37,10 +37,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     Button btnIcon;
     Button btnSetItemName;
     EditText itemNameText;
-
-//    DatabaseDML db = new DatabaseDML(this);
-
-    //TEMPORARY, TODO REMOVE AFTER FINISHED TESTING
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,37 +78,34 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnIcon.setOnClickListener(this);
         btnSetItemName.setOnClickListener(this);
 
-        Intent intent = getIntent();
-        item_ID = intent.getIntExtra("item_Id", 0);
-        Database db = new Database(this);
-//        Item item = new Item();
-//        item = db.getItemById(item_ID);
+        /* Receive itemID */
+        Bundle extras = getIntent().getExtras();
+        long item_ID = extras.getLong("item_Id");
 
-//        itemNameText.setText(String.valueOf(item.name));
+        Toast.makeText(this, "item_ID: " + item_ID, Toast.LENGTH_SHORT).show();
 
+        /* Find the item we are updating in the database */
+//        Item item = db.getItem(item_ID);
+
+        /* Upon opening the screen, set all temporary values to the item's current values */
+//        this.tempName = item.getName();
+//        this.tempColor = item.getColor();
+//        this.tempQuantity = item.getQuantity();
+//        this.tempIconId = item.getIconID();
+//
+//        Toast.makeText(this, "Color: " + item.getColor(), Toast.LENGTH_SHORT).show();
+
+        /* Set the screen up to show the correct color, name, etc. for this item */
+//        switch(tempColor) {
+//        }
     }
     public void onClick(View view) {
         /* Save */
-//        if (view == findViewById(R.id.btnSave)){
-//            Item itemToUpdate = new Item();
-//            //TODO adding Default values for the rest of the poperties to Test, should change in future
-//            itemToUpdate.setName( itemNameText.getText().toString() );
-//            itemToUpdate.setID( item_ID );
-//            itemToUpdate.setIconID( 1 );
-//            itemToUpdate.setQuantity( 1 );
-//            itemToUpdate.setColor( 1 );
-//            itemToUpdate.setShouldShow( 1 );
-//            /* If the item was a new item */
-//            if (item_ID==0){
-//                item_ID = db.addItem(itemToUpdate);
-//                Toast.makeText(this,"New Item Saved",Toast.LENGTH_SHORT).show();
-//            }
-//            else{
-////                db.update(itemToUpdate);
-//                Toast.makeText(this,"Item updated",Toast.LENGTH_SHORT).show();
-//            }
-//            finish();
-//        }
+        if (view == findViewById(R.id.btnSave)){
+            /* Update this item's attributes and save the changes in the database */
+
+
+        }
 //        /* Delete */
 //        else if (view == findViewById(R.id.btnDelete)){
 //            db.delete(item_ID);

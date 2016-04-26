@@ -1,16 +1,20 @@
 package commdgriest.httpsgithub.wimk;
 
+import android.content.Context;
+
 import java.util.Comparator;
 
 public class Item {
+
+    private Context context;
 
     /* Item attributes */
     private String name;
     private int quantity;
     private int iconId;
-    private int id;
     private int shouldShow;
     private int color;
+    private int id; //TODO REMVOE
 
     /* Constructor */
     public Item() {
@@ -18,7 +22,7 @@ public class Item {
         this.quantity = 50;
         this.iconId = 0;
         this.shouldShow = 1;
-        this.color = 15;
+        this.color = 55;
     }
 
     public Item(String name, int quantity, int iconId, int shouldShow, int color){
