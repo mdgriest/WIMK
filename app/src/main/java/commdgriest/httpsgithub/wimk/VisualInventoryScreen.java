@@ -38,7 +38,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
         btnSearch = (Button) findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(this);
 
-        List<Item> allItems = db.getAllItems();
+        List<Item> allItems = db.sort(SortingSettingsScreen.getRule());
 
         String[] values = new String[allItems.size()];
 

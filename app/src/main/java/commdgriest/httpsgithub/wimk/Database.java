@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.RadioGroup;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -180,6 +181,7 @@ public class Database extends SQLiteOpenHelper {
         db.close();
     }
 
+    /* Search */
     public List<Item> search(String query){
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -188,6 +190,50 @@ public class Database extends SQLiteOpenHelper {
         //search query, add % query %
         String searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " WHERE name LIKE '%" + query + "%'";
 
+        Cursor cursor = db.rawQuery(searchQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                Item item = new Item();
+                item.setID(Integer.parseInt(cursor.getString(0)));
+                item.setName(cursor.getString(1));
+                item.setQuantity(Integer.parseInt(cursor.getString(2)));
+                item.setIconID(Integer.parseInt(cursor.getString(3)));
+                item.setShouldShow(Integer.parseInt(cursor.getString(4)));
+                item.setColor(Integer.parseInt(cursor.getString(5)));
+
+                // Add item to items
+                items.add(item);
+            } while (cursor.moveToNext());
+        }
+
+        return items;
+    }
+
+    /* Sort */
+    public List<Item> sort(int rule){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String searchQuery = "";
+
+        switch (rule){
+            /* Sort by Quantity, low to high */
+            case 0:
+                searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " ORDER BY quantity ASC";
+                break;
+            /* Sort by Quantity, high to low */
+            case 1:
+                searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " ORDER BY quantity DESC";
+                break;
+            /* Sort Alphabetically, A to Z */
+            case 2:
+                searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " ORDER BY name COLLATE NOCASE ASC";
+                break;
+            /* Sort Alphabetically, Z to A */
+            case 3:
+                searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " ORDER BY name COLLATE NOCASE DESC";
+                break;
+        }
+
+        List<Item> items = new LinkedList<Item>();
         Cursor cursor = db.rawQuery(searchQuery, null);
         if (cursor.moveToFirst()) {
             do {

@@ -12,6 +12,8 @@ import android.widget.Toast;
 public class SortingSettingsScreen extends AppCompatActivity implements android.view.View.OnClickListener{
     Button btnDone;
     private RadioGroup sortButtons;
+    Database db = new Database(this);
+    public static int rule;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,12 +28,46 @@ public class SortingSettingsScreen extends AppCompatActivity implements android.
 
     @Override
     public void onClick(View view){
-        /* Add Item */
+        /* When the user clicks 'DONE' */
         if(view == findViewById(R.id.btnSortingSettingsDone)){
+
+            /* Determine which of the radio buttons is checked */
             int selectedID = sortButtons.getCheckedRadioButtonId();
+
+            /* Get text from that radio button */
             RadioButton selectedButton = (RadioButton) findViewById(selectedID);
-            Toast.makeText(this, "SelectedID: " + selectedButton.getText(), Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(SortingSettingsScreen.this, MainMenuScreen.class));
+            String sortingChoiceText = selectedButton.getText().toString();
+            switch(sortingChoiceText){
+                case "Sort by Quantity, low to high":
+                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+                    rule = 0;
+                    db.sort(rule);
+                    break;
+                case "Sort by Quantity, high to low":
+                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+                    rule = 1;
+                    db.sort(rule);
+                    break;
+                case "Sort Alphabetically, A to Z":
+                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+                    rule = 2;
+                    db.sort(rule);
+                    break;
+                case "Sort Alphabetically, Z to A":
+                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+                    rule = 3;
+                    db.sort(rule);
+                    break;
+                default:
+                    Toast.makeText(this, "Bad sorting choice", Toast.LENGTH_SHORT).show();
+            }
+
+//            Toast.makeText(this, "SelectedID: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(SortingSettingsScreen.this, SettingsScreen.class));
         }
+    }
+
+    public static int getRule() {
+        return rule;
     }
 }
