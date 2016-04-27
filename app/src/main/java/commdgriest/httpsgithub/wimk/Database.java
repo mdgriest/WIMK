@@ -33,7 +33,7 @@ public class Database extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String CREATE_TABLE_INVENTORY = "CREATE TABLE item ( "
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "name TEXT, "
+                + "name TEXT UNIQUE, "
                 + "quantity INTEGER, "
                 + "iconId INTEGER, "
                 + "shouldShow INTEGER, "
@@ -166,15 +166,15 @@ public class Database extends SQLiteOpenHelper {
     }
 
     /* Delete Item */
-    public void deleteItem(Item item) {
+    public void deleteItem(String name) {
 
         // 1. Get reference to writable DB
         SQLiteDatabase db = this.getWritableDatabase();
 
         // 2. Delete
         db.delete(TABLE_ITEMS, //table name
-                KEY_ID+" = ?",  // selections
-                new String[] { String.valueOf(item.getID()) }); //selections args
+                KEY_name+" = ?",  // selections
+                new String[] { String.valueOf(name) }); //selections args
 
         // 3. Close
         db.close();

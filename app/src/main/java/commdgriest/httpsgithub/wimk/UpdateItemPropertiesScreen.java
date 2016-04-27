@@ -36,6 +36,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     EditText itemNameText;
 
     Bundle savedInstanceState;
+    String nameOfSelectedItem;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,7 +82,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         /* Receive name of item that was clicked in VI Screen */
         Bundle extras = getIntent().getExtras();
-        String nameOfSelectedItem = extras.getString("NAME_OF_SELECTED_ITEM");
+        nameOfSelectedItem = extras.getString("NAME_OF_SELECTED_ITEM");
         Toast.makeText(this, "NAME_OF_SELECTED_ITEM: " + nameOfSelectedItem, Toast.LENGTH_SHORT).show();
 
         /* Set the editText to hold the received item's name */
@@ -117,8 +118,21 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             updatedItem.setQuantity(this.tempQuantity);
             updatedItem.setIconID(this.tempIconId);
 
-            /* INSERT the updated Item into the database */
-            db.addItem(updatedItem);
+            /* If the item was already in inventory */
+            if(this.nameOfSelectedItem != null){
+                /* UPDATE in database */
+
+                // 1. Delete the old version of the item from the db
+                db.deleteItem(nameOfSelectedItem);
+
+                // 2. Add the updated item to inventory
+                db.addItem(updatedItem);
+            }
+            /* If the item is a brand new item */
+            else{
+                /* INSERT the updated Item into the database */
+                db.addItem(updatedItem);
+            }
 
             //TODO if the item is not actually new, UPDATE item in the databse
 
