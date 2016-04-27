@@ -82,8 +82,10 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         /* Receive name of item that was clicked in VI Screen */
         Bundle extras = getIntent().getExtras();
         String nameOfSelectedItem = extras.getString("NAME_OF_SELECTED_ITEM");
-
         Toast.makeText(this, "NAME_OF_SELECTED_ITEM: " + nameOfSelectedItem, Toast.LENGTH_SHORT).show();
+
+        /* Set the editText to hold the received item's name */
+        itemNameText.setText(nameOfSelectedItem);
 
         /* Find the item we are updating in the database */
 //        Item item = db.getItem(item_ID);
