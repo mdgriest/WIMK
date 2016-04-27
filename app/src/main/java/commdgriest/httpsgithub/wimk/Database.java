@@ -79,7 +79,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     /* Get Item */
-    public Item getItem(String name){
+    public Item getItem(String name) {
 
         // 1. get reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
@@ -89,14 +89,14 @@ public class Database extends SQLiteOpenHelper {
                 db.query(TABLE_ITEMS,   // a. table
                         COLUMNS,        // b. column names
                         " name = ?",    // c. selections
-                        new String[] { String.valueOf(name) }, // d. selections args
+                        new String[]{String.valueOf(name)}, // d. selections args
                         null,   // e. group by
                         null,   // f. having
                         null,   // g. order by
                         null);  // h. limit
 
         // 3. if we got results get the first one
-        if (cursor != null)
+        if (cursor.getCount() > 0) {
             cursor.moveToFirst();
 
         // 4. Build item object
@@ -108,8 +108,9 @@ public class Database extends SQLiteOpenHelper {
         item.setShouldShow(Integer.parseInt(cursor.getString(4)));
         item.setColor(Integer.parseInt(cursor.getString(5)));
 
-        // 5. return item
         return item;
+        }
+        else return new Item();
     }
 
     /* Get All Items */
@@ -125,7 +126,8 @@ public class Database extends SQLiteOpenHelper {
 
         // 3. Go over each row, build item and add it to list
         Item item = null;
-        if (cursor.moveToFirst()) {
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
             do {
                 item = new Item();
                 item.setName(cursor.getString(1));
@@ -139,9 +141,6 @@ public class Database extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-        //IGNORE THIS COMMENT
-
-        // return items
         return items;
     }
 
@@ -193,7 +192,8 @@ public class Database extends SQLiteOpenHelper {
         String searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " WHERE name LIKE '%" + query + "%'";
 
         Cursor cursor = db.rawQuery(searchQuery, null);
-        if (cursor.moveToFirst()) {
+        if (cursor.getCount() > 0) {
+            cursor.moveToFirst();
             do {
                 Item item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));
@@ -238,6 +238,7 @@ public class Database extends SQLiteOpenHelper {
         List<Item> items = new LinkedList<Item>();
         Cursor cursor = db.rawQuery(searchQuery, null);
         if (cursor.moveToFirst()) {
+//            cursor.moveToFirst();
             do {
                 Item item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));
