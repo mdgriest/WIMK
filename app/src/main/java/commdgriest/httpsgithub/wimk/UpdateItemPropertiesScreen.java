@@ -92,9 +92,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             itemNameText.setText("New Item");
         }
 
-        /* Find the item we are updating in the database */
-//        Item item = db.getItem(item_ID);
-
         //TODO using default values when opening the screen for now, need to get the item we are updating in the future
         Item item = new Item();
 

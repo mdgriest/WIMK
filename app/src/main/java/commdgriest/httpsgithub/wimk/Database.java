@@ -186,13 +186,12 @@ public class Database extends SQLiteOpenHelper {
         List<Item> items = new LinkedList<Item>();
 
         //search query, add % query %
-        String searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " WHERE name = " + query + ";";
+        String searchQuery = "SELECT * FROM " + TABLE_ITEMS +  " WHERE name LIKE '%" + query + "%'";
 
         Cursor cursor = db.rawQuery(searchQuery, null);
-        Item item = null;
         if (cursor.moveToFirst()) {
             do {
-                item = new Item();
+                Item item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));
                 item.setName(cursor.getString(1));
                 item.setQuantity(Integer.parseInt(cursor.getString(2)));
@@ -205,7 +204,6 @@ public class Database extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
-        // return items
         return items;
     }
 }

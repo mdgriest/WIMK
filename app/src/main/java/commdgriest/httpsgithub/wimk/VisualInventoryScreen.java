@@ -112,13 +112,11 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.showSoftInput(searchText, InputMethodManager.SHOW_IMPLICIT);
 
-            //get query from search bar
+            /* Get query from search bar */
             String query = searchText.getText().toString();
 
             List<Item> items = db.search(query);
-
-            Toast.makeText(this, items.size() + " items in the inventory", Toast.LENGTH_SHORT).show();
-
+            Toast.makeText(this, "Found " + items.size() + " items containing " + query, Toast.LENGTH_SHORT).show();
 
             //TODO need to query into DB with String query
         }
