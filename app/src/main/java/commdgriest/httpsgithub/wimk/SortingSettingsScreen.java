@@ -7,76 +7,31 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
-public class SortingSettingsScreen extends AppCompatActivity {
+public class SortingSettingsScreen extends AppCompatActivity implements android.view.View.OnClickListener{
+    Button btnDone;
+    private RadioGroup sortButtons;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sorting_settings_screen);
 
-        private int tempSortingRule;
-        private final int radioButton1 = 0;//first radio button id
-        private final int radioButton2 = 1;//second radio button id
-        private final int radioButton3 = 2;//third radio button id
-        private final int radioButton4 = 3;//fourth radio button id
+        btnDone = (Button) findViewById(R.id.btnSortingSettingsDone);
+        btnDone.setOnClickListener(this);
 
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_sorting_settings_screen);
-
-            Button btnVerifSortRule = (Button) findViewById(R.id.btnVerifSortRule);
-            RadioButton rb1 = (RadioButton) findViewById(R.id.rdbtnSortOption0);
-            rb1.setId(radioButton1);
-
-            RadioButton rb2 = (RadioButton) findViewById(R.id.rdbtnSortOption1);
-            rb2.setId(radioButton2);
-
-            RadioButton rb3 = (RadioButton) findViewById(R.id.rdbtnSortOption2);
-            rb3.setId(radioButton3);
-
-            RadioButton rb4 = (RadioButton) findViewById(R.id.rdbtnSortOption3);
-            rb4.setId(radioButton4);
-
-            btnVerifSortRule.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //before going back to settings screen, save new sorting rule as temp sorting rule
-                    RadioGroup sortingButtons = (RadioGroup) findViewById(R.id.sortingButtons);
-
-                    //UNSURE OF WHAT INTS ARE BEING RETURNED** (R.id.btnQhightolow)??
-                    tempSortingRule = sortingButtons.getCheckedRadioButtonId();
-
-                    //now call sort (which will check if sorting rule has changed)
-                    Inventory newInventory = new Inventory();
-                    newInventory.sort();
-
-
-                    startActivity(new Intent(SortingSettingsScreen.this, SettingsScreen.class));
-
-                }
-            });
-
-
-
-        }
-
-        //check to see if sorting rule has changed
-        public boolean hasChanged(int oldSortingRule){
-            //meaning no button was selected
-            if(tempSortingRule == -1){
-                return false;
-            }
-            //meaning sorting rule has not changed
-            else if(tempSortingRule == oldSortingRule)
-                return false;
-            //sorting rule has changed
-            else {
-                //store the new sorting rule as the inventory's sorting rule
-                Inventory newInventory = new Inventory();
-                newInventory.sortingRule = tempSortingRule;
-                //if static - leave this way
-                //Inventory.sortingRule = tempSortingRule;
-                return true;
-            }
-        }
-
+        sortButtons = (RadioGroup)findViewById(R.id.sortingButtons);
     }
+
+    @Override
+    public void onClick(View view){
+        /* Add Item */
+        if(view == findViewById(R.id.btnSortingSettingsDone)){
+            int selectedID = sortButtons.getCheckedRadioButtonId();
+            RadioButton selectedButton = (RadioButton) findViewById(selectedID);
+            Toast.makeText(this, "SelectedID: " + selectedButton.getText(), Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(SortingSettingsScreen.this, MainMenuScreen.class));
+        }
+    }
+}

@@ -32,20 +32,20 @@ public class Inventory {
     /* Sort only if sorting rule has been changed */
     //*** Might have to change case value based on radio button ID's
     public void sort(){
-        SortingSettingsScreen settings = new SortingSettingsScreen();
-        if(settings.hasChanged(sortingRule) == true){
-            //sorting rule should now be set to new sorting rule
-            switch(sortingRule){
-                case 0:
-                    sortLowtoHigh();
-                case 1:
-                    sortHightoLow();
-                case 2:
-                    sortAtoZ();
-                case 3:
-                    sortAtoZ();
-            }
-        }
+//        SortingSettingsScreen settings = new SortingSettingsScreen();
+//        if(settings.hasChanged(sortingRule) == true){
+//            //sorting rule should now be set to new sorting rule
+//            switch(sortingRule){
+//                case 0:
+//                    sortLowtoHigh();
+//                case 1:
+//                    sortHightoLow();
+//                case 2:
+//                    sortAtoZ();
+//                case 3:
+//                    sortAtoZ();
+//            }
+//        }
     }
 
     //sorting by Quantity High to Low

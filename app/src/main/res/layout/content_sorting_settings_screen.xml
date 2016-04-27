@@ -78,7 +78,7 @@
         android:background="@drawable/custom_button_red_gradient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnVerifSortRule"
+        android:id="@+id/btnSortingSettingsDone"
         android:layout_marginBottom="25dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />

@@ -130,8 +130,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
 
             lv.setAdapter(adapter);
-
-            //TODO need to query into DB with String query
         }
     }
 }
