@@ -77,13 +77,12 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
     public void onClick(View view) {
         /* Add Item */
         if (view == findViewById(R.id.btnAddItem)){
-            /* Create a new item with default values */
-            Item newItem = new Item();
-            /* Add that item to the database, which generates an ID for the item */
-            long uniqueID = db.addItem(newItem);
-            /* Send that item ID to Update Item Properties screen so we know which item we are updating */
+            /* Send a flag indicating that this is a new item (add to the db instead of updating) */
             Intent intent = new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class);
-            intent.putExtra("item_Id", uniqueID);
+            String isNew = "yes";
+            intent.putExtra("isNew", isNew.toString());
+
+            /* Open the Update Item Properties Screen */
             startActivity(intent);
         }
 

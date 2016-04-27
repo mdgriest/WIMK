@@ -38,9 +38,13 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     Button btnSetItemName;
     EditText itemNameText;
 
+    Bundle savedInstanceState;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_item_properties_screen);
+
+//        this.savedInstanceState = savedInstanceState;
 
         /* Item Quantity Graph */
 //      See http://www.android-graphview.org/documentation/category/bar-graph
@@ -79,21 +83,24 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnSetItemName.setOnClickListener(this);
 
         /* Receive itemID */
-        Bundle extras = getIntent().getExtras();
-        long item_ID = extras.getLong("item_Id");
+//        Bundle extras = getIntent().getExtras();
+//        long item_ID = extras.getLong("item_Id");
 
 //        Toast.makeText(this, "item_ID: " + item_ID, Toast.LENGTH_SHORT).show();
 
         /* Find the item we are updating in the database */
-        Item item = db.getItem(item_ID);
+//        Item item = db.getItem(item_ID);
+
+        //TODO using default values when opening the screen for now, need to get the item we are updating in the future
+        Item item = new Item();
 
         /* Upon opening the screen, set all temporary values to the item's current values */
         this.tempName = item.getName();
         this.tempColor = item.getColor();
         this.tempQuantity = item.getQuantity();
         this.tempIconId = item.getIconID();
-
     }
+
     public void onClick(View view) {
         /* Save */
         if (view == findViewById(R.id.btnSave)){
@@ -111,8 +118,10 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             updatedItem.setQuantity(this.tempQuantity);
             updatedItem.setIconID(this.tempIconId);
 
-            /* Update the item in the database */
-            int i = db.updateItem(updatedItem);
+            /* INSERT the updated Item into the database */
+            db.addItem(updatedItem);
+
+            //TODO if the item is not actually new, UPDATE item in the databse
 
             /* And return to the Visual Inventory Screen */
             startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
