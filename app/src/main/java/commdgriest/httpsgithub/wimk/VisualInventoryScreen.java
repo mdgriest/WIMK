@@ -44,7 +44,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
         for(int i = 0; i<allItems.size(); i++){
             values[i] = allItems.get(i).getName().toString();
-//            Toast.makeText(this, "values["+i+"]: " + values[i], Toast.LENGTH_SHORT).show();
         }
 
         /* If there are items to display */
@@ -117,6 +116,20 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
             List<Item> items = db.search(query);
             Toast.makeText(this, "Found " + items.size() + " items containing " + query, Toast.LENGTH_SHORT).show();
+
+            /* Display items satisfying the query */
+            String[] values = new String[items.size()];
+
+            for(int i = 0; i<items.size(); i++){
+                values[i] = items.get(i).getName().toString();
+            }
+
+            ListView lv = (ListView) findViewById(R.id.vi_listView);
+
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                    android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+            lv.setAdapter(adapter);
 
             //TODO need to query into DB with String query
         }
