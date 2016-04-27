@@ -19,9 +19,6 @@ import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
-/**
- * Created by Alex on 3/22/16.
- */
 public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements android.view.View.OnClickListener{
     private int item_ID;
     private String tempName;
@@ -82,11 +79,11 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnIcon.setOnClickListener(this);
         btnSetItemName.setOnClickListener(this);
 
-        /* Receive itemID */
-//        Bundle extras = getIntent().getExtras();
-//        long item_ID = extras.getLong("item_Id");
+        /* Receive name of item that was clicked in VI Screen */
+        Bundle extras = getIntent().getExtras();
+        String nameOfSelectedItem = extras.getString("NAME_OF_SELECTED_ITEM");
 
-//        Toast.makeText(this, "item_ID: " + item_ID, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "NAME_OF_SELECTED_ITEM: " + nameOfSelectedItem, Toast.LENGTH_SHORT).show();
 
         /* Find the item we are updating in the database */
 //        Item item = db.getItem(item_ID);
@@ -109,7 +106,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             /* Get the item's new name from the edit text */
             String newName = itemNameText.getText().toString();
             this.tempName = newName;
-            Toast.makeText(this, "newName: " + newName, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "newName: " + newName, Toast.LENGTH_SHORT).show();
 
             /* First create a new item with the attributes we want to save */
             Item updatedItem = new Item();

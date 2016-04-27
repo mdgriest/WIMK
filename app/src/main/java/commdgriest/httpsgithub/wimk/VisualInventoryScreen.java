@@ -49,7 +49,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
         /* If there are items to display */
         if( allItems.size() != 0 ) {
-            Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
 
             ListView lv = (ListView) findViewById(R.id.vi_listView);
 
@@ -59,10 +59,17 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
             lv.setAdapter(adapter);
 
-
+            /* When the user clicks on an item in the Visual Inventory */
             lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    /* Send the name of the item to Update Item Properties Screen */
+                    String nameOfSelectedItem = (String)parent.getItemAtPosition(position);
+                    Intent intent = new Intent(VisualInventoryScreen.this, UpdateItemPropertiesScreen.class);
+                    intent.putExtra("NAME_OF_SELECTED_ITEM", nameOfSelectedItem);
+
+                    /* And launch the Update Item Properties screen */
+                    startActivity(intent);
                 }
             });
         }
