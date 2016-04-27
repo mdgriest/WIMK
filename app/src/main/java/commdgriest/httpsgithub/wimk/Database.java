@@ -139,6 +139,8 @@ public class Database extends SQLiteOpenHelper {
             } while (cursor.moveToNext());
         }
 
+        //IGNORE THIS COMMENT
+
         // return items
         return items;
     }
