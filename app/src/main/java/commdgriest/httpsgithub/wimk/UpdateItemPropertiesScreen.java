@@ -37,45 +37,11 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_item_properties_screen);
 
-
-        /* Item Quantity Graph */
-//      See http://www.android-graphview.org/documentation/category/bar-graph
-        GraphView graphItemQuantity = (GraphView) findViewById(R.id.graphItemQuantity);
-        GridLabelRenderer glr = (GridLabelRenderer) graphItemQuantity.getGridLabelRenderer();
-        BarGraphSeries<DataPoint> seriesItemQuantity = new BarGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(2, 15),
-        });
-
-        /* Set axes to manual */
-        graphItemQuantity.getViewport().setXAxisBoundsManual(true);
-        graphItemQuantity.getViewport().setYAxisBoundsManual(true);
-        /* Set X range */
-        graphItemQuantity.getViewport().setMinX(-5);
-        graphItemQuantity.getViewport().setMaxX(1);
-        /* Set Y range */
-        graphItemQuantity.getViewport().setMinY(0);
-        graphItemQuantity.getViewport().setMaxY(1);
-
-        /* Do not show axis labels */
-        glr.setHorizontalLabelsVisible(false);
-        glr.setVerticalLabelsVisible(false);
-
-        /* Do not show the grid */
-        glr.setGridStyle(GridLabelRenderer.GridStyle.NONE);
-
-        /* Set the color of the bar for now */
-        seriesItemQuantity.setSpacing(1);
-        seriesItemQuantity.setColor(getResources().getColor(R.color.avocado));
-        graphItemQuantity.addSeries(seriesItemQuantity);
-        //TODO fix the bar so that it occupies the full width of the icon
-        //TODO get the series color to update based on which radio button from the group below is checked
-
         btnSave = (Button) findViewById(R.id.btnSave);
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnCancelProp = (Button) findViewById(R.id.btnCancel);
         btnChangeIcon = (Button) findViewById(R.id.btnSelectIcon);
         btnIcon = (Button) findViewById(R.id.btnSetQuantity);
-        btnSetItemName = (Button) findViewById(R.id.btnSetItemName);
         itemNameText = (EditText) findViewById(R.id.itemNameText);
 
         btnSave.setOnClickListener(this);
@@ -83,7 +49,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnCancelProp.setOnClickListener(this);
         btnChangeIcon.setOnClickListener(this);
         btnIcon.setOnClickListener(this);
-        btnSetItemName.setOnClickListener(this);
 
         /* Receive name of item that was clicked in VI Screen */
         Bundle extras = getIntent().getExtras();
@@ -169,17 +134,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateItemQuantityScreen.class));
         }
 
-        /* Set Item Name */
-        else if (view == findViewById(R.id.btnSetItemName)) {
-         /* Make the textView visible so the user can enter a query */
-            itemNameText.setVisibility(View.VISIBLE);
-                /* Shift focus to the textView to avoid making the user manually click on it */
-            itemNameText.requestFocus();
-                /* Launch the keyboard for user input */
-            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.showSoftInput(itemNameText, InputMethodManager.SHOW_IMPLICIT);
-        }
-//      TODO : need to add items in itemsList to the VI
 //      http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
     }
 

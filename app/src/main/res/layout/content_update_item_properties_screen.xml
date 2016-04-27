@@ -13,19 +13,17 @@
     tools:showIn="@layout/activity_update_item_properties_screen"
     android:background="@color/dark_gray">
 
-    <com.jjoe64.graphview.helper.GraphViewXML
-        android:id="@+id/graphItemQuantity"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/radioColorGroup"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:seriesData="0=1"
-        app:seriesType="bar"
-        app:seriesColor="@color/burnt_orange"
+    <Button
+        android:text="Delete"
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/light_gray"
+        android:background="@drawable/custom_button_flat_burnt_orange"
+        android:layout_alignBottom="@+id/btnSave"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
         />
-
     <Button
         android:text="Save"
         android:id="@+id/btnSave"
@@ -33,9 +31,10 @@
         android:layout_height="wrap_content"
         android:textColor="@color/dark_gray"
         android:background="@drawable/custom_button_flat_avocado"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="35dp"
         />
     <Button
         android:id="@+id/btnSetQuantity"
@@ -61,19 +60,6 @@
         android:singleLine="true"
         android:textSize="30sp"
         />
-    <Button
-        android:text="Set Item Name"
-        android:id="@+id/btnSetItemName"
-        android:textColor="@color/dark_gray"
-        android:background="@drawable/custom_button_green_gradient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnSetQuantity"
-        android:layout_alignParentLeft="true"
-        android:layout_marginTop="75dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        />
 
     <Button
         android:text="Select Icon"
@@ -82,12 +68,11 @@
         android:background="@drawable/custom_button_green_gradient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnSetQuantity"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="75dp"
+        android:layout_below="@+id/itemNameText"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="35dp"
         />
 
     <Button
@@ -97,9 +82,11 @@
         android:layout_height="wrap_content"
         android:textColor="@color/dark_gray"
         android:background="@drawable/custom_button_flat_burnt_orange"
-        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/itemNameText"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
         />
 
     <RadioGroup
@@ -190,13 +177,6 @@
             />
     </RadioGroup>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Delete"
-        android:id="@+id/btnDelete"
-        android:layout_alignBottom="@+id/btnSave"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+
 
 </RelativeLayout>
