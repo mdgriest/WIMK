@@ -23,7 +23,7 @@
         android:layout_marginBottom="10dp"
         app:seriesData="0=1"
         app:seriesType="bar"
-        app:seriesColor="@color/avocado"
+        app:seriesColor="@color/burnt_orange"
         />
 
     <Button

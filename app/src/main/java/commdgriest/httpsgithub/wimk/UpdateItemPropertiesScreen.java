@@ -3,19 +3,14 @@ package commdgriest.httpsgithub.wimk;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.GridLabelRenderer;
+import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.BarGraphSeries;
 import com.jjoe64.graphview.series.DataPoint;
 
@@ -42,15 +37,24 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_item_properties_screen);
 
-//        this.savedInstanceState = savedInstanceState;
 
         /* Item Quantity Graph */
 //      See http://www.android-graphview.org/documentation/category/bar-graph
         GraphView graphItemQuantity = (GraphView) findViewById(R.id.graphItemQuantity);
         GridLabelRenderer glr = (GridLabelRenderer) graphItemQuantity.getGridLabelRenderer();
         BarGraphSeries<DataPoint> seriesItemQuantity = new BarGraphSeries<DataPoint>(new DataPoint[]{
-                new DataPoint(0, 5),
+                new DataPoint(2, 15),
         });
+
+        /* Set axes to manual */
+        graphItemQuantity.getViewport().setXAxisBoundsManual(true);
+        graphItemQuantity.getViewport().setYAxisBoundsManual(true);
+        /* Set X range */
+        graphItemQuantity.getViewport().setMinX(-5);
+        graphItemQuantity.getViewport().setMaxX(1);
+        /* Set Y range */
+        graphItemQuantity.getViewport().setMinY(0);
+        graphItemQuantity.getViewport().setMaxY(1);
 
         /* Do not show axis labels */
         glr.setHorizontalLabelsVisible(false);
@@ -60,6 +64,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         glr.setGridStyle(GridLabelRenderer.GridStyle.NONE);
 
         /* Set the color of the bar for now */
+        seriesItemQuantity.setSpacing(1);
         seriesItemQuantity.setColor(getResources().getColor(R.color.avocado));
         graphItemQuantity.addSeries(seriesItemQuantity);
         //TODO fix the bar so that it occupies the full width of the icon
