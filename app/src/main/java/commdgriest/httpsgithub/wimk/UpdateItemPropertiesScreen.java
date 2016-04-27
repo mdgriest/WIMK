@@ -141,6 +141,12 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         }
 
         /* Delete */
+        if (view == findViewById(R.id.btnDelete)){
+            /* Delete the item from the database */
+            db.deleteItem(nameOfSelectedItem);
+            /* And return to the VI Screen */
+            startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
+        }
 
         /* Cancel */
         if (view == findViewById(R.id.btnCancel)){
