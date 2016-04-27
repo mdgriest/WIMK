@@ -35,7 +35,7 @@ public class Database extends SQLiteOpenHelper {
         String CREATE_TABLE_INVENTORY = "CREATE TABLE item ( "
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + "name TEXT UNIQUE, "
-                + "quantity INTEGER, "
+                + "quantity REAL, "
                 + "iconId INTEGER, "
                 + "shouldShow INTEGER, "
                 + "color INTEGER )";
@@ -79,7 +79,7 @@ public class Database extends SQLiteOpenHelper {
     }
 
     /* Get Item */
-    public Item getItem(long id){
+    public Item getItem(String name){
 
         // 1. get reference to readable DB
         SQLiteDatabase db = this.getReadableDatabase();
@@ -88,8 +88,8 @@ public class Database extends SQLiteOpenHelper {
         Cursor cursor =
                 db.query(TABLE_ITEMS,   // a. table
                         COLUMNS,        // b. column names
-                        " id = ?",      // c. selections
-                        new String[] { String.valueOf(id) }, // d. selections args
+                        " name = ?",    // c. selections
+                        new String[] { String.valueOf(name) }, // d. selections args
                         null,   // e. group by
                         null,   // f. having
                         null,   // g. order by
@@ -103,7 +103,7 @@ public class Database extends SQLiteOpenHelper {
         Item item = new Item();
 //        item.setID(Integer.parseInt(cursor.getString(0)));
         item.setName(cursor.getString(1));
-        item.setQuantity(Integer.parseInt(cursor.getString(2)));
+        item.setQuantity(Float.parseFloat(cursor.getString(2)));
         item.setIconID(Integer.parseInt(cursor.getString(3)));
         item.setShouldShow(Integer.parseInt(cursor.getString(4)));
         item.setColor(Integer.parseInt(cursor.getString(5)));
@@ -129,7 +129,7 @@ public class Database extends SQLiteOpenHelper {
             do {
                 item = new Item();
                 item.setName(cursor.getString(1));
-                item.setQuantity(Integer.parseInt(cursor.getString(2)));
+                item.setQuantity(Float.parseFloat(cursor.getString(2)));
                 item.setIconID(Integer.parseInt(cursor.getString(3)));
                 item.setShouldShow(Integer.parseInt(cursor.getString(4)));
                 item.setColor(Integer.parseInt(cursor.getString(5)));
@@ -196,7 +196,7 @@ public class Database extends SQLiteOpenHelper {
                 Item item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));
                 item.setName(cursor.getString(1));
-                item.setQuantity(Integer.parseInt(cursor.getString(2)));
+                item.setQuantity(Float.parseFloat(cursor.getString(2)));
                 item.setIconID(Integer.parseInt(cursor.getString(3)));
                 item.setShouldShow(Integer.parseInt(cursor.getString(4)));
                 item.setColor(Integer.parseInt(cursor.getString(5)));
@@ -240,7 +240,7 @@ public class Database extends SQLiteOpenHelper {
                 Item item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));
                 item.setName(cursor.getString(1));
-                item.setQuantity(Integer.parseInt(cursor.getString(2)));
+                item.setQuantity(Float.parseFloat(cursor.getString(2)));
                 item.setIconID(Integer.parseInt(cursor.getString(3)));
                 item.setShouldShow(Integer.parseInt(cursor.getString(4)));
                 item.setColor(Integer.parseInt(cursor.getString(5)));

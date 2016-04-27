@@ -10,7 +10,7 @@ public class Item {
 
     /* Item attributes */
     private String name;
-    private int quantity;
+    private float quantity;
     private int iconId;
     private int shouldShow;
     private int color;
@@ -29,7 +29,7 @@ public class Item {
     public String getName() {
         return this.name;
     }
-    public int getQuantity() {
+    public float getQuantity() {
         return this.quantity;
     }
     public int getIconID(){
@@ -44,7 +44,7 @@ public class Item {
     public void setName(String newName){
         this.name = newName;
     }
-    public void setQuantity(int newQuantity){
+    public void setQuantity(float newQuantity){
         this.quantity = newQuantity;
     }
     public void setIconID(int newIconID){
@@ -63,41 +63,4 @@ public class Item {
     }
     public void setColor(int c) { color = c;
     }
-
-    /* Sort by quantity ascending order */
-    // Uses Comparator interface for Java ArrayLists
-    public Comparator<Item> ItemQuantityComparatorLowtoHigh = new Comparator<Item>() {
-        public int compare (Item item1, Item item2){
-            int itemQuantity1 = item1.getQuantity();
-            int itemQuantity2 = item2.getQuantity();
-            return itemQuantity1 - itemQuantity2;
-        }
-    };
-
-    /* Sort by quantity descending order */
-    public Comparator<Item> ItemQuantityComparatorHightoLow = new Comparator<Item>() {
-        public int compare (Item item1, Item item2){
-            int itemQuantity1 = item1.getQuantity();
-            int itemQuantity2 = item2.getQuantity();
-            return itemQuantity2 - itemQuantity1;
-        }
-    };
-
-    /* Sort Alphabetically A to Z */
-    public Comparator<Item> ItemNameComparatorAtoZ = new Comparator<Item>() {
-        public int compare (Item item1, Item item2){
-            String itemName1 = item1.getName().toUpperCase();
-            String itemName2 = item2.getName().toUpperCase();
-            return itemName1.compareTo(itemName2);
-        }
-    };
-
-    /* Sort Alphabetically Z to A */
-    public Comparator<Item> ItemNameComparatorZtoA = new Comparator<Item>() {
-        public int compare (Item item1, Item item2){
-            String itemName1 = item1.getName().toUpperCase();
-            String itemName2 = item2.getName().toUpperCase();
-            return itemName2.compareTo(itemName1);
-        }
-    };
 }

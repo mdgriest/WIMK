@@ -11,15 +11,15 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="commdgriest.httpsgithub.wimk.UpdateItemPropertiesScreen"
     tools:showIn="@layout/activity_update_item_properties_screen"
-    android:background="@color/dark_gray">
+    android:background="@color/light_gray">
 
     <Button
         android:text="Delete"
         android:id="@+id/btnDelete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/light_gray"
-        android:background="@drawable/custom_button_flat_burnt_orange"
+        android:textColor="@color/dark_gray"
+        android:background="@drawable/custom_button_red_gradient"
         android:layout_alignBottom="@+id/btnSave"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="35dp"
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/dark_gray"
-        android:background="@drawable/custom_button_flat_avocado"
+        android:background="@drawable/custom_button_green_gradient"
         android:layout_marginBottom="10dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -47,20 +47,30 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         />
+    <RatingBar
+        android:id="@+id/quantityRatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnSetQuantity"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:numStars="5"
+        android:stepSize="0.1"
+        android:focusable="true"
+        />
     <EditText
         android:text="Apples"
         android:id="@+id/itemNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/btnSetQuantity"
+        android:layout_below="@+id/quantityRatingBar"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="15dp"
-        android:textColor="@color/light_gray"
+        android:textColor="@color/dark_gray"
         android:singleLine="true"
         android:textSize="30sp"
         />
-
     <Button
         android:text="Select Icon"
         android:id="@+id/btnSelectIcon"
@@ -70,11 +80,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/itemNameText"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="35dp"
         />
-
     <Button
         android:text="Cancel"
         android:id="@+id/btnCancel"
@@ -82,13 +90,11 @@
         android:layout_height="wrap_content"
         android:textColor="@color/dark_gray"
         android:background="@drawable/custom_button_flat_burnt_orange"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:layout_below="@+id/itemNameText"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="35dp"
         />
-
     <RadioGroup
         android:id="@+id/radioColorGroup"
         android:layout_width="wrap_content"

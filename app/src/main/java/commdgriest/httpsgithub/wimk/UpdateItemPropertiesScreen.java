@@ -1,25 +1,19 @@
 package commdgriest.httpsgithub.wimk;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.GridLabelRenderer;
-import com.jjoe64.graphview.Viewport;
-import com.jjoe64.graphview.series.BarGraphSeries;
-import com.jjoe64.graphview.series.DataPoint;
+import android.widget.RatingBar;
+import android.widget.Toast;
 
 public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements android.view.View.OnClickListener{
     private int item_ID;
     private String tempName;
     private int tempColor;
     private int tempIconId;
-    private int tempQuantity;
+    private float tempQuantity;
     private Item thisItem;
 
     Button btnSave;
@@ -27,8 +21,8 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     Button btnCancelProp;
     Button btnChangeIcon;
     Button btnIcon;
-    Button btnSetItemName;
     EditText itemNameText;
+    RatingBar quantityRatingBar;
 
     Bundle savedInstanceState;
     String nameOfSelectedItem;
@@ -43,6 +37,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnChangeIcon = (Button) findViewById(R.id.btnSelectIcon);
         btnIcon = (Button) findViewById(R.id.btnSetQuantity);
         itemNameText = (EditText) findViewById(R.id.itemNameText);
+        quantityRatingBar = (RatingBar) findViewById(R.id.quantityRatingBar);
 
         btnSave.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
@@ -62,15 +57,29 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             itemNameText.setText("New Item");
         }
 
-        //TODO using default values when opening the screen for now, need to get the item we are updating in the future
-        Item item = new Item();
+        /* Receive ID of item that was clicked in VI Screen */
+        Item item = db.getItem(nameOfSelectedItem);
 
         /* Upon opening the screen, set all temporary values to the item's current values */
         this.tempName = item.getName();
         this.tempColor = item.getColor();
-        this.tempQuantity = item.getQuantity();
         this.tempIconId = item.getIconID();
+        this.tempQuantity = item.getQuantity();
+
+        quantityRatingBar.setRating(tempQuantity);
+
+        addListenerOnRatingBar();
     }
+
+    public void addListenerOnRatingBar(){
+        quantityRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                tempQuantity = quantityRatingBar.getRating();
+            }
+        });
+    }
+
 
     public void onClick(View view) {
         /* Save */
@@ -86,8 +95,10 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             Item updatedItem = new Item();
             updatedItem.setName(this.tempName.toString());
             updatedItem.setColor(this.tempColor);
-            updatedItem.setQuantity(this.tempQuantity);
+            updatedItem.setQuantity(quantityRatingBar.getRating());
             updatedItem.setIconID(this.tempIconId);
+
+            Toast.makeText(this, "temQuantity: " + tempQuantity, Toast.LENGTH_SHORT).show();
 
             /* If the item was already in inventory */
             if(this.nameOfSelectedItem != null){

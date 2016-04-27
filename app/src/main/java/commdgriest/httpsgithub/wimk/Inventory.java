@@ -29,50 +29,6 @@ public class Inventory {
         //vis.showItemsFromSearch();
     }
 
-    /* Sort only if sorting rule has been changed */
-    //*** Might have to change case value based on radio button ID's
-    public void sort(){
-//        SortingSettingsScreen settings = new SortingSettingsScreen();
-//        if(settings.hasChanged(sortingRule) == true){
-//            //sorting rule should now be set to new sorting rule
-//            switch(sortingRule){
-//                case 0:
-//                    sortLowtoHigh();
-//                case 1:
-//                    sortHightoLow();
-//                case 2:
-//                    sortAtoZ();
-//                case 3:
-//                    sortAtoZ();
-//            }
-//        }
-    }
-
-    //sorting by Quantity High to Low
-    public void sortHightoLow(){
-        Item newItem = new Item();
-        Collections.sort(itemsList, newItem.ItemQuantityComparatorHightoLow);
-    }
-
-    //sorting by Quantity Low to High
-    public void sortLowtoHigh(){
-        Item newItem = new Item();
-        Collections.sort(itemsList, newItem.ItemQuantityComparatorLowtoHigh);
-    }
-
-    //sorting Alphabetically Z to A
-    public void sortZtoA(){
-        Item newItem = new Item();
-        Collections.sort(itemsList, newItem.ItemNameComparatorZtoA);
-    }
-
-    //sorting Alphabetically A to Z
-    public void sortAtoZ(){
-        Item newItem = new Item();
-        Collections.sort(itemsList, newItem.ItemNameComparatorAtoZ);
-    }
-
-
     //add a new item to itemsList with default values
     public void addItem(){
         nextId++;
