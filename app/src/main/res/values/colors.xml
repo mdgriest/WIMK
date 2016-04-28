@@ -18,12 +18,12 @@
 
     <!-- Basic Item Colors -->
     <color name="color0">#FFFFFF</color>
-    <color name="color1">#FF989A</color>
+    <color name="color1">#F08080</color>
     <color name="color2">#B5FFE6</color>
     <color name="color3">#4EBAFF</color>
     <color name="color4">#AAD450</color>
     <color name="color5">#FBCA54</color>
-    <color name="color6">#F6402D</color>
+    <color name="color6">#CC99CC</color>
     <color name="color7">#FF8A3C</color>
 
     <array name="colorArray">

@@ -179,7 +179,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             /* First create a new item with the attributes we want to save */
             Item updatedItem = new Item();
 //            updatedItem.setName(newName);
-            updatedItem.setName(newName+" ");
+            updatedItem.setName(newName);
             updatedItem.setColor(this.tempColor);
             updatedItem.setQuantity(quantityRatingBar.getRating());
             updatedItem.setIconID(this.thisIconID);
