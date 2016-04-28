@@ -9,8 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 /*
@@ -20,14 +20,14 @@ import android.widget.Toast;
 public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements android.view.View.OnClickListener{
     private String tempName;
     private int tempColor;
-    private float tempQuantity;
+    private int tempQuantity;
     private int thisIconID;
 
     Button btnSave;
     Button btnDelete;
     Button btnCancelProp;
     EditText itemNameText;
-    RatingBar quantityRatingBar;
+    SeekBar quantitySeekBar;
 
     String nameOfSelectedItem;
 
@@ -39,20 +39,13 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnCancelProp = (Button) findViewById(R.id.btnCancel);
         itemNameText = (EditText) findViewById(R.id.itemNameText);
-        quantityRatingBar = (RatingBar) findViewById(R.id.quantityRatingBar);
+        quantitySeekBar = (SeekBar) findViewById(R.id.quantitySeekBar);
 
         RelativeLayout rl = (RelativeLayout) findViewById(R.id.updateItemPropertiesRelativeLayout);
 
         btnSave.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnCancelProp.setOnClickListener(this);
-
-//        String[] names = {
-//                "Apples2",
-//                "Bananas2",
-//                "Milk2",
-//                "Cheese2",
-//        };
 
         Integer[] imageId = {
                 R.drawable.apple_by_creative_stall,
@@ -84,7 +77,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         /* Set the icon according to iconID */
         int icon = imageId[item.getIconID()];
 
-        quantityRatingBar.setRating(tempQuantity);
+        quantitySeekBar.setProgress(tempQuantity);
 
 
         /* Create an array holding the ids of our radio buttons */
@@ -115,7 +108,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         rl.setBackground(colors[tempColor]);
 
-        addListenerOnRatingBar();
+//        addListenerOnRatingBar();
 
         radioColorGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup rGroup, int checkedId) {
@@ -135,19 +128,28 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
                 rl.setBackground(colors[index]);
             }
         });
+
+        quantitySeekBar = (SeekBar) findViewById(R.id.quantitySeekBar);
+
+        quantitySeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            int progressChanged = 0;
+
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                progressChanged = progress;
+            }
+
+            public void onStartTrackingTouch(SeekBar seekBar) {
+                // TODO Auto-generated method stub
+            }
+
+            public void onStopTrackingTouch(SeekBar seekBar) {
+                tempQuantity = progressChanged;
+            }
+        });
     }
 
     public void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
-    }
-
-    public void addListenerOnRatingBar(){
-        quantityRatingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
-            @Override
-            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-                tempQuantity = quantityRatingBar.getRating();
-            }
-        });
     }
 
     public void onClick(View view) {
@@ -162,7 +164,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             Item updatedItem = new Item();
             updatedItem.setName(newName);
             updatedItem.setColor(this.tempColor);
-            updatedItem.setQuantity(quantityRatingBar.getRating());
+            updatedItem.setQuantity(quantitySeekBar.getProgress());
             updatedItem.setIconID(this.thisIconID);
 
             /* If the item was already in inventory */

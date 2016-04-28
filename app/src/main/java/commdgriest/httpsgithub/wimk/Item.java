@@ -6,7 +6,7 @@ public class Item {
 
     /* Item attributes */
     private String name;
-    private float quantity;
+    private int quantity;
     private int iconId;
     private int shouldShow;
     private int color;
@@ -25,7 +25,7 @@ public class Item {
     public String getName() {
         return this.name;
     }
-    public float getQuantity() {
+    public int getQuantity() {
         return this.quantity;
     }
     public int getIconID(){
@@ -40,7 +40,7 @@ public class Item {
     public void setName(String newName){
         this.name = newName;
     }
-    public void setQuantity(float newQuantity){
+    public void setQuantity(int newQuantity){
         this.quantity = newQuantity;
     }
     public void setIconID(int newIconID){
