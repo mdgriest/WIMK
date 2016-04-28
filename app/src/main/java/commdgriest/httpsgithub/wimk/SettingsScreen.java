@@ -59,15 +59,6 @@ public class SettingsScreen extends MainMenuScreen {
         });
 
 
-        /* When Tutorial button is clicked, launch Tutorial Screen activity */
-        //Based on: http://stackoverflow.com/questions/24610527/how-do-i-get-a-button-to-open-another-activity-in-android-studio
-//        Button btnTutorial = (Button) findViewById(R.id.btnTutorial);
-//        btnTutorial.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view){
-//                startActivity(new Intent(SettingsScreen.this, TutorialScreen.class));
-//            }
-//        });
     }
 
 

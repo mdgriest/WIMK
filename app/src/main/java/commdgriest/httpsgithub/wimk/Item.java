@@ -57,7 +57,6 @@ public class Item {
     //TODO this one should probably not be public and maybe should not even exist
     public void setID(int newID){ this.id = newID; }
 
-    //TODO possibly remove (along with Color class)
     public int getColor(){
         return color;
     }

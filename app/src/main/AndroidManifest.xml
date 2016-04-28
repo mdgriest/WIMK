@@ -28,10 +28,6 @@
                 android:value="commdgriest.httpsgithub.wimk.MainMenuScreen" />
         </activity>
         <activity
-            android:name=".UpdateItemQuantityScreen"
-            android:label="@string/title_activity_update_item_quantity_screen"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".about_screen"
             android:label="@string/title_activity_about_screen"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -76,14 +72,6 @@
             android:name=".test"
             android:label="@string/title_activity_test"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".TutorialScreen"
-            android:label="@string/title_activity_tutorial_screen"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".ViewItemScreen"
-            android:label="@string/title_activity_view_item_screen"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
