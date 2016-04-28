@@ -1,14 +1,12 @@
 # Welcome to the **What's In My Kitchen?** mobile application!
 
----
-
 <center>
 
 ## A brief introduction to **WIMK**:
 
 ### Main Menu
 
-<img src="mainMenuScreenShot.png" alt="Main Menu Screen" style="width:250px;"/>
+<img src="README/mainMenuScreenShot.png" alt="Main Menu Screen" style="width:250px;"/>
 
 <center>
 	This is the screen you will see upon opening the app
@@ -21,10 +19,10 @@ To keep things simple, there are just two options: **Settings** and **Visual Inv
 
 ### Settings
 
-Clicking on the <img src="settings_by_hysen_drogu.png" alt="Settings Gear" style="width:15px;"/> **Settings** gear will take you to the **Settings** screen:
+Clicking on the <img src="README/settings_by_hysen_drogu.png" alt="Settings Gear" style="width:15px;"/> **Settings** gear will take you to the **Settings** screen:
 
 <center>
-<img src="settingsScreenShot.png" alt="Settings Screen" style="width:250px;"/>
+<img src="README/settingsScreenShot.png" alt="Settings Screen" style="width:250px;"/>
 </center>
 
 ---
@@ -34,7 +32,7 @@ Clicking on the <img src="settings_by_hysen_drogu.png" alt="Settings Gear" style
 Clicking **Update Sorting Rule** will take you here:
 
 <center>
-<img src="sortingRuleScreenShot.png" alt="Sorting Rule Screen" style="width:250px;"/>
+<img src="README/sortingRuleScreenShot.png" alt="Sorting Rule Screen" style="width:250px;"/>
 </center>
 
 When you have decided how you would like your inventory to be sorted, simply click **Done**. The next time you open your inventory, everything will be sorted according to your choice!
@@ -43,11 +41,11 @@ When you have decided how you would like your inventory to be sorted, simply cli
 
 ### Viewing your Inventory
 
-From the **Main Menu Screen**, click the <img src="visual_inventory_button_01.png" alt="Settings Gear" style="width:15px;"/> **Visual Inventory** button to open your inventory
+From the **Main Menu Screen**, click the <img src="README/visual_inventory_button_01.png" alt="Settings Gear" style="width:15px;"/> **Visual Inventory** button to open your inventory
 
 Your inventory will looks something like this once you add a few items to it
 
-<img src="inventoryScreenShot.png" alt="Inventory Screen" style="width:250px;"/>
+<img src="README/inventoryScreenShot.png" alt="Inventory Screen" style="width:250px;"/>
 
 ---
 
@@ -57,7 +55,7 @@ From the inventory screen, click the  **Add Item** to add a new item to your inv
 
 You will see this screen:
 
-<img src="newItemScreenShot.png" alt="Inventory Screen" style="width:250px;" border="4"/>
+<img src="README/newItemScreenShot.png" alt="Inventory Screen" style="width:250px;" border="4"/>
 
 Here, you can choose a name and color for your new item, and drag to set the quantity.
 
@@ -79,7 +77,7 @@ We designed **WIMK** to help you avoid buying groceries you already have or forg
 
 # That's all, have fun!
 
-<img src="groceries_by_oliviu_stoian.png" style="width:250px;"/>
+<img src="README/groceries_by_oliviu_stoian.png" style="width:250px;"/>
 
 </center>
 
