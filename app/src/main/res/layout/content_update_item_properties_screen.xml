@@ -36,10 +36,9 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="35dp"
         />
-    <Button
-        android:id="@+id/btnSetQuantity"
+    <ImageView
+        android:id="@+id/imgViewIcon"
         android:textColor="@color/dark_gray"
-        android:background="@drawable/bananas_by_fernando_affonso"
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_centerHorizontal="true"
@@ -51,7 +50,7 @@
         android:id="@+id/quantityRatingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnSetQuantity"
+        android:layout_below="@id/imgViewIcon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:numStars="5"

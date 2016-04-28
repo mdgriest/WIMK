@@ -1,10 +1,12 @@
 package commdgriest.httpsgithub.wimk;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.Toast;
 
@@ -20,7 +22,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     Button btnDelete;
     Button btnCancelProp;
     Button btnChangeIcon;
-    Button btnIcon;
+    ImageView imgViewIcon;
     EditText itemNameText;
     RatingBar quantityRatingBar;
 
@@ -35,7 +37,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnCancelProp = (Button) findViewById(R.id.btnCancel);
         btnChangeIcon = (Button) findViewById(R.id.btnSelectIcon);
-        btnIcon = (Button) findViewById(R.id.btnSetQuantity);
+        imgViewIcon = (ImageView) findViewById(R.id.imgViewIcon);
         itemNameText = (EditText) findViewById(R.id.itemNameText);
         quantityRatingBar = (RatingBar) findViewById(R.id.quantityRatingBar);
 
@@ -43,7 +45,21 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnDelete.setOnClickListener(this);
         btnCancelProp.setOnClickListener(this);
         btnChangeIcon.setOnClickListener(this);
-        btnIcon.setOnClickListener(this);
+        imgViewIcon.setOnClickListener(this);
+
+        String[] names = {
+                "Apples",
+                "Bananas",
+                "Milk",
+                "Cheese",
+        };
+
+        Integer[] imageId = {
+                R.drawable.apple_by_creative_stall,
+                R.drawable.bananas_by_fernando_affonso,
+                R.drawable.milk_by_norbert_kucsera,
+                R.drawable.cheese_by_edward_boatman,
+        };
 
         /* Receive name of item that was clicked in VI Screen */
         Bundle extras = getIntent().getExtras();
@@ -57,7 +73,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             itemNameText.setText("New Item");
         }
 
-        /* Receive ID of item that was clicked in VI Screen */
+        /* Get the item that was clicked in VI Screen */
         Item item = db.getItem(nameOfSelectedItem);
 
         /* Upon opening the screen, set all temporary values to the item's current values */
@@ -65,6 +81,10 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         this.tempColor = item.getColor();
         this.tempIconId = item.getIconID();
         this.tempQuantity = item.getQuantity();
+
+        /* Set the icon according to iconID */
+        int icon = imageId[ item.getIconID() ];
+        imgViewIcon.setImageResource( icon );
 
         quantityRatingBar.setRating(tempQuantity);
 
@@ -132,12 +152,17 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         /* Cancel */
         if (view == findViewById(R.id.btnCancel)){
-            finish();
+            startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
         }
 
         /* Select Icon */
         else if (view == findViewById(R.id.btnSelectIcon)){
-            startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class));
+            /* Send the name of the item to Update Item Properties Screen */
+            Intent intent = new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class);
+            intent.putExtra("NAME_OF_SELECTED_ITEM", nameOfSelectedItem);
+
+            /* And launch the Update Item Properties screen */
+            startActivity(intent);
         }
     }
 }
