@@ -15,10 +15,10 @@ public class UpdateIconScreen extends Activity {
     String nameOfSelectedItem;
 
     String[] names = {
-        "Apples",
-        "Bananas",
-        "Milk",
-        "Cheese",
+        "1Apples",
+        "1Bananas",
+        "1Milk",
+        "1Cheese",
     };
 
     Integer[] imageId = {
@@ -33,6 +33,7 @@ public class UpdateIconScreen extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_icon_screen);
 
+//        CustomList adapter = new  CustomList(UpdateIconScreen.this, names, imageId);
         CustomList adapter = new  CustomList(UpdateIconScreen.this, names, imageId);
 
         ListView lv = (ListView) findViewById(R.id.listIconChoices);
@@ -49,7 +50,6 @@ public class UpdateIconScreen extends Activity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                int selectedIconID = position;
 
 //                Toast.makeText(UpdateIconScreen.this, "You Clicked at " + position, Toast.LENGTH_SHORT).show();
 
@@ -62,8 +62,9 @@ public class UpdateIconScreen extends Activity {
                 updatedItem.setName(nameOfSelectedItem.toString()+" ");
                 updatedItem.setColor(itemFromDB.getColor());
                 updatedItem.setQuantity(itemFromDB.getQuantity());
+
                 /* And the iconID for the newly selected icon */
-                updatedItem.setIconID(selectedIconID);
+                updatedItem.setIconID(position);
 
                 /* If the item was already in inventory */
                 if(nameOfSelectedItem != null){

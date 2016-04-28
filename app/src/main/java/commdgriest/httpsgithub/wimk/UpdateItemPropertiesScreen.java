@@ -48,10 +48,10 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         imgViewIcon.setOnClickListener(this);
 
         String[] names = {
-                "Apples",
-                "Bananas",
-                "Milk",
-                "Cheese",
+                "Apples2",
+                "Bananas2",
+                "Milk2",
+                "Cheese2",
         };
 
         Integer[] imageId = {

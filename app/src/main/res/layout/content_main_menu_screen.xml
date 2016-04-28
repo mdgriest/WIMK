@@ -11,7 +11,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="commdgriest.httpsgithub.wimk.MainMenuScreen"
     tools:showIn="@layout/activity_main_menu_screen"
-    android:background="@color/white">
+    android:background="@color/avocado">
 
     <TextView
         android:text="What's In My Kitchen?"
