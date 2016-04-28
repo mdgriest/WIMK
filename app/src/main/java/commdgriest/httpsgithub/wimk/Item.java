@@ -22,7 +22,7 @@ public class Item {
         this.quantity = 50;
         this.iconId = 0;
         this.shouldShow = 1;
-        this.color = 55;
+        this.color = 0;
     }
 
     /* Getters and Setters */

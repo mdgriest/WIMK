@@ -5,11 +5,15 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements android.view.View.OnClickListener{
@@ -43,6 +47,8 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         itemNameText = (EditText) findViewById(R.id.itemNameText);
         quantityRatingBar = (RatingBar) findViewById(R.id.quantityRatingBar);
 
+        RelativeLayout rl = (RelativeLayout) findViewById(R.id.updateItemPropertiesRelativeLayout);
+
         btnSave.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnCancelProp.setOnClickListener(this);
@@ -68,10 +74,9 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         nameOfSelectedItem = extras.getString("NAME_OF_SELECTED_ITEM");
 
         /* Set the editText to hold the received item's name */
-        if( nameOfSelectedItem != null){
+        if (nameOfSelectedItem != null) {
             itemNameText.setText(nameOfSelectedItem);
-        }
-        else{
+        } else {
             itemNameText.setText("New Item");
         }
 
@@ -86,12 +91,52 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         this.thisIconID = item.getIconID();
 
         /* Set the icon according to iconID */
-        int icon = imageId[ item.getIconID() ];
+        int icon = imageId[item.getIconID()];
 //        imgViewIcon.setImageResource( icon );
 
         quantityRatingBar.setRating(tempQuantity);
 
+
+//        int[] colors = this.getResources().getIntArray(R.array.colorArray);
+
+        Drawable[] colors = {
+            getResources().getDrawable(R.color.red),
+            getResources().getDrawable(R.color.blue),
+            getResources().getDrawable(R.color.green),
+            getResources().getDrawable(R.color.yellow),
+            getResources().getDrawable(R.color.pink),
+            getResources().getDrawable(R.color.brown),
+            getResources().getDrawable(R.color.orange)
+        };
+
+        rl.setBackground(colors[tempColor]);
+
         addListenerOnRatingBar();
+
+
+        final RadioGroup radioColorGroup = (RadioGroup) findViewById(R.id.radioColorGroup);
+        radioColorGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            public void onCheckedChanged(RadioGroup rGroup, int checkedId) {
+
+                RelativeLayout rl = (RelativeLayout) findViewById(R.id.updateItemPropertiesRelativeLayout);
+
+                /*Get checked radio button id*/
+                RadioButton checkedRadioButton = (RadioButton) rGroup.findViewById(checkedId);
+
+                View radioButton = radioColorGroup.findViewById(checkedId);
+                /*Get checked radio button index */
+                int index = radioColorGroup.indexOfChild(radioButton);
+                //showToast("index of radio btn: " + index);
+                tempColor = index;
+
+                /*set background color*/
+                rl.setBackground(checkedRadioButton.getBackground());
+            }
+        });
+    }
+
+    public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     public void addListenerOnRatingBar(){
@@ -102,6 +147,9 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             }
         });
     }
+
+
+
 
 
     public void onClick(View view) {

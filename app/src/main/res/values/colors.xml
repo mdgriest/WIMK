@@ -25,4 +25,18 @@
     <color name="purple">#990099</color>
     <color name="yellow">#ffff00</color>
     <color name="orange">#ff9900</color>
+
+    <array name="colorArray">
+        <item>@color/red</item>
+        <item>@color/blue</item>
+        <item>@color/green</item>
+        <item>@color/brown</item>
+        <item>@color/pink</item>
+        <item>@color/purple</item>
+        <item>@color/yellow</item>
+        <item>@color/orange</item>
+
+
+    </array>
+
 </resources>
