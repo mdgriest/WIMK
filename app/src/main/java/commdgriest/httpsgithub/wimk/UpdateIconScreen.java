@@ -34,8 +34,6 @@ public class UpdateIconScreen extends Activity {
         setContentView(R.layout.activity_update_icon_screen);
 
         CustomList adapter = new  CustomList(UpdateIconScreen.this, names, imageId);
-//        listIconChoices=(ListView)findViewById(R.id.listIconChoices);
-//        listIconChoices.setAdapter(adapter);
 
         ListView lv = (ListView) findViewById(R.id.listIconChoices);
 
@@ -43,6 +41,7 @@ public class UpdateIconScreen extends Activity {
 
         /* Receive name of item that was originally clicked in VI Screen */
         Bundle extras = getIntent().getExtras();
+        nameOfSelectedItem = extras.getString("NAME_OF_SELECTED_ITEM");
 
         Toast.makeText(this, "nameOfSelectedItem: " + nameOfSelectedItem, Toast.LENGTH_SHORT).show();
 

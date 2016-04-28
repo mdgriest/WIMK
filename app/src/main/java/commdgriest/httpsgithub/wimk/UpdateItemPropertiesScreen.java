@@ -158,11 +158,11 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         /* Select Icon */
         else if (view == findViewById(R.id.btnSelectIcon)){
             /* Send the name of the item to Update Item Properties Screen */
-//            Intent intent = new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class);
-//            intent.putExtra("NAME_OF_SELECTED_ITEM", nameOfSelectedItem);
+            Intent intent = new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class);
+            intent.putExtra("NAME_OF_SELECTED_ITEM", nameOfSelectedItem);
 
             /* And launch the Update Item Properties screen */
-//            startActivity(intent);
+            startActivity(intent);
         }
     }
 }
