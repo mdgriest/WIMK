@@ -76,7 +76,7 @@ To search your inventory, simply click the **Search** button at the top of the s
 Enter your search and press **Search** again. You inventory will now show only items with names that contain your search
 
 <center>
-<img src="searchScreenShot.png" alt="Searching your inventory" style="width:250px;"/>
+<img src="README/searchScreenShot.png" alt="Searching your inventory" style="width:250px;"/>
 </center>
 
 ---
