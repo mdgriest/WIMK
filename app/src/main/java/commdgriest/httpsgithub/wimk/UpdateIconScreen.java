@@ -51,13 +51,15 @@ public class UpdateIconScreen extends Activity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 int selectedIconID = position;
 
+//                Toast.makeText(UpdateIconScreen.this, "You Clicked at " + position, Toast.LENGTH_SHORT).show();
+
                 Item itemFromDB = db.getItem(nameOfSelectedItem);
 
                 /* Update the database entry for this item's iconID */
 
                 /* First create a new item with the attributes we want to save */
                 Item updatedItem = new Item();
-                updatedItem.setName(nameOfSelectedItem.toString());
+                updatedItem.setName(nameOfSelectedItem.toString()+" ");
                 updatedItem.setColor(itemFromDB.getColor());
                 updatedItem.setQuantity(itemFromDB.getQuantity());
                 /* And the iconID for the newly selected icon */

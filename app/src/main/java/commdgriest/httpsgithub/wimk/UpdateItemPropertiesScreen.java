@@ -77,7 +77,8 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         Item item = db.getItem(nameOfSelectedItem);
 
         /* Upon opening the screen, set all temporary values to the item's current values */
-        this.tempName = item.getName();
+//        this.tempName = item.getName();
+        this.tempName = nameOfSelectedItem;
         this.tempColor = item.getColor();
         this.tempQuantity = item.getQuantity();
         this.thisIconID = item.getIconID();
