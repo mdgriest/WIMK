@@ -53,7 +53,7 @@
                 android:textSize="20sp"
                 android:layout_centerHorizontal="true"
                 android:gravity="center"
-                android:text="Apple by Creative Stall\nSettings by Hysen Drogu"
+                android:text="Apple by Creative Stall\n\nSettings by Hysen Drogu\n\nBananas by Fernando Affonso\n\nCheese by Edward Boatman\n\nGroceries by Oliviu Stoian\n\nMilk by Norbert Kucsera"
                 />
 
         </RelativeLayout>

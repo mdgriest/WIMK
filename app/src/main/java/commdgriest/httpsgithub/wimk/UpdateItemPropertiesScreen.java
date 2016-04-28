@@ -22,7 +22,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
     Button btnDelete;
     Button btnCancelProp;
     Button btnChangeIcon;
-    ImageView imgViewIcon;
+//    ImageView imgViewIcon;
     EditText itemNameText;
     RatingBar quantityRatingBar;
 
@@ -36,16 +36,16 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         btnSave = (Button) findViewById(R.id.btnSave);
         btnDelete = (Button) findViewById(R.id.btnDelete);
         btnCancelProp = (Button) findViewById(R.id.btnCancel);
-        btnChangeIcon = (Button) findViewById(R.id.btnSelectIcon);
-        imgViewIcon = (ImageView) findViewById(R.id.imgViewIcon);
+//        btnChangeIcon = (Button) findViewById(R.id.btnSelectIcon);
+//        imgViewIcon = (ImageView) findViewById(R.id.imgViewIcon);
         itemNameText = (EditText) findViewById(R.id.itemNameText);
         quantityRatingBar = (RatingBar) findViewById(R.id.quantityRatingBar);
 
         btnSave.setOnClickListener(this);
         btnDelete.setOnClickListener(this);
         btnCancelProp.setOnClickListener(this);
-        btnChangeIcon.setOnClickListener(this);
-        imgViewIcon.setOnClickListener(this);
+//        btnChangeIcon.setOnClickListener(this);
+//        imgViewIcon.setOnClickListener(this);
 
         String[] names = {
                 "Apples2",
@@ -85,7 +85,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         /* Set the icon according to iconID */
         int icon = imageId[ item.getIconID() ];
-        imgViewIcon.setImageResource( icon );
+//        imgViewIcon.setImageResource( icon );
 
         quantityRatingBar.setRating(tempQuantity);
 
@@ -109,7 +109,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
             /* Get the item's new name from the edit text */
             String newName = itemNameText.getText().toString();
-            Toast.makeText(this, "newName: " + newName, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "newName: " + newName, Toast.LENGTH_SHORT).show();
 
             /* First create a new item with the attributes we want to save */
             Item updatedItem = new Item();
@@ -118,8 +118,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
             updatedItem.setColor(this.tempColor);
             updatedItem.setQuantity(quantityRatingBar.getRating());
             updatedItem.setIconID(this.thisIconID);
-
-            Toast.makeText(this, "temQuantity: " + tempQuantity, Toast.LENGTH_SHORT).show();
 
             /* If the item was already in inventory */
             if(this.nameOfSelectedItem != null){
@@ -157,14 +155,14 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         }
 
         /* Select Icon */
-        else if (view == findViewById(R.id.btnSelectIcon)){
-            /* Send the name of the item to Update Item Properties Screen */
-            Intent intent = new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class);
-            intent.putExtra("NAME_OF_SELECTED_ITEM", nameOfSelectedItem);
-
-            /* And launch the Update Item Properties screen */
-            startActivity(intent);
-        }
+//        else if (view == findViewById(R.id.btnSelectIcon)){
+//            /* Send the name of the item to Update Item Properties Screen */
+//            Intent intent = new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class);
+//            intent.putExtra("NAME_OF_SELECTED_ITEM", nameOfSelectedItem);
+//
+//            /* And launch the Update Item Properties screen */
+//            startActivity(intent);
+//        }
     }
 }
 

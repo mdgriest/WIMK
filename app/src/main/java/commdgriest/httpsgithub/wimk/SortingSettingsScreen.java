@@ -39,27 +39,27 @@ public class SortingSettingsScreen extends AppCompatActivity implements android.
             String sortingChoiceText = selectedButton.getText().toString();
             switch(sortingChoiceText){
                 case "Sort by Quantity, low to high":
-                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 0;
                     db.sort(rule);
                     break;
                 case "Sort by Quantity, high to low":
-                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 1;
                     db.sort(rule);
                     break;
                 case "Sort Alphabetically, A to Z":
-                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 2;
                     db.sort(rule);
                     break;
                 case "Sort Alphabetically, Z to A":
-                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 3;
                     db.sort(rule);
                     break;
                 default:
-                    Toast.makeText(this, "Bad sorting choice", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(this, "Bad sorting choice", Toast.LENGTH_SHORT).show();
             }
 
 //            Toast.makeText(this, "SelectedID: " + sortingChoiceText, Toast.LENGTH_SHORT).show();

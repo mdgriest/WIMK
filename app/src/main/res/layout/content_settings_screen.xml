@@ -21,8 +21,9 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textView"
+        android:textSize="35sp"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="40dp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -44,7 +45,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnAboutWIMK"
         android:layout_below="@+id/btnUpdateSorting"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -57,30 +58,31 @@
         android:id="@+id/btnIconCredit"
         android:layout_below="@+id/btnAboutWIMK"
         android:layout_alignLeft="@+id/btnAboutWIMK"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_alignStart="@+id/btnAboutWIMK" />
 
-    <Button
-        android:text="Tutorial"
-        android:background="@drawable/custom_button_red_gradient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnTutorial"
-        android:textColor="@color/dark_gray"
-        android:layout_below="@+id/btnIconCredit"
-        android:layout_alignRight="@+id/btnIconCredit"
-        android:layout_alignEnd="@+id/btnIconCredit"
-        android:layout_alignLeft="@+id/btnIconCredit"
-        android:layout_alignStart="@+id/btnIconCredit" />
+    <!--<Button-->
+        <!--android:text="Tutorial"-->
+        <!--android:background="@drawable/custom_button_red_gradient"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/btnTutorial"-->
+        <!--android:textColor="@color/dark_gray"-->
+        <!--android:layout_below="@+id/btnIconCredit"-->
+        <!--android:layout_alignRight="@+id/btnIconCredit"-->
+        <!--android:layout_alignEnd="@+id/btnIconCredit"-->
+        <!--android:layout_alignLeft="@+id/btnIconCredit"-->
+        <!--android:layout_alignStart="@+id/btnIconCredit" />-->
 
     <Button
-        android:text="Back"
+        android:text="Home"
         android:background="@drawable/custom_button_flat_avocado"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/btnBack"
         android:textColor="@color/dark_gray"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/textView"
-        android:layout_alignStart="@+id/textView" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        />
 </RelativeLayout>

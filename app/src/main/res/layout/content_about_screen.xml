@@ -24,7 +24,7 @@
         android:layout_marginBottom="3dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"
+        android:textSize="45sp"
         />
 
     <TextView
@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/about_heading_textView"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="Developed by Mitchell Griest, Jenna Lisicky, and Alexandria Ogden at The Univerity of Alabama, Spring 2016"
@@ -59,7 +59,7 @@
         android:layout_marginBottom="3dp"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/hline00"
-        android:textSize="30sp"
+        android:textSize="45sp"
         />
 
     <TextView
@@ -68,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/releaseNotes_heading_textView"
-        android:textSize="15sp"
+        android:textSize="20sp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="Release version: 0.0"

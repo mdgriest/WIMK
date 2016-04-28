@@ -14,7 +14,7 @@
     android:background="@color/blue_green">
 
     <TextView
-        android:text="Visual Inventory Sorting Rule"
+        android:text="Inventory Sorting Rule"
         android:id="@+id/txtSortingRuleTitle"
         android:textSize="25sp"
         android:textColor="@color/light_gray"
@@ -22,18 +22,15 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_alignParentTop="true"
+        android:layout_marginBottom="100dp"
         android:layout_centerHorizontal="true" />
 
     <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_alignLeft="@+id/txtSortingRuleTitle"
-        android:layout_alignStart="@+id/txtSortingRuleTitle"
         android:layout_below="@+id/txtSortingRuleTitle"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
         android:id="@+id/sortingButtons">
 
         <RadioButton
@@ -42,7 +39,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/light_gray"
-            android:textSize="15sp"
+            android:textSize="21sp"
+            android:layout_marginBottom="20dp"
             android:checked="false" />
 
         <RadioButton
@@ -51,7 +49,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/light_gray"
-            android:textSize="15sp"
+            android:textSize="21sp"
+            android:layout_marginBottom="20dp"
             android:checked="false" />
 
         <RadioButton
@@ -60,7 +59,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/light_gray"
-            android:textSize="15sp"
+            android:textSize="21sp"
+            android:layout_marginBottom="20dp"
             android:checked="false" />
 
         <RadioButton
@@ -69,7 +69,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/light_gray"
-            android:textSize="15sp"
+            android:textSize="21sp"
+            android:layout_marginBottom="20dp"
             android:checked="false" />
     </RadioGroup>
 

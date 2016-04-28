@@ -42,6 +42,7 @@
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/groceries_by_oliviu_stoian"
         android:layout_below="@+id/radioColorGroup"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
@@ -53,12 +54,12 @@
         android:layout_below="@id/imgViewIcon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:numStars="5"
+        android:numStars="7"
         android:stepSize="0.1"
         android:focusable="true"
         />
     <EditText
-        android:text="nothing"
+        android:text="New Item"
         android:id="@+id/itemNameText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,18 +71,18 @@
         android:singleLine="true"
         android:textSize="30sp"
         />
-    <Button
-        android:text="Select Icon"
-        android:id="@+id/btnSelectIcon"
-        android:textColor="@color/dark_gray"
-        android:background="@drawable/custom_button_green_gradient"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/itemNameText"
-        android:layout_marginTop="5dp"
-        android:layout_marginRight="35dp"
-        />
+    <!--<Button-->
+        <!--android:text="Select Icon"-->
+        <!--android:id="@+id/btnSelectIcon"-->
+        <!--android:textColor="@color/dark_gray"-->
+        <!--android:background="@drawable/custom_button_green_gradient"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_below="@+id/itemNameText"-->
+        <!--android:layout_marginTop="5dp"-->
+        <!--android:layout_marginRight="35dp"-->
+        <!--/>-->
     <Button
         android:text="Cancel"
         android:id="@+id/btnCancel"
@@ -91,8 +92,7 @@
         android:background="@drawable/custom_button_flat_burnt_orange"
         android:layout_marginTop="5dp"
         android:layout_below="@+id/itemNameText"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
+        android:layout_centerHorizontal="true"
         />
     <RadioGroup
         android:id="@+id/radioColorGroup"
