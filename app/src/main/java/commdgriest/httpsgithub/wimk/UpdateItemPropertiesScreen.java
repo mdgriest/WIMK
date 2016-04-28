@@ -16,6 +16,9 @@ import android.widget.RatingBar;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements android.view.View.OnClickListener{
     private int item_ID;
     private String tempName;
@@ -97,24 +100,36 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         quantityRatingBar.setRating(tempQuantity);
 
 
-//        int[] colors = this.getResources().getIntArray(R.array.colorArray);
+        /* Create an array holding the ids of our radio buttons */
+        int[] radioButtons = {
+            (R.id.rdbtnColor00),
+            (R.id.rdbtnColor01),
+            (R.id.rdbtnColor02),
+            (R.id.rdbtnColor03),
+            (R.id.rdbtnColor04),
+            (R.id.rdbtnColor05),
+            (R.id.rdbtnColor06),
+        };
 
-        Drawable[] colors = {
-            getResources().getDrawable(R.color.red),
-            getResources().getDrawable(R.color.blue),
-            getResources().getDrawable(R.color.green),
-            getResources().getDrawable(R.color.yellow),
-            getResources().getDrawable(R.color.pink),
-            getResources().getDrawable(R.color.brown),
-            getResources().getDrawable(R.color.orange)
+        final RadioGroup radioColorGroup = (RadioGroup) findViewById(R.id.radioColorGroup);
+
+        /* And set the appropriate button to checked upon opening the screen */
+        radioColorGroup.check(radioButtons[tempColor]);
+
+        final Drawable[] colors = {
+            getResources().getDrawable(R.color.color0),
+            getResources().getDrawable(R.color.color1),
+            getResources().getDrawable(R.color.color2),
+            getResources().getDrawable(R.color.color3),
+            getResources().getDrawable(R.color.color4),
+            getResources().getDrawable(R.color.color5),
+            getResources().getDrawable(R.color.color6)
         };
 
         rl.setBackground(colors[tempColor]);
 
         addListenerOnRatingBar();
 
-
-        final RadioGroup radioColorGroup = (RadioGroup) findViewById(R.id.radioColorGroup);
         radioColorGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             public void onCheckedChanged(RadioGroup rGroup, int checkedId) {
 
@@ -130,7 +145,7 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
                 tempColor = index;
 
                 /*set background color*/
-                rl.setBackground(checkedRadioButton.getBackground());
+                rl.setBackground(colors[index]);
             }
         });
     }

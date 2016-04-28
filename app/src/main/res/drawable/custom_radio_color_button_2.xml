@@ -5,22 +5,22 @@
         <shape android:shape="rectangle" >
             <corners android:radius="@dimen/btn_corner_radius" />
             <stroke android:width="3dp" android:color="@color/avocado" />
-            <solid android:color="@color/green"></solid>
+            <solid android:color="@color/color2"></solid>
         </shape>
     </item>
 
     <item android:state_checked="true">
         <shape android:shape="rectangle" >
             <corners android:radius="@dimen/btn_corner_radius" />
-            <stroke android:width="3dp" android:color="@color/white" />
-            <solid android:color="@color/green"></solid>
+            <stroke android:width="3dp" android:color="@color/dark_gray" />
+            <solid android:color="@color/color2"></solid>
         </shape>
     </item>
 
     <item>
         <shape android:shape="rectangle"  >
             <corners android:radius="@dimen/btn_corner_radius" />
-            <solid android:color="@color/green"></solid>
+            <solid android:color="@color/color2"></solid>
         </shape>
     </item>
 </selector>

@@ -17,26 +17,24 @@
     <color name="blue_green">#00A388</color>
 
     <!-- Basic Item Colors -->
-    <color name="red">#ff0000</color>
-    <color name="blue">#0066ff</color>
-    <color name="green">#00ff00</color>
-    <color name="brown">#993300</color>
-    <color name="pink">#ff3399</color>
-    <color name="purple">#990099</color>
-    <color name="yellow">#ffff00</color>
-    <color name="orange">#ff9900</color>
+    <color name="color0">#FFFFFF</color>
+    <color name="color1">#FF989A</color>
+    <color name="color2">#B5FFE6</color>
+    <color name="color3">#4EBAFF</color>
+    <color name="color4">#AAD450</color>
+    <color name="color5">#FBCA54</color>
+    <color name="color6">#F6402D</color>
+    <color name="color7">#FF8A3C</color>
 
     <array name="colorArray">
-        <item>@color/red</item>
-        <item>@color/blue</item>
-        <item>@color/green</item>
-        <item>@color/brown</item>
-        <item>@color/pink</item>
-        <item>@color/purple</item>
-        <item>@color/yellow</item>
-        <item>@color/orange</item>
-
-
+        <item>@color/color0</item>
+        <item>@color/color1</item>
+        <item>@color/color2</item>
+        <item>@color/color3</item>
+        <item>@color/color4</item>
+        <item>@color/color5</item>
+        <item>@color/color6</item>
+        <item>@color/color7</item>
     </array>
 
 </resources>
