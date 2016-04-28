@@ -54,8 +54,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:background="@drawable/custom_button_flat_burnt_orange"
-            android:textColor="@color/light_gray"
+            android:background="@drawable/custom_button_flat_avocado"
+            android:textColor="@color/dark_gray"
             android:layout_gravity="center_horizontal" />
 
     </RelativeLayout>

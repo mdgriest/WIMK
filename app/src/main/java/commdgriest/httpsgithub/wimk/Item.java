@@ -15,7 +15,7 @@ public class Item {
     /* Construct default item */
     public Item() {
         this.name = "DEFAULT";
-        this.quantity = 2;
+        this.quantity = 4;
         this.iconId = 0;
         this.shouldShow = 1;
         this.color = 0;
