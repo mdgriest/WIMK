@@ -43,7 +43,8 @@ public class UpdateIconScreen extends Activity {
 
         /* Receive name of item that was originally clicked in VI Screen */
         Bundle extras = getIntent().getExtras();
-        nameOfSelectedItem = extras.getString("NAME_OF_SELECTED_ITEM");
+
+        Toast.makeText(this, "nameOfSelectedItem: " + nameOfSelectedItem, Toast.LENGTH_SHORT).show();
 
         /* When the user clicks on an icon in the update icon screen */
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -57,7 +58,7 @@ public class UpdateIconScreen extends Activity {
 
                 /* First create a new item with the attributes we want to save */
                 Item updatedItem = new Item();
-                updatedItem.setName(itemFromDB.getName());
+                updatedItem.setName(nameOfSelectedItem.toString());
                 updatedItem.setColor(itemFromDB.getColor());
                 updatedItem.setQuantity(itemFromDB.getQuantity());
                 /* And the iconID for the newly selected icon */

@@ -42,7 +42,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
         String[] values = new String[allItems.size()];
 
-        for(int i = 0; i<allItems.size(); i++){
+        for(int i = 0; i < allItems.size(); i++){
             values[i] = allItems.get(i).getName().toString();
         }
 
