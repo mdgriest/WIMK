@@ -139,14 +139,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         else if (view == findViewById(R.id.btnSelectIcon)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateIconScreen.class));
         }
-
-        /* Set Quantity */
-        else if (view == findViewById(R.id.btnSetQuantity)){
-            startActivity(new Intent(UpdateItemPropertiesScreen.this, UpdateItemQuantityScreen.class));
-        }
-
-//      http://stackoverflow.com/questions/10899335/adding-user-input-from-edit-text-into-list-view
     }
-
 }
 

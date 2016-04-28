@@ -39,7 +39,7 @@
     <Button
         android:id="@+id/btnSetQuantity"
         android:textColor="@color/dark_gray"
-        android:background="@drawable/apple_by_creative_stall_with_background"
+        android:background="@drawable/bananas_by_fernando_affonso"
         android:layout_width="175dp"
         android:layout_height="175dp"
         android:layout_centerHorizontal="true"
