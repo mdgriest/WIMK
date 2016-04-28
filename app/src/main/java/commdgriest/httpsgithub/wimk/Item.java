@@ -2,11 +2,7 @@ package commdgriest.httpsgithub.wimk;
 
 import android.content.Context;
 
-import java.util.Comparator;
-
 public class Item {
-
-    private Context context;
 
     /* Item attributes */
     private String name;
@@ -14,12 +10,12 @@ public class Item {
     private int iconId;
     private int shouldShow;
     private int color;
-    private int id; //TODO REMVOE
+    private int id;
 
-    /* Constructor */
+    /* Construct default item */
     public Item() {
         this.name = "DEFAULT";
-        this.quantity = 50;
+        this.quantity = 2;
         this.iconId = 0;
         this.shouldShow = 1;
         this.color = 0;
@@ -54,7 +50,6 @@ public class Item {
         this.shouldShow = newVal;
     }
 
-    //TODO this one should probably not be public and maybe should not even exist
     public void setID(int newID){ this.id = newID; }
 
     public int getColor(){

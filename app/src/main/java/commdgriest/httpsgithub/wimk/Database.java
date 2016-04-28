@@ -4,10 +4,12 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
-import android.widget.RadioGroup;
-
 import java.util.LinkedList;
 import java.util.List;
+
+/*
+    On-Device database for storing the user's inventory
+*/
 
 public class Database extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -101,7 +103,6 @@ public class Database extends SQLiteOpenHelper {
 
         // 4. Build item object
         Item item = new Item();
-//        item.setID(Integer.parseInt(cursor.getString(0)));
         item.setName(cursor.getString(1));
         item.setQuantity(Float.parseFloat(cursor.getString(2)));
         item.setIconID(Integer.parseInt(cursor.getString(3)));
@@ -140,7 +141,6 @@ public class Database extends SQLiteOpenHelper {
                 items.add(item);
             } while (cursor.moveToNext());
         }
-
         return items;
     }
 
@@ -207,7 +207,6 @@ public class Database extends SQLiteOpenHelper {
                 items.add(item);
             } while (cursor.moveToNext());
         }
-
         return items;
     }
 
@@ -238,7 +237,6 @@ public class Database extends SQLiteOpenHelper {
         List<Item> items = new LinkedList<Item>();
         Cursor cursor = db.rawQuery(searchQuery, null);
         if (cursor.moveToFirst()) {
-//            cursor.moveToFirst();
             do {
                 Item item = new Item();
                 item.setID(Integer.parseInt(cursor.getString(0)));
@@ -252,7 +250,6 @@ public class Database extends SQLiteOpenHelper {
                 items.add(item);
             } while (cursor.moveToNext());
         }
-
         return items;
     }
 }

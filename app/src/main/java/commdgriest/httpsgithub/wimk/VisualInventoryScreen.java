@@ -1,5 +1,4 @@
 package commdgriest.httpsgithub.wimk;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import java.util.List;
-import android.widget.TextView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 
@@ -26,8 +24,6 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visual_inventory_screen);
-
-        //TODO to sort before displaying items
 
         btnAddItem = (Button) findViewById(R.id.btnAddItem);
         btnAddItem.setOnClickListener(this);
@@ -48,11 +44,9 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
 
         /* If there are items to display */
         if( allItems.size() != 0 ) {
-//            Toast.makeText(this, allItems.size() + " items in inventory!", Toast.LENGTH_SHORT).show();
 
             ListView lv = (ListView) findViewById(R.id.vi_listView);
 
-            //TODO change list textColor
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                     android.R.layout.simple_list_item_1, android.R.id.text1, values);
 
@@ -72,7 +66,7 @@ public class VisualInventoryScreen extends AppCompatActivity implements android.
                 }
             });
         }
-            /* If the inventory is empty */
+        /* If the inventory is empty */
         else{
             Toast.makeText(this, "No items to display", Toast.LENGTH_SHORT).show();
         }

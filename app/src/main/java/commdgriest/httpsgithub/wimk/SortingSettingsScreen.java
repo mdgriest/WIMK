@@ -1,5 +1,4 @@
 package commdgriest.httpsgithub.wimk;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,7 +6,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.RadioButton;
-import android.widget.Toast;
+
+/*
+    Screen for updating the inventory sorting rule
+*/
 
 public class SortingSettingsScreen extends AppCompatActivity implements android.view.View.OnClickListener{
     Button btnDone;
@@ -25,7 +27,7 @@ public class SortingSettingsScreen extends AppCompatActivity implements android.
 
         sortButtons = (RadioGroup)findViewById(R.id.sortingButtons);
 
-        /* By default, sort alphabetically, A to Z */
+        /* By default, sort by quantity, low to high */
         RadioButton defaultRule = (RadioButton)findViewById(R.id.rdbtnSortOption0);
         defaultRule.setChecked(true);
     }
