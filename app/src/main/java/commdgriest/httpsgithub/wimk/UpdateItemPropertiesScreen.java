@@ -1,5 +1,7 @@
 package commdgriest.httpsgithub.wimk;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -143,10 +145,27 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         /* Delete */
         if (view == findViewById(R.id.btnDelete)){
+            new AlertDialog.Builder(this)
+                    .setTitle("Delete entry")
+                    .setMessage("Are you sure you want to delete this item?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            /* Delete the item from the database */
+                            db.deleteItem(nameOfSelectedItem);
+                            startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
             /* Delete the item from the database */
-            db.deleteItem(nameOfSelectedItem);
+           // db.deleteItem(nameOfSelectedItem);
             /* And return to the VI Screen */
-            startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
+            //startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
         }
 
         /* Cancel */
