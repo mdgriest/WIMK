@@ -2,6 +2,9 @@ package commdgriest.httpsgithub.wimk;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +44,9 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         itemNameText = (EditText) findViewById(R.id.itemNameText);
         quantitySeekBar = (SeekBar) findViewById(R.id.quantitySeekBar);
 
+        String white = "#FFFFFF";
+        String dark_gray = "#424242";
+
         RelativeLayout rl = (RelativeLayout) findViewById(R.id.updateItemPropertiesRelativeLayout);
 
         btnSave.setOnClickListener(this);
@@ -79,7 +85,6 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         quantitySeekBar.setProgress(tempQuantity);
 
-
         /* Create an array holding the ids of our radio buttons */
         int[] radioButtons = {
             (R.id.rdbtnColor00),
@@ -95,6 +100,15 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
 
         /* And set the appropriate button to checked upon opening the screen */
         radioColorGroup.check(radioButtons[tempColor]);
+
+        /* If color button white or pale blue is selected, set progress color dark for contrast */
+        if(tempColor == 0 || tempColor == 2){
+            setProgressColor(dark_gray);
+        }
+        /* Otherwise, set it to white */
+        else{
+            setProgressColor(white);
+        }
 
         final Drawable[] colors = {
             getResources().getDrawable(R.color.color0),
@@ -123,6 +137,18 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
                 int index = radioColorGroup.indexOfChild(radioButton);
                 //showToast("index of radio btn: " + index);
                 tempColor = index;
+
+                String white = "#FFFFFF";
+                String dark_gray = "#424242";
+
+                /* If color button white or pale blue is selected, set progress color dark for contrast */
+                if(tempColor == 0 || tempColor == 2){
+                    setProgressColor(dark_gray);
+                }
+                /* Otherwise, set it to white */
+                else{
+                    setProgressColor(white);
+                }
 
                 /*set background color*/
                 rl.setBackground(colors[index]);
@@ -214,6 +240,11 @@ public class UpdateItemPropertiesScreen extends VisualInventoryScreen implements
         if (view == findViewById(R.id.btnCancel)){
             startActivity(new Intent(UpdateItemPropertiesScreen.this, VisualInventoryScreen.class));
         }
+    }
+
+    public void setProgressColor(String color){
+        quantitySeekBar.getProgressDrawable().setColorFilter(new
+                PorterDuffColorFilter(Color.parseColor(color), PorterDuff.Mode.MULTIPLY));
     }
 }
 

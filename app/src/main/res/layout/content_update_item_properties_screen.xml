@@ -58,6 +58,7 @@
         android:layout_marginRight="20dp"
         android:progress="50"
         android:focusable="true"
+        android:thumbTint="@color/dark_gray"
         />
     <EditText
         android:text="New Item"
@@ -72,18 +73,6 @@
         android:singleLine="true"
         android:textSize="30sp"
         />
-    <!--<Button-->
-        <!--android:text="Select Icon"-->
-        <!--android:id="@+id/btnSelectIcon"-->
-        <!--android:textColor="@color/dark_gray"-->
-        <!--android:background="@drawable/custom_button_green_gradient"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_below="@+id/itemNameText"-->
-        <!--android:layout_marginTop="5dp"-->
-        <!--android:layout_marginRight="35dp"-->
-        <!--/>-->
     <Button
         android:text="Cancel"
         android:id="@+id/btnCancel"
