@@ -69,6 +69,18 @@ You can update the name, color, and name of any item in your inventory simply by
 
 ---
 
+### Searching your inventory
+
+To search your inventory, simply click the **Search** button at the top of the screen.
+
+Enter your search and press **Search** again. You inventory will now show only items with names that contain your search
+
+<center>
+<img src="searchScreenShot.png" alt="Searching your inventory" style="width:250px;"/>
+</center>
+
+---
+
 ## Get out of the kitchen!
 
 We designed **WIMK** to help you avoid buying groceries you already have or forgetting those you don't. That being said, the application is useful for keeping track of anything, not just food! Try using it to maintain tabs on things you don't buy often, like salt for your sidewalk, grease for your bike chain, or cleaning supplies.
