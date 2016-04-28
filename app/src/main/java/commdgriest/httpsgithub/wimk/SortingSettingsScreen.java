@@ -24,6 +24,10 @@ public class SortingSettingsScreen extends AppCompatActivity implements android.
         btnDone.setOnClickListener(this);
 
         sortButtons = (RadioGroup)findViewById(R.id.sortingButtons);
+
+        /* By default, sort alphabetically, A to Z */
+        RadioButton defaultRule = (RadioButton)findViewById(R.id.rdbtnSortOption0);
+        defaultRule.setChecked(true);
     }
 
     @Override
@@ -39,34 +43,28 @@ public class SortingSettingsScreen extends AppCompatActivity implements android.
             String sortingChoiceText = selectedButton.getText().toString();
             switch(sortingChoiceText){
                 case "Sort by Quantity, low to high":
-//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 0;
                     db.sort(rule);
                     break;
                 case "Sort by Quantity, high to low":
-//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 1;
                     db.sort(rule);
                     break;
                 case "Sort Alphabetically, A to Z":
-//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 2;
                     db.sort(rule);
                     break;
                 case "Sort Alphabetically, Z to A":
-//                    Toast.makeText(this, "sortingChoiceText: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
                     rule = 3;
                     db.sort(rule);
                     break;
                 default:
-//                    Toast.makeText(this, "Bad sorting choice", Toast.LENGTH_SHORT).show();
+                    rule = 0;
+                    db.sort(rule);
             }
-
-//            Toast.makeText(this, "SelectedID: " + sortingChoiceText, Toast.LENGTH_SHORT).show();
             startActivity(new Intent(SortingSettingsScreen.this, SettingsScreen.class));
         }
     }
-
     public static int getRule() {
         return rule;
     }

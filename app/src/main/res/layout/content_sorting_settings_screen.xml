@@ -11,7 +11,7 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="commdgriest.httpsgithub.wimk.SortingSettingsScreen"
     tools:showIn="@layout/activity_sorting_settings_screen"
-    android:background="@color/blue_green">
+    android:background="@color/color3">
 
     <TextView
         android:text="Inventory Sorting Rule"
